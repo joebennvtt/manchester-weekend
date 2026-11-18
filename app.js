@@ -41,7 +41,7 @@
     ...emptyFilters(), showAllAreas: false, showAllFood: false, day: trip ? trip.day : 'sat', time: trip ? trip.time : '12:00',
     openOn: Boolean(trip), hideClosed: Boolean(trip), live: Boolean(trip),
     shortlist: new Set(saved.shortlist || []), visited: new Set(saved.visited || []),
-    tab: 'explore', selected: null, active: null, preview: null, me: null, sortNearest: false,
+    tab: 'explore', sheet: 'split', selected: null, active: null, preview: null, me: null, sortNearest: false,
   };
   function persist() {
     try { localStorage.setItem(STORE_KEY, JSON.stringify({ shortlist: [...state.shortlist], visited: [...state.visited] })); } catch (e) { /* storage unavailable */ }
@@ -187,6 +187,7 @@
     if (next && document.activeElement !== next) next.focus();
   }
   function update() {
+    if (!drag) applySheet();
     const shown = visiblePlaces();
     $('sort-wrap').hidden = !state.me;
     $('open-on').checked = state.openOn;
@@ -214,9 +215,76 @@
     if (!p) return;
     if (fly) map.flyTo([p.lat, p.lng], Math.max(map.getZoom(), DETAIL_ZOOM), { duration: 0.6 });
     if (!state.selected) listScrollTop = $('panel').scrollTop;
-    setState({ selected: id, active: id, preview: null });
+    setState({ selected: id, active: id, preview: null, ...(state.sheet === 'map' && { sheet: 'split' }) });
     $('panel').scrollTop = 0;
   }
+
+  /* ---- phone bottom-sheet split (map height via --map-h on .app) ---- */
+  const phoneMq = window.matchMedia('(max-width: 767px)');
+  const SHEET_ORDER = ['list', 'split', 'map'];
+  const TAP_SLOP = 6;
+  const grabber = $('grabber'), topEl = document.querySelector('header.top'), appEl = document.querySelector('.app'), mapWrap = document.querySelector('.map-wrap');
+  const sheetHeights = () => {
+    const vh = window.innerHeight;
+    return { list: Math.max(120, Math.round(vh * 0.18)), split: Math.round(vh * 0.45), map: Math.max(120, vh - topEl.offsetHeight) };
+  };
+  let invalidatePending = false;
+  function invalidateMap() {
+    if (invalidatePending) return;
+    invalidatePending = true;
+    requestAnimationFrame(() => { invalidatePending = false; map.invalidateSize(); });
+  }
+  let appliedSheet = null;
+  function applySheet() {
+    const on = phoneMq.matches;
+    if (!on) { appEl.style.removeProperty('--map-h'); appliedSheet = null; invalidateMap(); return; }
+    appEl.classList.toggle('sheet-map', state.sheet === 'map');
+    grabber.setAttribute('aria-expanded', state.sheet !== 'map');
+    appEl.style.setProperty('--map-h', `${sheetHeights()[state.sheet]}px`);
+    if (appliedSheet !== state.sheet) invalidateMap();
+    appliedSheet = state.sheet;
+  }
+  const nextSheet = () => (state.sheet === 'map' ? 'split' : state.sheet === 'split' ? 'map' : 'split');
+  const nearestSheet = (h) => { const hs = sheetHeights(); return SHEET_ORDER.reduce((b, k) => (Math.abs(hs[k] - h) < Math.abs(hs[b] - h) ? k : b)); };
+  let drag = null;
+  topEl.addEventListener('pointerdown', (e) => {
+    if (!phoneMq.matches || (e.button > 0) || (e.target !== grabber && e.target.closest('input, button, select, a, [role="tab"]'))) return;
+    drag = { y: e.clientY, h: mapWrap.getBoundingClientRect().height, moved: false, onGrabber: e.target === grabber, id: e.pointerId };
+    topEl.setPointerCapture(e.pointerId);
+  });
+  topEl.addEventListener('pointermove', (e) => {
+    if (!drag || e.pointerId !== drag.id) return;
+    const dy = e.clientY - drag.y;
+    if (!drag.moved && Math.abs(dy) < TAP_SLOP) return;
+    if (!drag.moved) appEl.classList.add('sheet-dragging');
+    drag.moved = true;
+    const hs = sheetHeights();
+    appEl.style.setProperty('--map-h', `${Math.min(hs.map, Math.max(hs.list, drag.h + dy))}px`);
+    invalidateMap();
+  });
+  const endDrag = (e) => {
+    if (!drag || e.pointerId !== drag.id) return;
+    const { moved, onGrabber } = drag;
+    drag = null;
+    appEl.classList.remove('sheet-dragging');
+    if (moved && e.type === 'pointerup') setState({ sheet: nearestSheet(mapWrap.getBoundingClientRect().height) });
+    else if (!moved && onGrabber && e.type === 'pointerup') setState({ sheet: nextSheet() });
+    else applySheet();
+  };
+  topEl.addEventListener('pointerup', endDrag);
+  topEl.addEventListener('pointercancel', endDrag);
+  grabber.addEventListener('click', (e) => { if (e.detail === 0) setState({ sheet: nextSheet() }); });
+  grabber.addEventListener('keydown', (e) => {
+    const step = { ArrowUp: -1, ArrowDown: 1 }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    const i = SHEET_ORDER.indexOf(state.sheet) + (e.key === 'ArrowDown' ? 1 : -1);
+    setState({ sheet: SHEET_ORDER[Math.min(SHEET_ORDER.length - 1, Math.max(0, i))] });
+  });
+  mapWrap.addEventListener('transitionend', invalidateMap);
+  window.addEventListener('resize', () => { applySheet(); invalidateMap(); });
+  phoneMq.addEventListener('change', applySheet);
+  if (window.ResizeObserver) new ResizeObserver(() => { if (state.sheet === 'map' && !drag) applySheet(); }).observe(topEl);
 
   /* ---- events ---- */
   function quickPatch(key) {
