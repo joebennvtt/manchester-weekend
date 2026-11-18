@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manchester Weekend</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📍</text></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <div id="map" aria-label="Map of places"></div>
+    <aside class="panel" id="panel">
+      <header class="top">
+        <h1>Manchester Weekend</h1>
+        <nav class="tabs" role="tablist">
+          <button role="tab" id="tab-explore" class="tab active" data-tab="explore" aria-selected="true">Explore</button>
+          <button role="tab" id="tab-book" class="tab" data-tab="book" aria-selected="false">Book ahead <span id="book-count" class="count"></span></button>
+        </nav>
+      </header>
+      <section id="view-explore">
+        <div class="filters" id="filters">
+          <input id="q" type="search" placeholder="Search places, tags, cuisine" aria-label="Search">
+          <div class="chips" id="type-chips" aria-label="Type"></div>
+          <div class="chips" id="meal-chips" aria-label="Meal"></div>
+          <div class="chips" id="booking-chips" aria-label="Booking"></div>
+          <div class="row open-at">
+            <label class="switch"><input type="checkbox" id="open-on"> Open at</label>
+            <select id="open-day" aria-label="Day">
+              <option value="fri">Fri 20 Nov</option><option value="sat">Sat 21 Nov</option>
+              <option value="sun">Sun 22 Nov</option><option value="mon">Mon 23 Nov</option>
+            </select>
+            <input type="time" id="open-time" value="12:00" aria-label="Time">
+            <label class="switch"><input type="checkbox" id="hide-closed"> Hide closed</label>
+          </div>
+          <div class="row">
+            <button class="chip" id="shortlist-only" aria-pressed="false">★ Shortlist only</button>
+            <button class="chip" id="day-trips" title="Fit all places including Chester and Altrincham">Day trips</button>
+            <label class="switch" id="sort-wrap" hidden><input type="checkbox" id="sort-nearest"> Sort: nearest</label>
+            <button class="chip" id="clear">Clear</button>
+            <span id="count" class="count" aria-live="polite"></span>
+          </div>
+          <div id="toast" class="toast" role="status" hidden></div>
+        </div>
+        <div id="list" class="list"></div>
+      </section>
+      <section id="view-book" hidden></section>
+      <section id="details" class="details" hidden></section>
+    </aside>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="data/places.js"></script>
+  <script src="lib.js"></script>
+  <script src="render.js"></script>
+  <script src="locate.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

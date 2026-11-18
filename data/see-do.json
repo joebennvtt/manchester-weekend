@@ -1,0 +1,989 @@
+[
+  {
+    "tags": [
+      "market",
+      "handmade",
+      "indoor",
+      "free"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": "Makers Market - People's History Museum Saturday/sunday",
+    "tip": "Come Sat/Sun 11:00-16:30 (free, donations welcome); Café Gather is open all weekend. The Friday evening preview costs £10 including a mulled wine.",
+    "website": "https://phm.org.uk/",
+    "menuUrl": null,
+    "bookingUrl": "https://www.creativetourist.com/event/winter-makers-market/",
+    "bookingNote": "Sat/Sun free entry (most donate ~£10). Fri 20 Nov preview evening is ticketed (£10).",
+    "priceNote": "Free Sat/Sun; preview Fri £10; lino printing £20; Spirited Women cocktail tasting £20",
+    "kitchenHours": null,
+    "hoursNote": "Hours are the market hours (Fri preview 17:00-20:00). Normal museum gallery hours not verified.",
+    "tripNote": "YES, the Winter Makers Market runs this weekend: Fri 20 Nov preview 17:00-20:00 (ticketed), Sat 21 and Sun 22 Nov 11:00-16:30 (free). Hallé Choir Sat, Magic Voices Choir Sun (times not listed).",
+    "events": [
+      {
+        "name": "Winter Makers Market preview evening (£10, mulled wine, live jazz)",
+        "date": "2026-11-20",
+        "time": "17:00",
+        "url": "https://www.creativetourist.com/event/winter-makers-market/"
+      },
+      {
+        "name": "Winter Makers Market (free entry)",
+        "date": "2026-11-21",
+        "time": "11:00",
+        "url": "https://www.creativetourist.com/event/winter-makers-market/"
+      },
+      {
+        "name": "Lino printing workshop (£20)",
+        "date": "2026-11-21",
+        "time": "13:00",
+        "url": "https://www.creativetourist.com/event/winter-makers-market/"
+      },
+      {
+        "name": "Winter Makers Market (free entry)",
+        "date": "2026-11-22",
+        "time": "11:00",
+        "url": "https://www.creativetourist.com/event/winter-makers-market/"
+      },
+      {
+        "name": "Lino printing workshop (£20)",
+        "date": "2026-11-22",
+        "time": "13:00",
+        "url": "https://www.creativetourist.com/event/winter-makers-market/"
+      }
+    ],
+    "travel": null,
+    "addedBy": "user",
+    "sources": [
+      "https://www.creativetourist.com/event/winter-makers-market/",
+      "https://phm.org.uk/vacancies/winter-makers-markets/"
+    ],
+    "confidence": "medium",
+    "checked": "2026-11-18",
+    "id": "phm-winter-makers-market",
+    "name": "Winter Makers Market at People's History Museum",
+    "type": "do",
+    "blurb": "Indie makers market in the museum's Engine Hall with 30+ stalls of ceramics, jewellery, prints and cards, plus workshops and live choirs.",
+    "address": "People's History Museum, Left Bank, Spinningfields, Manchester M3 3ER",
+    "neighbourhood": "Spinningfields",
+    "lat": 53.48135,
+    "lng": -2.25343,
+    "booking": "free-entry",
+    "price": "free",
+    "hours": {
+      "fri": [
+        [
+          "17:00",
+          "20:00"
+        ]
+      ],
+      "sat": [
+        [
+          "11:00",
+          "16:30"
+        ]
+      ],
+      "sun": [
+        [
+          "11:00",
+          "16:30"
+        ]
+      ],
+      "mon": []
+    }
+  },
+  {
+    "tags": [
+      "historic",
+      "church",
+      "free"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": "Manchester cathedral",
+    "tip": "Visiting groups are not admitted 13:00-14:00 daily (Eucharist); donation of £5 suggested, contactless accepted.",
+    "website": "https://www.manchestercathedral.org/",
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": "Free entry, £5 suggested donation",
+    "priceNote": "£5 suggested donation",
+    "kitchenHours": null,
+    "hoursNote": "Hours may vary during services and special events; access can be limited to the east end during event set-up.",
+    "tripNote": "Next to Cathedral Gardens, which hosts a Christmas market site (to 3 Jan 2027) so expect crowds.",
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "sources": [
+      "https://www.manchestercathedral.org/plan-your-visit"
+    ],
+    "confidence": "high",
+    "checked": "2026-11-18",
+    "id": "manchester-cathedral",
+    "name": "Manchester Cathedral",
+    "type": "see",
+    "blurb": "Medieval cathedral with a Victorian-Gothic interior and a quire with rare carved wooden stalls, in the heart of the city.",
+    "address": "Victoria Street, Manchester M3 1SX",
+    "neighbourhood": "City Centre",
+    "lat": 53.48523,
+    "lng": -2.2444,
+    "booking": "free-entry",
+    "price": "free",
+    "hours": {
+      "fri": [
+        [
+          "09:30",
+          "16:00"
+        ]
+      ],
+      "sat": [
+        [
+          "09:30",
+          "16:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "16:00"
+        ]
+      ],
+      "mon": [
+        [
+          "09:30",
+          "16:00"
+        ]
+      ]
+    }
+  },
+  {
+    "tags": [
+      "art gallery",
+      "free",
+      "park",
+      "cafe"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": "Whitworth and/or Manchester art gallery",
+    "tip": "Open until 21:00 on Thursdays only; Monday closed (so Fri-Sun only for this trip). Gulnur Mukazhanova opens 20 Nov.",
+    "website": "https://www.whitworth.manchester.ac.uk/",
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": "Free, no booking needed",
+    "priceNote": null,
+    "kitchenHours": null,
+    "hoursNote": "Closed Mondays including bank holidays. Cafe 10:00-17:00 Tue-Sun (last food orders 15:30).",
+    "tripNote": "Gulnur Mukazhanova: The Manifold of Memory opens 20 Nov 2026. Also on: Our Collections, Reimagined; Reflections: Sangat and the Self; The Labour of Care; Hyundai Translocal Series (to 3 Jan). William Morris: Common Paradise opens 5 Dec (after trip). No gallery closures listed for November.",
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "sources": [
+      "https://www.whitworth.manchester.ac.uk/visit/planyourvisit/opening-times/",
+      "https://www.whitworth.manchester.ac.uk/whats-on/exhibitions",
+      "https://www.whitworth.manchester.ac.uk/visit/"
+    ],
+    "confidence": "high",
+    "checked": "2026-11-18",
+    "id": "whitworth",
+    "name": "The Whitworth",
+    "type": "see",
+    "blurb": "University of Manchester art gallery in Whitworth Park with textiles, modern art and a cafe, and free entry.",
+    "address": "The Whitworth, The University of Manchester, Oxford Road, Manchester M15 6ER",
+    "neighbourhood": "Oxford Road",
+    "lat": 53.46021,
+    "lng": -2.22955,
+    "booking": "free-entry",
+    "price": "free",
+    "hours": {
+      "fri": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "sat": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "mon": []
+    }
+  },
+  {
+    "tags": [
+      "art gallery",
+      "free",
+      "pre-raphaelite"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": "Whitworth and/or Manchester art gallery",
+    "tip": "Check manchesterartgallery.org on the day: official site blocked automated access and third-party listings disagree on closed day.",
+    "website": "https://manchesterartgallery.org/",
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": "Free entry",
+    "priceNote": null,
+    "kitchenHours": null,
+    "hoursNote": "UNVERIFIED on official site: Art Fund listing says Tue-Sun 10:00-17:00; another listing says Wed-Sun. Monday assumed closed.",
+    "tripNote": "Splendours of the Sikh Raj: Arms and Armour runs to 29 Nov 2026; Out of the Crate and Trading Station: How Hot Drinks Shape Our Lives run to 31 Dec 2026 (third-party listings).",
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "sources": [
+      "https://artfund.org/explore/museums-and-galleries/manchester-art-gallery/exhibitions",
+      "https://fyldedfas.org.uk/exhibitions/manchester-salford/manchester-art-gallery/splendours-of-the-sikh-raj-arms-and-armour/"
+    ],
+    "confidence": "low",
+    "checked": "2026-11-18",
+    "id": "manchester-art-gallery",
+    "name": "Manchester Art Gallery",
+    "type": "see",
+    "blurb": "City-centre municipal gallery with Pre-Raphaelites, contemporary shows and a large free collection.",
+    "address": "Mosley Street, Manchester M2 3JL",
+    "neighbourhood": "City Centre",
+    "lat": 53.47864,
+    "lng": -2.24142,
+    "booking": "free-entry",
+    "price": "free",
+    "hours": {
+      "fri": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "sat": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "mon": []
+    }
+  },
+  {
+    "tags": [
+      "library",
+      "gothic",
+      "free",
+      "historic"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": "John Rylands library",
+    "tip": "Open Wed-Sat only, so Friday and Saturday are your options; last entry 16:40.",
+    "website": "https://www.library.manchester.ac.uk/rylands/",
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": "Free, no booking required",
+    "priceNote": null,
+    "kitchenHours": null,
+    "hoursNote": "Official page lists Wed-Sat 10:00-17:00 (last entry 16:40); Sun/Mon implied closed, not stated explicitly.",
+    "tripNote": "Closed Sunday and Monday of the trip (implied). Exhibition on: Church and State: Emperor Charlemagne's legacy (dates not given).",
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "sources": [
+      "https://www.library.manchester.ac.uk/rylands/visit/"
+    ],
+    "confidence": "medium",
+    "checked": "2026-11-18",
+    "id": "john-rylands-library",
+    "name": "The John Rylands Library",
+    "type": "see",
+    "blurb": "Neo-Gothic Victorian library on Deansgate with a cathedral-like reading room and rare manuscripts.",
+    "address": "150 Deansgate, Manchester M3 3EH",
+    "neighbourhood": "Deansgate",
+    "lat": 53.48042,
+    "lng": -2.24914,
+    "booking": "free-entry",
+    "price": "free",
+    "hours": {
+      "fri": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "sat": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "sun": [],
+      "mon": []
+    }
+  },
+  {
+    "tags": [
+      "museum",
+      "free",
+      "industrial heritage",
+      "family"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": "Science and industry museum",
+    "tip": "Booking free tickets in advance is recommended. Parts are shut for restoration so check gallery list; no on-site parking; nearest Metrolink is Deansgate-Castlefield.",
+    "website": "https://www.scienceandindustrymuseum.org.uk/",
+    "menuUrl": null,
+    "bookingUrl": "https://www.scienceandindustrymuseum.org.uk/visit",
+    "bookingNote": "Free entry; booking free timed tickets online is recommended. Special exhibitions may charge.",
+    "priceNote": null,
+    "kitchenHours": null,
+    "hoursNote": "Daily 10:00-17:00. Cafe 09:00-17:00 Mon-Fri, 09:30-17:00 Sat/Sun; bistro from 11:00 at weekends.",
+    "tripNote": "Several buildings and galleries are CLOSED during a multi-million-pound restoration (Air and Space Hall permanently closed). Open per official page: Power Hall (Andrew Law Gallery), Revolution Manchester, Textiles, Experiment; Power Up gaming at weekends; Horrible Science: Cosmic Chaos runs to 3 Jan 2027 (may be ticketed).",
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "sources": [
+      "https://www.scienceandindustrymuseum.org.uk/visit",
+      "https://www.artfund.org/explore/exhibitions/2026/02/13/horrible-science-cosmic-chaos"
+    ],
+    "confidence": "high",
+    "checked": "2026-11-18",
+    "id": "science-and-industry-museum",
+    "name": "Science and Industry Museum",
+    "type": "see",
+    "blurb": "Museum on the site of the world's oldest passenger railway station, covering the Industrial Revolution and Manchester innovation.",
+    "address": "Liverpool Road, Castlefield, Manchester M3 4FP",
+    "neighbourhood": "Castlefield",
+    "lat": 53.47726,
+    "lng": -2.2547,
+    "booking": "recommended",
+    "price": "free",
+    "hours": {
+      "fri": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "sat": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "mon": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ]
+    }
+  },
+  {
+    "tags": [
+      "museum",
+      "natural history",
+      "free",
+      "family"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": "Manchester museum (natural history)",
+    "tip": "Saturday opens at 08:00 with a Quiet Time until 10:00. Last admission 30 min before closing.",
+    "website": "https://www.museum.manchester.ac.uk/",
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": "Free; only the Magic Place winter experience needs booking (starts 28 Nov, after the trip)",
+    "priceNote": null,
+    "kitchenHours": null,
+    "hoursNote": "Closed Mondays. Wed 10:00-21:00. Last admission 30 minutes before close.",
+    "tripNote": "The Vivarium and Nature's Library are CLOSED until May 2027. Magic Place (winter experience) opens 28 Nov 2026, after the trip.",
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "sources": [
+      "https://www.museum.manchester.ac.uk/visit/"
+    ],
+    "confidence": "high",
+    "checked": "2026-11-18",
+    "id": "manchester-museum",
+    "name": "Manchester Museum",
+    "type": "see",
+    "blurb": "University of Manchester natural history and culture museum with fossils, Stan the T. rex, live animals and a free-entry policy.",
+    "address": "The University of Manchester, Oxford Road, Manchester M13 9PL",
+    "neighbourhood": "Oxford Road",
+    "lat": 53.46604,
+    "lng": -2.23373,
+    "booking": "free-entry",
+    "price": "free",
+    "hours": {
+      "fri": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "sat": [
+        [
+          "08:00",
+          "17:00"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "mon": []
+    }
+  },
+  {
+    "tags": [
+      "open-air",
+      "chinese",
+      "archway",
+      "food"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": "Chinatown",
+    "tip": "Coordinates point to the Faulkner Street archway. Many restaurants and bakeries around it are good for an evening or dim sum stop.",
+    "website": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": "Open-air, no entry fee",
+    "priceNote": null,
+    "kitchenHours": null,
+    "hoursNote": "Open-air district, always accessible; individual shops and restaurants keep their own hours.",
+    "tripNote": null,
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "sources": [
+      "https://nominatim.openstreetmap.org/search?q=Chinatown+Arch+Manchester"
+    ],
+    "confidence": "medium",
+    "checked": "2026-11-18",
+    "id": "chinatown-manchester",
+    "name": "Manchester Chinatown",
+    "type": "see",
+    "blurb": "One of the largest Chinatowns in the UK, entered through the ornate Imperial Chinese Archway on Faulkner Street.",
+    "address": "Faulkner Street, Manchester M1 4EH",
+    "neighbourhood": "Chinatown",
+    "lat": 53.47837,
+    "lng": -2.23983,
+    "booking": "free-entry",
+    "price": "free",
+    "hours": {
+      "fri": [
+        [
+          "00:00",
+          "24:00"
+        ]
+      ],
+      "sat": [
+        [
+          "00:00",
+          "24:00"
+        ]
+      ],
+      "sun": [
+        [
+          "00:00",
+          "24:00"
+        ]
+      ],
+      "mon": [
+        [
+          "00:00",
+          "24:00"
+        ]
+      ]
+    }
+  },
+  {
+    "tags": [
+      "open-air",
+      "gothic",
+      "town hall",
+      "christmas"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": "Albert square",
+    "tip": "Best seen after dark when the Christmas market lights and Ferris wheel are on.",
+    "website": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": "Open-air, no entry fee",
+    "priceNote": null,
+    "kitchenHours": null,
+    "hoursNote": "Open-air square; Christmas market stalls and attractions have their own hours (unconfirmed for 2026).",
+    "tripNote": "Square only partly reopened (reopened 2025 after about six years behind hoarding); Manchester Town Hall restoration still under way (completion reported for 2027), so scaffolding likely. Christmas Markets site with a 50m Ferris wheel, helter-skelter and new pop-up pub, running 6 Nov 2026 to 3 Jan 2027.",
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "sources": [
+      "https://www.manchestersfinest.com/christmas/manchester-christmas-markets-to-return-across-10-city-centre-locations-for-2026/"
+    ],
+    "confidence": "medium",
+    "checked": "2026-11-18",
+    "id": "albert-square",
+    "name": "Albert Square",
+    "type": "see",
+    "blurb": "Manchester's civic square in front of the Gothic Revival Town Hall, and the centrepiece of the Christmas Markets.",
+    "address": "Albert Square, Manchester M2 5PD",
+    "neighbourhood": "City Centre",
+    "lat": 53.47951,
+    "lng": -2.24493,
+    "booking": "free-entry",
+    "price": "free",
+    "hours": {
+      "fri": [
+        [
+          "00:00",
+          "24:00"
+        ]
+      ],
+      "sat": [
+        [
+          "00:00",
+          "24:00"
+        ]
+      ],
+      "sun": [
+        [
+          "00:00",
+          "24:00"
+        ]
+      ],
+      "mon": [
+        [
+          "00:00",
+          "24:00"
+        ]
+      ]
+    }
+  },
+  {
+    "tags": [
+      "park",
+      "open-air",
+      "walking",
+      "free"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": "Heaton park",
+    "tip": "Heaton Park Metrolink stop (Bury line) is on the western edge of the park across a road. Heritage tramway mainly runs in summer, so expect it closed in November.",
+    "website": "https://www.manchester.gov.uk/heatonpark",
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": "Free entry, pay-and-display parking not verified",
+    "priceNote": null,
+    "kitchenHours": null,
+    "hoursNote": "Opens 08:00 daily; all gates are locked at dusk (about 16:00 in late November, estimated, not an official time). Venues inside keep their own hours.",
+    "tripNote": "Winter trails reported through February; check for event closures.",
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "sources": [
+      "https://www.manchester.gov.uk/info/500318/heaton_park/6913/opening_times_and_location/2",
+      "https://www.thetrams.co.uk/metrolink/stops/Heaton_Park"
+    ],
+    "confidence": "medium",
+    "checked": "2026-11-18",
+    "id": "heaton-park",
+    "name": "Heaton Park",
+    "type": "do",
+    "blurb": "One of Europe's largest municipal parks with woodland, a lake, Heaton Hall and an animal centre.",
+    "address": "Heaton Park, Middleton Road, Manchester M25 2SW",
+    "neighbourhood": "Prestwich / Heaton Park",
+    "lat": 53.53463,
+    "lng": -2.25609,
+    "booking": "free-entry",
+    "price": "free",
+    "hours": {
+      "fri": [
+        [
+          "08:00",
+          "16:00"
+        ]
+      ],
+      "sat": [
+        [
+          "08:00",
+          "16:00"
+        ]
+      ],
+      "sun": [
+        [
+          "08:00",
+          "16:00"
+        ]
+      ],
+      "mon": [
+        [
+          "08:00",
+          "16:00"
+        ]
+      ]
+    }
+  },
+  {
+    "tags": [
+      "theatre",
+      "musical"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": "Theatre? (There are many)",
+    "tip": "Performance times and prices could not be verified; book on ATG Tickets.",
+    "website": "https://www.atgtickets.com/venues/palace-theatre-manchester/",
+    "menuUrl": null,
+    "bookingUrl": "https://www.atgtickets.com/shows/cats/palace-theatre-manchester/",
+    "bookingNote": "Ticketed via ATG Tickets",
+    "priceNote": "Price not verified",
+    "kitchenHours": null,
+    "hoursNote": "Performance times not verified. Check ATG calendar. Empty hours here do not mean closed.",
+    "tripNote": "CATS runs Tue 10 to Sat 21 Nov 2026, so Fri 20 and Sat 21 only. Sources disagree (one lists start 18 Nov). No performance times found. Billy Elliot opens 2 Dec. A Palace Theatre Tour runs from 23 Nov.",
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "sources": [
+      "https://www.atgtickets.com/venues/palace-theatre-manchester/whats-on/",
+      "https://theatresonline.com/shows/palace-theatre-manchester/cats"
+    ],
+    "confidence": "low",
+    "checked": "2026-11-18",
+    "id": "palace-theatre-manchester",
+    "name": "Palace Theatre Manchester",
+    "type": "do",
+    "blurb": "Grand Oxford Street theatre hosting the touring CATS musical until Sat 21 Nov.",
+    "address": "97 Oxford Street, Manchester M1 6FT",
+    "neighbourhood": "Oxford Road",
+    "lat": 53.47502,
+    "lng": -2.24091,
+    "booking": "tickets",
+    "price": "£££",
+    "hours": {
+      "fri": [],
+      "sat": [],
+      "sun": [],
+      "mon": []
+    }
+  },
+  {
+    "tags": [
+      "theatre",
+      "comedy",
+      "talk"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": "Theatre? (There are many)",
+    "tip": "Showtimes taken from ticket listings (ATG pages did not render times); confirm before booking.",
+    "website": "https://www.atgtickets.com/venues/opera-house-manchester/",
+    "menuUrl": null,
+    "bookingUrl": "https://www.atgtickets.com/shows/christmas-carol-goes-wrong/opera-house-manchester/",
+    "bookingNote": "Ticketed via ATG Tickets",
+    "priceNote": "From about £15 (Christmas Carol Goes Wrong, aggregator listing); Josh Pugh from about £31 inc fees",
+    "kitchenHours": null,
+    "hoursNote": "Hours are performance windows only (Christmas Carol Goes Wrong running time 2h20 incl interval; Sun/Mon end time approximate).",
+    "tripNote": "Christmas Carol Goes Wrong (Mischief) Tue 17 to Sat 21 Nov. Sun 22 Nov: Josh Pugh (start 19:30 per ticket sites, 19:45 per Chortle). Mon 23 Nov: An Evening with Sir Chris Hoy 19:30. Dick Whittington panto listed from 17 Nov by one source only, unconfirmed.",
+    "events": [
+      {
+        "name": "Christmas Carol Goes Wrong",
+        "date": "2026-11-20",
+        "time": "19:30",
+        "url": "https://www.atgtickets.com/shows/christmas-carol-goes-wrong/opera-house-manchester/"
+      },
+      {
+        "name": "Christmas Carol Goes Wrong (matinee)",
+        "date": "2026-11-21",
+        "time": "14:30",
+        "url": "https://www.atgtickets.com/shows/christmas-carol-goes-wrong/opera-house-manchester/"
+      },
+      {
+        "name": "Christmas Carol Goes Wrong",
+        "date": "2026-11-21",
+        "time": "19:30",
+        "url": "https://www.atgtickets.com/shows/christmas-carol-goes-wrong/opera-house-manchester/"
+      },
+      {
+        "name": "Josh Pugh: Ha Ha, Yeah Sound",
+        "date": "2026-11-22",
+        "time": "19:30",
+        "url": "https://www.atgtickets.com/shows/josh-pugh-ha-ha-yeah-sound"
+      },
+      {
+        "name": "An Evening with Sir Chris Hoy",
+        "date": "2026-11-23",
+        "time": "19:30",
+        "url": "https://www.atgtickets.com/shows/an-evening-with-sir-chris-hoy/opera-house-manchester/"
+      }
+    ],
+    "travel": null,
+    "addedBy": "user",
+    "sources": [
+      "https://www.atgtickets.com/venues/opera-house-manchester/whats-on/",
+      "https://www.ents24.com/manchester-events/opera-house/an-evening-with-sir-chris-hoy/7485771",
+      "https://www.chortle.co.uk/shows/tour/j/38693/_josh_pugh:_ha_ha,_yeah_sound"
+    ],
+    "confidence": "medium",
+    "checked": "2026-11-18",
+    "id": "opera-house-manchester",
+    "name": "Opera House Manchester",
+    "type": "do",
+    "blurb": "Quay Street theatre with Christmas Carol Goes Wrong (to Sat 21 Nov) then comedy and talks on Sun/Mon.",
+    "address": "3 Quay Street, Manchester M3 3HP",
+    "neighbourhood": "Spinningfields",
+    "lat": 53.47889,
+    "lng": -2.25137,
+    "booking": "tickets",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "19:30",
+          "21:50"
+        ]
+      ],
+      "sat": [
+        [
+          "14:30",
+          "16:50"
+        ],
+        [
+          "19:30",
+          "21:50"
+        ]
+      ],
+      "sun": [
+        [
+          "19:30",
+          "22:00"
+        ]
+      ],
+      "mon": [
+        [
+          "19:30",
+          "22:00"
+        ]
+      ]
+    }
+  },
+  {
+    "tags": [
+      "zoo",
+      "day trip",
+      "family",
+      "lights"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": "Chester zoo - ~60 min drive",
+    "tip": "Book online in advance for cheaper tickets; daytime last entry 15:00. Lanterns & Light is a separate evening slot (16:30-20:00).",
+    "website": "https://www.chesterzoo.org/",
+    "menuUrl": null,
+    "bookingUrl": "https://www.chesterzoo.org/tickets/",
+    "bookingNote": "Advance booking not mandatory (same-day tickets sold 09:30-14:00) but saves money; Lanterns & Light slots sell out.",
+    "priceNote": "Day ticket NOT verified for Nov 2026. Visit Chester (Mar 2026) quoted £34 online vs £38 on the day (adult). Lanterns & Light: £12 for slots after 18:30 in November (not Saturdays).",
+    "kitchenHours": null,
+    "hoursNote": "Daytime zoo closes 15:30 on Lanterns & Light dates (normally 16:00); last entry 1 hour before close. Verified on official site 18 Nov.",
+    "tripNote": "Lanterns & Light runs nightly 13 Nov to 3 Jan; quiet hour 16:00 on 20 and 21 Nov.",
+    "events": [],
+    "travel": {
+      "car": "~60 min (user estimate, unverified)",
+      "transit": "train to Chester plus bus, time unverified",
+      "from": "Manchester city centre"
+    },
+    "addedBy": "user",
+    "sources": [
+      "https://www.chesterzoo.org/tickets-membership-experiences/plan-your-visit/opening-times",
+      "https://www.chesterzoo.org/lanterns",
+      "https://www.visit-chester.co.uk/?p=692"
+    ],
+    "confidence": "medium",
+    "checked": "2026-11-18",
+    "id": "chester-zoo",
+    "name": "Chester Zoo",
+    "type": "trip",
+    "blurb": "One of the UK's largest zoos, with the evening Lanterns & Light trail running from 13 Nov 2026 to 3 Jan 2027.",
+    "address": "Cedar House, Caughall Road, Upton-by-Chester, Chester CH2 1LH",
+    "neighbourhood": "Upton-by-Chester",
+    "lat": 53.22627,
+    "lng": -2.88531,
+    "booking": "recommended",
+    "price": "£££",
+    "hours": {
+      "fri": [
+        [
+          "10:00",
+          "15:30"
+        ]
+      ],
+      "sat": [
+        [
+          "10:00",
+          "15:30"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "15:30"
+        ]
+      ],
+      "mon": [
+        [
+          "10:00",
+          "15:30"
+        ]
+      ]
+    }
+  },
+  {
+    "tags": [
+      "market",
+      "food hall",
+      "day trip",
+      "metrolink"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": "Altrincham market - 25-45 min drive, 50 public transport",
+    "tip": "Market House is closed on Mondays, so go Fri-Sun. Metrolink Altrincham stop is a short walk.",
+    "website": "https://altrinchammarket.co.uk/",
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": "Walk-in",
+    "priceNote": "Not verified",
+    "kitchenHours": null,
+    "hoursNote": "From third-party listings (Manchester's Finest etc.): Tue-Sat 09:00-22:00, Sun 09:00-18:00, Mon closed. Official site unreachable. Outdoor market days/hours unverified (one listing: closed Mon and Wed).",
+    "tripNote": "Closed Mon 23 Nov. Coordinates are Market Street, approximate to the hall.",
+    "events": [],
+    "travel": {
+      "car": "25-45 min (user estimate)",
+      "transit": "~50 min incl Metrolink (user estimate)",
+      "from": "Manchester city centre"
+    },
+    "addedBy": "user",
+    "sources": [
+      "https://www.manchestersfinest.com/places/altrincham-market/",
+      "https://tasteofmanchester.com/venue/altrincham-market-house"
+    ],
+    "confidence": "low",
+    "checked": "2026-11-18",
+    "id": "altrincham-market",
+    "name": "Altrincham Market (Market House)",
+    "type": "trip",
+    "blurb": "Restored Victorian Market House food hall with independent food stalls, a bar and an outdoor market next door.",
+    "address": "Market House, 1 Market Street, Altrincham WA14 1PD",
+    "neighbourhood": "Altrincham",
+    "lat": 53.38782,
+    "lng": -2.35213,
+    "booking": "walk-in",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "09:00",
+          "22:00"
+        ]
+      ],
+      "sat": [
+        [
+          "09:00",
+          "22:00"
+        ]
+      ],
+      "sun": [
+        [
+          "09:00",
+          "18:00"
+        ]
+      ],
+      "mon": []
+    }
+  },
+  {
+    "tags": [
+      "christmas",
+      "market",
+      "open-air",
+      "seasonal"
+    ],
+    "meals": [],
+    "cuisine": null,
+    "userNote": null,
+    "tip": "Other sites: Cathedral Gardens (to 3 Jan), Lincoln Square (new, off Brazennose St), King Street, St Ann's Square, Exchange Street, New Cathedral Street, Exchange Square, Corn Exchange, Market Street. Albert Square is busiest at weekends; go before 17:00.",
+    "website": "https://www.visitmanchester.com/whats-on/whats-on-this-christmas-in-manchester/",
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": "Free to enter; Ferris wheel and rides are paid",
+    "priceNote": null,
+    "kitchenHours": null,
+    "hoursNote": "UNCONFIRMED: 2026 hours not published; 10:00-21:00 is the 2025 pattern (craft stalls reportedly closed earlier, about 20:00).",
+    "tripNote": "Confirmed: markets open Fri 6 Nov to Tue 22 Dec 2026; Albert Square and Cathedral Gardens stay open to Sun 3 Jan 2027 (some sources say 4 Jan). Lincoln Square is new; new pop-up pub in Albert Square. Town Hall restoration continues. So fully running on 20-23 Nov.",
+    "events": [],
+    "travel": null,
+    "addedBy": "claude",
+    "sources": [
+      "https://www.manchestersfinest.com/christmas/manchester-christmas-markets-to-return-across-10-city-centre-locations-for-2026/",
+      "https://www.visitmanchester.com/whats-on/whats-on-this-christmas-in-manchester/"
+    ],
+    "confidence": "medium",
+    "checked": "2026-11-18",
+    "id": "manchester-christmas-markets",
+    "name": "Manchester Christmas Markets",
+    "type": "do",
+    "blurb": "Ten city-centre sites with 210+ stalls, centred on Albert Square with a 50m Ferris wheel and helter-skelter.",
+    "address": "Albert Square, Manchester M2 5PD",
+    "neighbourhood": "City Centre",
+    "lat": 53.47951,
+    "lng": -2.24493,
+    "booking": "free-entry",
+    "price": "free",
+    "hours": {
+      "fri": [
+        [
+          "10:00",
+          "21:00"
+        ]
+      ],
+      "sat": [
+        [
+          "10:00",
+          "21:00"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "21:00"
+        ]
+      ],
+      "mon": [
+        [
+          "10:00",
+          "21:00"
+        ]
+      ]
+    }
+  }
+]

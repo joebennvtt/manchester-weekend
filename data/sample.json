@@ -1,0 +1,76 @@
+[
+  {
+    "id": "sample-cafe-ancoats", "name": "Sample Cafe Ancoats", "type": "cafe", "tags": ["brunch", "coffee"],
+    "meals": ["breakfast", "lunch"], "cuisine": "Brunch", "userNote": null,
+    "blurb": "SAMPLE DATA: a placeholder cafe for layout testing.", "tip": "Sample tip: go before 10am.",
+    "address": "1 Sample Street, Manchester M4 6AA", "neighbourhood": "Ancoats", "lat": 53.48395, "lng": -2.22930,
+    "website": "https://example.com/", "menuUrl": null, "bookingUrl": null, "booking": "walk-in", "bookingNote": "Walk-in only",
+    "price": "£", "priceNote": "mains £8-12",
+    "hours": { "fri": [["08:00", "16:00"]], "sat": [["09:00", "17:00"]], "sun": [["09:00", "16:00"]], "mon": [] },
+    "kitchenHours": null, "hoursNote": null, "tripNote": null, "events": [], "travel": null,
+    "addedBy": "claude", "sources": ["https://example.com/"], "confidence": "high", "checked": "2026-11-18"
+  },
+  {
+    "id": "sample-pub-nq", "name": "Sample Pub", "type": "pub", "tags": ["real ale", "roast"],
+    "meals": ["lunch", "dinner", "drinks"], "cuisine": "British", "userNote": "Sample note: try the pies",
+    "blurb": "SAMPLE DATA: a pub with separate kitchen hours.", "tip": null,
+    "address": "2 Sample Road, Manchester M4 1AA", "neighbourhood": "Northern Quarter", "lat": 53.48440, "lng": -2.23500,
+    "website": "https://example.com/pub", "menuUrl": "https://example.com/pub/menu", "bookingUrl": "https://example.com/pub/book",
+    "booking": "recommended", "bookingNote": "Book for Sunday roast",
+    "price": "££", "priceNote": "mains £14-18",
+    "hours": { "fri": [["12:00", "23:00"]], "sat": [["12:00", "23:00"]], "sun": [["12:00", "22:30"]], "mon": [["16:00", "23:00"]] },
+    "kitchenHours": { "fri": [["12:00", "21:00"]], "sat": [["12:00", "21:00"]], "sun": [["12:00", "19:00"]], "mon": [] },
+    "hoursNote": "Kitchen closes 21:00 (sample)", "tripNote": null, "events": [], "travel": null,
+    "addedBy": "user", "sources": ["https://example.com/pub"], "confidence": "medium", "checked": "2026-11-18"
+  },
+  {
+    "id": "sample-bar-late", "name": "Sample Late Bar", "type": "bar", "tags": ["cocktails", "late"],
+    "meals": ["drinks"], "cuisine": "Cocktails", "userNote": null,
+    "blurb": "SAMPLE DATA: a bar that closes after midnight.", "tip": "Sample tip: ask for the off-menu list.",
+    "address": "3 Sample Lane, Manchester M1 1AA", "neighbourhood": "City Centre", "lat": 53.47900, "lng": -2.24300,
+    "website": null, "menuUrl": null, "bookingUrl": null, "booking": "walk-in", "bookingNote": null,
+    "price": "££", "priceNote": null,
+    "hours": { "fri": [["17:00", "02:00"]], "sat": [["17:00", "03:00"]], "sun": [["17:00", "00:00"]], "mon": [] },
+    "kitchenHours": null, "hoursNote": null, "tripNote": null, "events": [], "travel": null,
+    "addedBy": "claude", "sources": ["https://example.com/bar"], "confidence": "low", "checked": "2026-11-18"
+  },
+  {
+    "id": "sample-theatre", "name": "Sample Theatre", "type": "do", "tags": ["theatre"],
+    "meals": [], "cuisine": null, "userNote": null,
+    "blurb": "SAMPLE DATA: a theatre with dated events.", "tip": null,
+    "address": "4 Sample Square, Manchester M2 1AA", "neighbourhood": "Spinningfields", "lat": 53.47890, "lng": -2.25100,
+    "website": "https://example.com/theatre", "menuUrl": null, "bookingUrl": "https://example.com/theatre/tickets",
+    "booking": "tickets", "bookingNote": "Tickets from £25",
+    "price": "£££", "priceNote": "£25-60",
+    "hours": { "fri": [["10:00", "22:00"]], "sat": [["10:00", "22:30"]], "sun": [["12:00", "18:00"]], "mon": [] },
+    "kitchenHours": null, "hoursNote": "Box office only until show time", "tripNote": "Sample: no Sunday evening show.",
+    "events": [
+      { "name": "Sample Show", "date": "2026-11-21", "time": "19:30", "url": "https://example.com/theatre/show" },
+      { "name": "Sample Matinee", "date": "2026-11-22", "time": "14:00", "url": "https://example.com/theatre/matinee" }
+    ],
+    "travel": null, "addedBy": "claude", "sources": ["https://example.com/theatre"], "confidence": "high", "checked": "2026-11-18"
+  },
+  {
+    "id": "sample-trip-chester", "name": "Sample Day Trip: Chester", "type": "trip", "tags": ["walls", "cathedral"],
+    "meals": [], "cuisine": null, "userNote": "Sample note: Chester walls?",
+    "blurb": "SAMPLE DATA: a day trip placeholder.", "tip": "Sample tip: walk the city walls.",
+    "address": "Chester CH1 1AA", "neighbourhood": "Chester", "lat": 53.19000, "lng": -2.89100,
+    "website": "https://example.com/chester", "menuUrl": null, "bookingUrl": null, "booking": "free-entry", "bookingNote": null,
+    "price": "free", "priceNote": null,
+    "hours": { "fri": [["00:00", "24:00"]], "sat": [["00:00", "24:00"]], "sun": [["00:00", "24:00"]], "mon": [["00:00", "24:00"]] },
+    "kitchenHours": null, "hoursNote": "Open area, no hours (sample)", "tripNote": null, "events": [],
+    "travel": { "car": "60 min", "transit": "75 min train", "from": "Manchester Piccadilly" },
+    "addedBy": "user", "sources": ["https://example.com/chester"], "confidence": "medium", "checked": "2026-11-18"
+  },
+  {
+    "id": "sample-vintage", "name": "Sample Vintage Shop", "type": "vintage", "tags": ["vintage", "clothes"],
+    "meals": [], "cuisine": null, "userNote": null,
+    "blurb": "SAMPLE DATA: a split-shift shop.", "tip": null,
+    "address": "5 Sample Court, Manchester M4 1BB", "neighbourhood": "Northern Quarter", "lat": 53.48490, "lng": -2.23700,
+    "website": "https://example.com/vintage", "menuUrl": null, "bookingUrl": null, "booking": "walk-in", "bookingNote": null,
+    "price": "££", "priceNote": null,
+    "hours": { "fri": [["10:00", "13:00"], ["14:00", "18:00"]], "sat": [["10:00", "18:00"]], "sun": [["11:00", "17:00"]], "mon": [] },
+    "kitchenHours": null, "hoursNote": "Closed 13:00-14:00 Fri (sample)", "tripNote": null, "events": [], "travel": null,
+    "addedBy": "claude", "sources": ["https://example.com/vintage"], "confidence": "high", "checked": "2026-11-18"
+  }
+]
