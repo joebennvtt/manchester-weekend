@@ -3,12 +3,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
 const css = readFileSync(new URL('../css/tokens.css', import.meta.url), 'utf8');
-const darkStart = css.indexOf('@media (prefers-color-scheme: dark)');
 const parse = (block) => Object.fromEntries([...block.matchAll(/--([\w-]+):\s*(#[0-9a-fA-F]{3,6})\s*;/g)].map(m => [m[1], m[2]]));
-const lightBlock = css.slice(css.indexOf(':root {'), darkStart);
-const light = parse(lightBlock);
-const darkOverrides = parse(css.slice(darkStart));
-const themes = { light, dark: { ...light, ...darkOverrides } };
+const themes = { light: parse(css) };
 
 const channel = (v) => { const c = v / 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; };
 const luminance = (hex) => {
@@ -41,7 +37,11 @@ for (const [name, t] of Object.entries(themes)) {
   });
 }
 
-test('dark block does not redefine type colours', () => {
-  const redefined = Object.keys(darkOverrides).filter(k => k.startsWith('t-') || k === 'on-type');
-  assert.deepEqual(redefined, []);
+test('light only: no dark colour scheme anywhere', () => {
+  const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  const allCss = ['tokens', 'base', 'layout', 'explore', 'plan', 'map']
+    .map((f) => readFileSync(new URL(`../css/${f}.css`, import.meta.url), 'utf8')).join('\n');
+  assert.doesNotMatch(allCss, /prefers-color-scheme:\s*dark/);
+  assert.match(css, /color-scheme:\s*light;/);
+  assert.match(html, /<meta name="color-scheme" content="light only">/);
 });
