@@ -1,5 +1,6 @@
 /* Live location control. Only requests location from a click (iOS needs a user gesture). window.TripLocate. */
 (function () {
+  const { svg } = window.TripIcons;
   const WATCH_OPTS = { enableHighAccuracy: true, maximumAge: 10000, timeout: 15000 };
   const FIRST_FIX_ZOOM = 16;
   const MESSAGES = {
@@ -7,7 +8,11 @@
     2: 'Location unavailable here: try opening the page directly in Safari/Chrome.',
     3: 'Location timed out: check your signal and try again.',
   };
-  const LABELS = { off: '📍 Locate me', on: '📍 Locating (tap: follow)', follow: '📍 Following (tap: stop)' };
+  const LABELS = { off: 'Locate me', on: 'Locating (tap: follow)', follow: 'Following (tap: stop)' };
+
+  function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
 
   function unsupportedReason() {
     if (!('geolocation' in navigator)) return 'Location is not supported by this browser.';
@@ -27,7 +32,8 @@
     button.className = 'locate-ctl';
 
     function paint() {
-      button.textContent = LABELS[mode];
+      button.innerHTML = `${svg('locate', { size: 20 })}<span class="locate-label">${LABELS[mode]}</span>`;
+      button.setAttribute('aria-label', LABELS[mode]);
       button.setAttribute('aria-pressed', String(mode !== 'off'));
       const why = unsupportedReason();
       button.disabled = Boolean(why);
@@ -45,7 +51,11 @@
         dot.setLatLng(ll);
         ring.setLatLng(ll).setRadius(accuracy);
       }
-      if (!hasFix) { hasFix = true; map.flyTo(ll, FIRST_FIX_ZOOM, { duration: 0.8 }); }
+      if (!hasFix) {
+        hasFix = true;
+        if (prefersReducedMotion()) map.setView(ll, FIRST_FIX_ZOOM);
+        else map.flyTo(ll, FIRST_FIX_ZOOM, { duration: 0.8 });
+      }
       else if (mode === 'follow') map.panTo(ll);
       onMessage('');
       onChange({ lat, lng, accuracy });
@@ -81,7 +91,7 @@
 
     const phoneQuery = window.matchMedia('(max-width: 767px)');
     const Control = L.Control.extend({
-      // Top-right on phones, clear of the zoom buttons; matches the 768px layout breakpoint in styles.css.
+      // Top-right on phones, clear of the zoom buttons; matches the 768px layout breakpoint in css/layout.css.
       options: { position: phoneQuery.matches ? 'topright' : 'topleft' },
       onAdd() {
         const wrap = L.DomUtil.create('div', 'leaflet-bar');

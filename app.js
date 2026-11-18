@@ -1,7 +1,8 @@
 /* State, map and wiring. Uses window.PLACES, TripLib, TripRender, Leaflet. */
 (function () {
   const { filterPlaces, bookAhead, isOpenAt, isCentral, distanceKm, sortByDistance, hasMoved, tripNow, openStatus, formatWalk, walkMinutes, startPoint, DEFAULT_BASE, splitByView } = window.TripLib;
-  const { TYPES, FOOD_TYPES, MEALS, BOOKINGS, DAY_LABELS, esc, clockLabel, detailsHtml, cardHtml, previewHtml, bookItemHtml } = window.TripRender;
+  const { TYPES, FOOD_TYPES, MEALS, BOOKINGS, DAY_LABELS, esc, detailsHtml, cardHtml, previewHtml, bookViewHtml } = window.TripRender;
+  const { svg } = window.TripIcons;
   const { normalisePlans, addStop, removeStop, moveStop, setStay, setStart, planTimeline, encodeShare, decodeShare, mergeShared, sharedCount } = window.TripPlan;
   const { planHtml, homeHtml, homeShort, addToPlanHtml, planButtonHtml, shareBannerHtml } = window.TripRenderPlan;
   const { homeOptions, nightOf } = window.TripHome;
@@ -28,6 +29,11 @@
   const FOODS = FOOD_TYPES.filter((f) => foodCount(f) > 0).sort((a, b) => foodCount(b) - foodCount(a));
   const byId = new Map(PLACES.map((p) => [p.id, p]));
   const $ = (id) => document.getElementById(id);
+  // index.html holds <span data-icon="name" data-size="16" data-cls="x"> placeholders; swap them for inline SVG.
+  const ICON_DEFAULT_SIZE = 20;
+  document.querySelectorAll('[data-icon]').forEach((el) => {
+    el.outerHTML = svg(el.dataset.icon, { size: Number(el.dataset.size) || ICON_DEFAULT_SIZE, cls: el.dataset.cls });
+  });
   const QUICK_TYPES = { food: ['cafe', 'restaurant'], drinks: ['bar', 'pub'], sights: ['see', 'do'], shops: ['vintage', 'music'] };
   const CLOCK_REFRESH_MS = 60000;
   const PREVIEW_PAD_PX = 200;
@@ -72,6 +78,7 @@
   const map = L.map('map', { zoomControl: true, maxZoom: 19 });
   window.TripBasemap.add(map);
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const moveTo = (center, zoom) => (reducedMotion ? map.setView(center, zoom) : map.flyTo(center, zoom, { duration: 0.6 }));
   const clusterLayer = L.markerClusterGroup({
     maxClusterRadius: 40, disableClusteringAtZoom: 17, spiderfyOnMaxZoom: true, showCoverageOnHover: false, animate: !reducedMotion,
     iconCreateFunction: (c) => L.divIcon({ className: '', iconSize: [36, 36], html: `<div class="cluster">${c.getChildCount()}</div>` }),
@@ -79,8 +86,8 @@
   const markers = new Map();
   const inCluster = new Set();
   const pinIcon = (p, dim, active) => L.divIcon({
-    className: '', iconSize: [28, 28], iconAnchor: [14, 14],
-    html: `<div class="pin t-${p.type}${dim ? ' dim' : ''}${active ? ' active' : ''}">${TYPES[p.type].icon}</div>`,
+    className: '', iconSize: [32, 32], iconAnchor: [16, 16],
+    html: `<div class="pin t-${p.type}${dim ? ' dim' : ''}${active ? ' active' : ''}">${svg(TYPES[p.type].icon, { size: 16 })}</div>`,
   });
   PLACES.forEach((p) => {
     const m = L.marker([p.lat, p.lng], { title: p.name, icon: pinIcon(p, false, false) });
@@ -121,7 +128,7 @@
   // Late in the evening, cards say when to leave to get home.
   const homeText = (p) => {
     const night = nightOf(state.day, state.time);
-    return night.min >= LATE_FROM_MIN ? homeShort(homeFor(p, night.day, night.min)) : '';
+    return night.min >= LATE_FROM_MIN ? homeShort(homeFor(p, night.day, night.min)) : null;
   };
   const filterCount = () => [
     state.types.size, state.foodTypes.size, state.meals.size, state.prices.size, state.areas.size, state.booking.size,
@@ -131,17 +138,18 @@
   const isClosedNow = (p) => state.openOn && !isOpenAt(p, state.day, state.time);
 
   /* ---- render ---- */
-  function chip(label, pressed, attrs, cls = '') {
-    return `<button class="chip ${cls}" aria-pressed="${pressed}" ${attrs}>${label}</button>`;
+  function chip(label, pressed, attrs, cls = '', icon = '') {
+    const lead = icon ? svg(icon, { size: 16 }) : '';
+    return `<button class="chip ${cls}" aria-pressed="${pressed}" ${attrs}>${lead}<span>${label}</span>${svg('check', { size: 16, cls: 'chip-check' })}</button>`;
   }
   function renderFilters() {
     $('type-chips').innerHTML = Object.entries(TYPES).map(([k, t]) =>
-      chip(`${t.icon} ${esc(t.label)}`, state.types.has(k), `data-type="${k}"`, 't-' + k)).join('');
+      chip(esc(t.label), state.types.has(k), `data-type="${k}"`, 't-' + k, t.icon)).join('');
     $('meal-chips').innerHTML = MEALS.map((m) => chip(esc(m), state.meals.has(m), `data-meal="${m}"`)).join('');
     $('booking-chips').innerHTML = Object.entries(BOOKINGS).map(([k, l]) => chip(esc(l), state.booking.has(k), `data-booking="${k}"`)).join('');
     $('price-group').hidden = presentPrices.length === 0;
     $('price-chips').innerHTML = presentPrices.map((v) => chip(esc(v), state.prices.has(v), `data-price="${esc(v)}"`)).join('');
-    $('rating-chips').innerHTML = RATING_STEPS.map((v) => chip(`${v.toFixed(1)}+`, state.minRating === v, `data-rating="${v}"`)).join('');
+    $('rating-chips').innerHTML = RATING_STEPS.map((v) => chip(`${v.toFixed(1)}+`, state.minRating === v, `data-rating="${v}"`, '', 'star')).join('');
     $('food-group').hidden = FOODS.length === 0;
     const foodCollapsible = FOODS.length > AREA_COLLAPSE_MAX;
     const shownFoods = foodCollapsible && !state.showAllFood ? FOODS.filter((f, i) => i < FOOD_TOP || state.foodTypes.has(f)) : FOODS;
@@ -157,9 +165,12 @@
   }
   function renderToolbar(shown) {
     const n = filterCount();
-    $('filters-btn').textContent = n ? `Filters · ${n}` : 'Filters';
+    $('filters-count').textContent = n || '';
+    $('filters-count').hidden = !n;
+    $('filters-btn').setAttribute('aria-label', n ? `Filters, ${n} active` : 'Filters');
     $('toolbar').hidden = state.tab !== 'explore' || Boolean(state.selected);
-    $('clock').textContent = `Showing ${clockLabel(state.day, state.time)}`;
+    $('clock').innerHTML = `${state.live ? '<span class="live-dot"></span>' : svg('clock', { size: 16 })}<span class="clock-text">${esc(DAY_LABELS[state.day])} · ${esc(state.time)}</span>${svg('chevron-down', { size: 16 })}`;
+    $('clock').setAttribute('aria-label', `${DAY_LABELS[state.day]} · ${state.time}${state.live ? ', live' : ''}. Change day and time`);
     $('sheet-done').textContent = `Show ${shown.length} place${shown.length === 1 ? '' : 's'}`;
     document.querySelectorAll('[data-quick]').forEach((b) => {
       const k = b.dataset.quick;
@@ -170,7 +181,7 @@
   }
   function renderPreview(shown) {
     const p = state.preview && shown.find((x) => x.id === state.preview);
-    const html = p ? previewHtml(p, { status: statusOf(p), distance: distanceText(p), homeText: homeText(p), planButton: planButtonHtml(p.id, state.planDay, state.plans) }) : '';
+    const html = p ? previewHtml(p, { status: statusOf(p), distance: distanceText(p), home: homeText(p), planButton: planButtonHtml(p.id, state.planDay, state.plans) }) : '';
     $('preview').hidden = !p;
     if ($('preview').dataset.html !== html) { $('preview').innerHTML = html; $('preview').dataset.html = html; }
   }
@@ -183,7 +194,7 @@
     $('count').textContent = `${inView.length} place${inView.length === 1 ? '' : 's'} on the map`;
     const empty = shown.length === 0 ? '<p class="empty">No places match these filters.</p>' :
       inView.length === 0 ? '<p class="empty">Nothing that matches is in this part of the map.</p>' : '';
-    $('list').innerHTML = empty + inView.map((p) => cardHtml(p, { status: statusOf(p), distance: distanceText(p), homeText: homeText(p), dim: isClosedNow(p), starred: state.shortlist.has(p.id), visited: state.visited.has(p.id), active: state.active === p.id })).join('') +
+    $('list').innerHTML = empty + inView.map((p) => cardHtml(p, { status: statusOf(p), distance: distanceText(p), home: homeText(p), dim: isClosedNow(p), starred: state.shortlist.has(p.id), visited: state.visited.has(p.id), active: state.active === p.id })).join('') +
       outsideHtml(outside.length);
   }
   function renderMarkers(shown) {
@@ -204,13 +215,12 @@
     const o = origin();
     const isDefault = state.base.label === DEFAULT_BASE.label && state.base.lat === DEFAULT_BASE.lat && state.base.lng === DEFAULT_BASE.lng;
     const action = o.live ? '' : isDefault ? ' · <button data-base-hint="1">change</button>' : ` · <button data-base-reset="1">reset to ${esc(DEFAULT_BASE.label)}</button>`;
-    $('walk-from').innerHTML = `Walking from ${o.live ? 'your location' : esc(o.label)}${action}`;
+    $('walk-from').innerHTML = `${svg('map-pin', { size: 16 })}<span>Walking from ${o.live ? 'your location' : esc(o.label)}${action}</span>`;
   }
   function renderBook() {
     const items = bookAhead(PLACES);
     $('book-count').textContent = items.length;
-    $('view-book').innerHTML = `<h2>Book before you go</h2><p class="small">Essential first, then recommended, then ticketed.</p>` +
-      items.map(bookItemHtml).join('');
+    $('view-book').innerHTML = bookViewHtml(items);
   }
   const dayTimeline = () => planTimeline(state.plans[state.planDay], state.planDay, HOME.hub, byId, window.TripLib);
   function renderPlan() {
@@ -242,7 +252,7 @@
   function renderNet() {
     const n = state.net;
     $('net').hidden = !(n && n.offline);
-    $('net').textContent = 'Offline: showing saved places and the city-centre map. Map detail outside the centre may be missing.';
+    $('net').innerHTML = `${svg('wifi-off', { size: 20 })}<span>Offline: showing saved places and the city-centre map. Map detail outside the centre may be missing.</span>`;
   }
   function renderDetails() {
     const p = state.selected && byId.get(state.selected);
@@ -257,7 +267,7 @@
     const extraHtml = homeHtml(homeFor(p, night.day, night.min), HOME, walkToHub(p), `${DAY_LABELS[night.day]}, leaving ${state.time}`);
     $('details').innerHTML = detailsHtml(p, {
       distance: distanceText(p), km: `${distanceKm(origin(), p).toFixed(1)} km`, from: origin().label === 'you' ? 'you' : origin().label, status: statusOf(p),
-      day: state.openOn ? state.day : null, starred: state.shortlist.has(p.id), visited: state.visited.has(p.id),
+      day: state.openOn ? state.day : null, starred: state.shortlist.has(p.id), visited: state.visited.has(p.id), live: state.live,
       openState: state.openOn ? isOpenAt(p, state.day, state.time) : null, planHtml: addPlan, extraHtml,
     });
   }
@@ -302,7 +312,7 @@
     const p = byId.get(id);
     if (!p) return;
     if (!state.selected) listMapView = { center: map.getCenter(), zoom: map.getZoom() };
-    if (fly) map.flyTo([p.lat, p.lng], Math.max(map.getZoom(), DETAIL_ZOOM), { duration: 0.6 });
+    if (fly) moveTo([p.lat, p.lng], Math.max(map.getZoom(), DETAIL_ZOOM));
     if (!state.selected) listScrollTop = $('panel').scrollTop;
     setState({ selected: id, active: id, preview: null, ...(state.sheet === 'map' && { sheet: 'split' }) });
     $('panel').scrollTop = 0;
@@ -419,7 +429,7 @@
     if (d.shareAccept) return acceptShared();
     if (d.shareDismiss) return setState({ shared: null });
     if (t.id === 'back') {
-      if (listMapView) map.flyTo(listMapView.center, listMapView.zoom, { duration: 0.6 });
+      if (listMapView) moveTo(listMapView.center, listMapView.zoom);
       listMapView = null;
       setState({ selected: null }); $('panel').scrollTop = listScrollTop; return;
     }

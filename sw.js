@@ -3,7 +3,7 @@
    city-centre map (vector tiles, label fonts, sprites) so it works with no signal. */
 importScripts('tiles.js');
 
-const SHELL_CACHE = 'shell-v1';
+const SHELL_CACHE = 'shell-v2';
 const MAP_CACHE = 'map-v1';          // the saved city-centre map; never trimmed
 const BROWSED_CACHE = 'browsed-v1';  // map files viewed while online; capped
 const BROWSED_MAX_ENTRIES = 400;
@@ -16,8 +16,9 @@ const STYLE_URL = 'https://tiles.openfreemap.org/styles/positron';
 const MAP_HOST = 'tiles.openfreemap.org';
 const CDN_HOSTS = ['cdnjs.cloudflare.com', 'unpkg.com'];
 const LOCAL_SHELL = [
-  './', 'index.html', 'styles.css', 'data/places.js', 'data/getting-home.js', 'lib.js', 'home.js', 'plan.js', 'tiles.js',
-  'render.js', 'render-plan.js', 'basemap.js', 'locate.js', 'offline.js', 'app.js',
+  './', 'index.html', 'css/tokens.css', 'css/base.css', 'css/layout.css', 'css/explore.css', 'css/plan.css', 'css/map.css',
+  'data/places.js', 'data/getting-home.js', 'lib.js', 'home.js', 'plan.js', 'tiles.js',
+  'icons.js', 'render.js', 'render-plan.js', 'basemap.js', 'locate.js', 'offline.js', 'app.js', 'fonts/fraunces-latin.woff2',
 ];
 const CDN_SHELL = [
   'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css',
