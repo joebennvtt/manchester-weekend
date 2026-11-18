@@ -79,8 +79,10 @@
       paint();
     });
 
+    const phoneQuery = window.matchMedia('(max-width: 767px)');
     const Control = L.Control.extend({
-      options: { position: 'topleft' },
+      // Top-right on phones, clear of the zoom buttons; matches the 768px layout breakpoint in styles.css.
+      options: { position: phoneQuery.matches ? 'topright' : 'topleft' },
       onAdd() {
         const wrap = L.DomUtil.create('div', 'leaflet-bar');
         wrap.appendChild(button);
@@ -88,7 +90,10 @@
         return wrap;
       },
     });
-    map.addControl(new Control());
+    const control = new Control();
+    map.addControl(control);
+    const place = () => control.setPosition(phoneQuery.matches ? 'topright' : 'topleft');
+    if (phoneQuery.addEventListener) phoneQuery.addEventListener('change', place);
     paint();
   }
 

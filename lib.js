@@ -50,6 +50,9 @@
     return places.filter((p) => {
       if (!passesSet(s.types, s.types && s.types.has(p.type))) return false;
       if (!passesSet(s.meals, s.meals && (p.meals || []).some((m) => s.meals.has(m)))) return false;
+      if (!passesSet(s.prices, s.prices && s.prices.has(p.price))) return false;
+      if (typeof s.minRating === 'number' && !(typeof p.googleRating === 'number' && p.googleRating >= s.minRating)) return false;
+      if (!passesSet(s.areas, s.areas && s.areas.has(p.neighbourhood))) return false;
       if (!passesSet(s.booking, s.booking && s.booking.has(p.booking))) return false;
       if (s.openAt && !isOpenAt(p, s.openAt.day, s.openAt.time, { kitchen: !!s.openAt.kitchen })) return false;
       if (!matchesQuery(p, s.query)) return false;

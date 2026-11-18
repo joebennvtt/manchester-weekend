@@ -90,6 +90,17 @@ describe('filterPlaces', () => {
     assert.deepEqual(ids(filterPlaces(all, { ...base, meals: new Set(['drinks']) })), ['b']);
   });
 
+  test('filters by price and never matches a null price', () => {
+    const priced = [mk({ id: 'p1', price: '£' }), mk({ id: 'p2', price: '££' }), mk({ id: 'p3', price: 'free' }), mk({ id: 'p4', price: null })];
+    assert.deepEqual(ids(filterPlaces(priced, { ...base, prices: new Set(['£', 'free']) })), ['p1', 'p3']);
+    assert.deepEqual(ids(filterPlaces(priced, { ...base, prices: new Set() })), ['p1', 'p2', 'p3', 'p4']);
+  });
+
+  test('filters by area (neighbourhood) and combines with other filters', () => {
+    assert.deepEqual(ids(filterPlaces(all, { ...base, areas: new Set(['Ancoats']) })), ['b']);
+    assert.deepEqual(ids(filterPlaces(all, { ...base, areas: new Set(['Ancoats']), types: new Set(['cafe']) })), []);
+  });
+
   test('filters by open-at time', () => {
     assert.deepEqual(ids(filterPlaces(all, { ...base, openAt: { day: 'sat', time: '09:00' } })), ['a']);
     assert.deepEqual(ids(filterPlaces(all, { ...base, openAt: { day: 'sat', time: '13:00' } })), ['b']);
@@ -203,4 +214,17 @@ describe('hasMoved', () => {
   test('is true when there is no previous position', () => {
     assert.equal(hasMoved(null, here, 15), true);
   });
+});
+
+describe('filterPlaces minRating', () => {
+  const rated = [mk({ id: 'a', googleRating: 4.6 }), mk({ id: 'b', googleRating: 4.0 }), mk({ id: 'c', googleRating: null }), mk({ id: 'd' })];
+  const ids = (s) => filterPlaces(rated, s).map((p) => p.id);
+  test('keeps places at or above the threshold', () => assert.deepEqual(ids({ minRating: 4.5 }), ['a']));
+  test('includes places exactly at the threshold', () => assert.deepEqual(ids({ minRating: 4.0 }), ['a', 'b']));
+  test('excludes places with null or missing rating', () => {
+    const got = ids({ minRating: 3.5 });
+    assert.equal(got.includes('c'), false);
+    assert.equal(got.includes('d'), false);
+  });
+  test('keeps everything when minRating is null', () => assert.equal(ids({ minRating: null }).length, 4));
 });

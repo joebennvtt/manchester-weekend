@@ -3,6 +3,9 @@
   const { filterPlaces, bookAhead, isOpenAt, isCentral, distanceKm, formatDistance, sortByDistance, hasMoved } = window.TripLib;
   const { TYPES, MEALS, BOOKINGS, esc, detailsHtml, cardHtml, bookItemHtml } = window.TripRender;
   const MOVE_THRESHOLD_M = 15;
+  const PRICE_ORDER = ['free', '£', '££', '£££', '££££'];
+  const AREA_TOP = 8;
+  const AREA_COLLAPSE_MAX = 10;
   const KNOWN_TYPES = new Set(['cafe', 'restaurant', 'bar', 'pub', 'see', 'do', 'trip', 'vintage', 'music']);
   const isUsable = (p) => Boolean(p) && KNOWN_TYPES.has(p.type) && Array.isArray(p.meals) && Array.isArray(p.events) &&
     p.hours && typeof p.hours === 'object' && Number.isFinite(p.lat) && Number.isFinite(p.lng);
@@ -11,6 +14,10 @@
     console.warn('Skipping malformed place:', p && p.id);
     return false;
   }));
+  const RATING_STEPS = [4.5, 4.0, 3.5];
+  const presentPrices = PRICE_ORDER.filter((v) => PLACES.some((p) => p.price === v));
+  const areaCounts = PLACES.reduce((m, p) => (p.neighbourhood ? m.set(p.neighbourhood, (m.get(p.neighbourhood) || 0) + 1) : m), new Map());
+  const AREAS = [...areaCounts.keys()].sort((a, b) => areaCounts.get(b) - areaCounts.get(a) || a.localeCompare(b));
   const byId = new Map(PLACES.map((p) => [p.id, p]));
   const $ = (id) => document.getElementById(id);
   const STORE_KEY = 'manchester-trip-v1';
@@ -19,9 +26,10 @@
     try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch (e) { return {}; }
   };
   const saved = loadStore();
+  const emptyFilters = () => ({ types: new Set(), meals: new Set(), booking: new Set(), prices: new Set(), areas: new Set(), minRating: null, query: '', openOn: false, hideClosed: false, shortlistOnly: false });
   let state = {
-    types: new Set(), meals: new Set(), booking: new Set(), query: '', openOn: false, day: 'sat', time: '12:00',
-    hideClosed: false, shortlistOnly: false, shortlist: new Set(saved.shortlist || []), visited: new Set(saved.visited || []),
+    ...emptyFilters(), showAllAreas: false, day: 'sat', time: '12:00',
+    shortlist: new Set(saved.shortlist || []), visited: new Set(saved.visited || []),
     tab: 'explore', selected: null, active: null, me: null, sortNearest: false,
   };
   function persist() {
@@ -78,6 +86,14 @@
       chip(`${t.icon} ${esc(t.label)}`, state.types.has(k), `data-type="${k}"`, 't-' + k)).join('');
     $('meal-chips').innerHTML = MEALS.map((m) => chip(esc(m), state.meals.has(m), `data-meal="${m}"`)).join('');
     $('booking-chips').innerHTML = Object.entries(BOOKINGS).map(([k, l]) => chip(esc(l), state.booking.has(k), `data-booking="${k}"`)).join('');
+    $('price-group').hidden = presentPrices.length === 0;
+    $('price-chips').innerHTML = presentPrices.map((v) => chip(esc(v), state.prices.has(v), `data-price="${esc(v)}"`)).join('');
+    $('rating-chips').innerHTML = RATING_STEPS.map((v) => chip(`${v.toFixed(1)}+`, state.minRating === v, `data-rating="${v}"`)).join('');
+    $('area-group').hidden = AREAS.length === 0;
+    const collapsible = AREAS.length > AREA_COLLAPSE_MAX;
+    const shownAreas = collapsible && !state.showAllAreas ? AREAS.filter((a, i) => i < AREA_TOP || state.areas.has(a)) : AREAS;
+    $('area-chips').innerHTML = shownAreas.map((a) => chip(esc(a), state.areas.has(a), `data-area="${esc(a)}"`)).join('') +
+      (collapsible ? chip(state.showAllAreas ? 'Fewer' : 'More…', state.showAllAreas, 'data-area-more="1"') : '');
     $('shortlist-only').setAttribute('aria-pressed', state.shortlistOnly);
   }
   function renderList(shown) {
@@ -145,12 +161,16 @@
   /* ---- events ---- */
   const toggleIn = (key, v) => setState({ [key]: toggled(state[key], v) });
   document.addEventListener('click', (e) => {
-    const t = e.target.closest('[data-type],[data-meal],[data-booking],[data-star],[data-visit],[data-open],.card,#back');
+    const t = e.target.closest('[data-type],[data-meal],[data-booking],[data-price],[data-rating],[data-area],[data-area-more],[data-star],[data-visit],[data-open],.card,#back');
     if (!t) return;
     const d = t.dataset;
     if (d.type) return toggleIn('types', d.type);
     if (d.meal) return toggleIn('meals', d.meal);
     if (d.booking) return toggleIn('booking', d.booking);
+    if (d.price) return toggleIn('prices', d.price);
+    if (d.rating) return setState({ minRating: state.minRating === Number(d.rating) ? null : Number(d.rating) });
+    if (d.area) return toggleIn('areas', d.area);
+    if (d.areaMore) return setState({ showAllAreas: !state.showAllAreas });
     if (d.star) { e.stopPropagation(); const s = toggled(state.shortlist, d.star); state = { ...state, shortlist: s }; persist(); return update(); }
     if (d.visit) { const v = toggled(state.visited, d.visit); state = { ...state, visited: v }; persist(); return update(); }
     if (d.open) return openDetails(d.open);
@@ -171,7 +191,7 @@
   $('day-trips').addEventListener('click', () => fit(PLACES));
   $('clear').addEventListener('click', () => {
     ['q'].forEach((id) => { $(id).value = ''; });
-    setState({ types: new Set(), meals: new Set(), booking: new Set(), query: '', openOn: false, hideClosed: false, shortlistOnly: false, selected: null, active: null });
+    setState({ ...emptyFilters(), selected: null, active: null });
     fitCentre();
   });
 

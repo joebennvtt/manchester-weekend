@@ -23,24 +23,31 @@
       <section id="view-explore">
         <div class="filters" id="filters">
           <input id="q" type="search" placeholder="Search places, tags, cuisine" aria-label="Search">
-          <div class="chips" id="type-chips" aria-label="Type"></div>
-          <div class="chips" id="meal-chips" aria-label="Meal"></div>
-          <div class="chips" id="booking-chips" aria-label="Booking"></div>
-          <div class="row open-at">
-            <label class="switch"><input type="checkbox" id="open-on"> Open at</label>
-            <select id="open-day" aria-label="Day">
-              <option value="fri">Fri 20 Nov</option><option value="sat">Sat 21 Nov</option>
-              <option value="sun">Sun 22 Nov</option><option value="mon">Mon 23 Nov</option>
-            </select>
-            <input type="time" id="open-time" value="12:00" aria-label="Time">
-            <label class="switch"><input type="checkbox" id="hide-closed"> Hide closed</label>
+          <div class="group"><span class="group-label" id="h-type">Type</span><div class="chips" id="type-chips" role="group" aria-labelledby="h-type"></div></div>
+          <div class="group"><span class="group-label" id="h-meal">Meal</span><div class="chips" id="meal-chips" role="group" aria-labelledby="h-meal"></div></div>
+          <div class="group" id="price-group" hidden><span class="group-label" id="h-price">Price</span><div class="chips" id="price-chips" role="group" aria-labelledby="h-price"></div></div>
+          <div class="group" id="rating-group"><span class="group-label" id="h-rating">Google rating</span><div class="chips" id="rating-chips" role="group" aria-labelledby="h-rating"></div><span class="hint">cafés, restaurants, bars &amp; pubs</span></div>
+          <div class="group" id="area-group" hidden><span class="group-label" id="h-area">Area</span><div class="chips" id="area-chips" role="group" aria-labelledby="h-area"></div></div>
+          <div class="group"><span class="group-label" id="h-booking">Booking</span><div class="chips" id="booking-chips" role="group" aria-labelledby="h-booking"></div></div>
+          <div class="group"><span class="group-label" aria-hidden="true">Open at</span>
+            <div class="row open-at" role="group" aria-label="Open at">
+              <label class="switch"><input type="checkbox" id="open-on"> Open at</label>
+              <select id="open-day" aria-label="Day">
+                <option value="fri">Fri 20 Nov</option><option value="sat">Sat 21 Nov</option>
+                <option value="sun">Sun 22 Nov</option><option value="mon">Mon 23 Nov</option>
+              </select>
+              <input type="time" id="open-time" value="12:00" aria-label="Time">
+              <label class="switch"><input type="checkbox" id="hide-closed"> Hide closed</label>
+            </div>
           </div>
-          <div class="row">
-            <button class="chip" id="shortlist-only" aria-pressed="false">★ Shortlist only</button>
-            <button class="chip" id="day-trips" title="Fit all places including Chester and Altrincham">Day trips</button>
-            <label class="switch" id="sort-wrap" hidden><input type="checkbox" id="sort-nearest"> Sort: nearest</label>
-            <button class="chip" id="clear">Clear</button>
-            <span id="count" class="count" aria-live="polite"></span>
+          <div class="group"><span class="group-label" id="h-show">Show</span>
+            <div class="row" role="group" aria-labelledby="h-show">
+              <button class="chip" id="shortlist-only" aria-pressed="false">★ Shortlist only</button>
+              <button class="chip" id="day-trips" title="Fit all places including Chester and Altrincham">Day trips</button>
+              <label class="switch" id="sort-wrap" hidden><input type="checkbox" id="sort-nearest"> Sort: nearest</label>
+              <button class="chip" id="clear">Clear</button>
+              <span id="count" class="count" aria-live="polite"></span>
+            </div>
           </div>
           <div id="toast" class="toast" role="status" hidden></div>
         </div>

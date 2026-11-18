@@ -336,7 +336,7 @@
     ],
     "meals": [],
     "cuisine": null,
-    "userNote": "Science and industry museum",
+    "userNote": "Science and industry museum / Mosi free",
     "tip": "Booking free tickets in advance is recommended. Parts are shut for restoration so check gallery list; no on-site parking; nearest Metrolink is Deansgate-Castlefield.",
     "website": "https://www.scienceandindustrymuseum.org.uk/",
     "menuUrl": null,
@@ -401,7 +401,7 @@
     ],
     "meals": [],
     "cuisine": null,
-    "userNote": "Manchester museum (natural history)",
+    "userNote": "Manchester museum (natural history) / Manchester museum free",
     "tip": "Saturday opens at 08:00 with a Quiet Time until 10:00. Last admission 30 min before closing.",
     "website": "https://www.museum.manchester.ac.uk/",
     "menuUrl": null,
@@ -985,5 +985,405 @@
         ]
       ]
     }
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Santa Sundays run on selected Sundays from 6 Dec, so not relevant to 20-23 Nov; pre-book Saturday.",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": "https://www.moimanchester.com",
+    "bookingNote": null,
+    "priceNote": "Adult (15+) £25.50 per ticket page; 'from £20.40' shown for advance booking; walk-up costs more. Older 2024 launch prices were about £21-23, so £17 looks out of date or a child/senior rate.",
+    "website": "https://www.moimanchester.com",
+    "tip": "Book online in advance, as walk-up tickets cost more; Saturday 11:00-16:00 is the busiest slot. The user's £17 guess is not confirmed - the current adult price is £25.50.",
+    "meals": [],
+    "cuisine": null,
+    "price": "££",
+    "id": "museum-of-illusions-manchester",
+    "name": "Museum of Illusions Manchester",
+    "type": "see",
+    "tags": [
+      "museum",
+      "illusions",
+      "family",
+      "photos",
+      "rainy day"
+    ],
+    "blurb": "Interactive optical-illusion museum on Market Street with illusion rooms, a vortex tunnel and photo opportunities.",
+    "userNote": "Museum of illusions £17?",
+    "address": "58-66 Market Street, Manchester M1 1PW",
+    "neighbourhood": "Piccadilly",
+    "lat": 53.48254,
+    "lng": -2.24195,
+    "booking": "tickets",
+    "hours": {
+      "fri": [
+        [
+          "10:00",
+          "20:00"
+        ]
+      ],
+      "sat": [
+        [
+          "10:00",
+          "20:00"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "18:30"
+        ]
+      ],
+      "mon": [
+        [
+          "10:00",
+          "18:30"
+        ]
+      ]
+    },
+    "hoursNote": "Hours from the venue ticket page and website (Sun-Thu 10:00-18:30, Fri-Sat 10:00-20:00); an older voucher listing gave different hours. Last entry time not found.",
+    "sources": [
+      "https://www.moimanchester.com",
+      "https://www.dayoutwiththekids.co.uk/attractions/museum-of-illusions-manchester-cjxpi715",
+      "https://nominatim.openstreetmap.org/search?q=Museum+of+Illusions+Manchester"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Friday and Saturday nights are busiest; book ahead.",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": "https://nq64.co.uk/manchester",
+    "bookingNote": null,
+    "priceNote": "Entry price not published on the official page; check booking page.",
+    "website": "https://nq64.co.uk/manchester",
+    "tip": "Games are pay-per-play on a card/booking system and the bar is 18+ except Sunday 11:00-15:00 'Shorty Sundays'; book a session online for busy evenings. Pricing not published on the site.",
+    "meals": [
+      "drinks"
+    ],
+    "cuisine": null,
+    "price": "££",
+    "id": "nq64-northern-quarter",
+    "name": "NQ64 Northern Quarter",
+    "type": "do",
+    "tags": [
+      "arcade",
+      "retro games",
+      "cocktails",
+      "Northern Quarter"
+    ],
+    "blurb": "Retro arcade bar with classic cabinets and consoles plus cocktails, on Tib Street.",
+    "userNote": "Play arcade games Nq64",
+    "address": "12 Tib Street, Manchester M4 1SH",
+    "neighbourhood": "Northern Quarter",
+    "lat": 53.4824,
+    "lng": -2.23667,
+    "booking": "recommended",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "03:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "03:00"
+        ]
+      ],
+      "sun": [
+        [
+          "11:00",
+          "02:00"
+        ]
+      ],
+      "mon": [
+        [
+          "14:00",
+          "02:00"
+        ]
+      ]
+    },
+    "hoursNote": "From nq64.co.uk/manchester. Older listings give 9 Short Street (the original site); NQ64 has moved to 12 Tib Street. There is a separate NQ64 on Peter Street.",
+    "sources": [
+      "https://nq64.co.uk/manchester",
+      "https://www.designmynight.com/manchester/event-space/northern-quarter/nq64-manchester",
+      "https://nominatim.openstreetmap.org/search?q=12+Tib+Street+Manchester"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": null,
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": "https://tickets.nationalfootballmuseum.com/event-tickets/48961",
+    "bookingNote": null,
+    "priceNote": "Adult season ticket £16-£18 per the venue ticket portal (2023 walk-up was £14).",
+    "website": "https://www.nationalfootballmuseum.com/visit/",
+    "tip": "Ticket is a 12-month season ticket, so one visit covers the year; coats £2 and bags £4 to store. Free for City of Manchester council-tax payers only.",
+    "meals": [],
+    "cuisine": null,
+    "price": "££",
+    "id": "national-football-museum",
+    "name": "National Football Museum",
+    "type": "see",
+    "tags": [
+      "museum",
+      "football",
+      "Cathedral Gardens",
+      "family"
+    ],
+    "blurb": "England's national football museum in Urbis, Cathedral Gardens, covering the history of the game with interactive exhibits.",
+    "userNote": "Football museum",
+    "address": "Urbis, Cathedral Gardens, Todd Street, Manchester M4 3BG",
+    "neighbourhood": "Northern Quarter",
+    "lat": 53.48576,
+    "lng": -2.24211,
+    "booking": "tickets",
+    "hours": {
+      "fri": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "sat": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "mon": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ]
+    },
+    "hoursNote": "Venue ticket portal: every day 10:00-17:00, last admission 16:00. Other listings (Art Fund, Northern Rail) disagree; official source used.",
+    "sources": [
+      "https://tickets.nationalfootballmuseum.com/event-tickets/48961",
+      "https://www.nationalfootballmuseum.com/visit/",
+      "https://nominatim.openstreetmap.org/search?q=National+Football+Museum+Manchester"
+    ],
+    "confidence": "high"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Winter schedule unconfirmed: check the operator's timetable or message them before going; sailings may be reduced or cancelled for weather.",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": "https://manchestersightseeingtours.digitickets.co.uk/event-tickets/12643?catID=9585",
+    "bookingNote": null,
+    "priceNote": "Adult £9.00 (+£1.00 fee), O.A.P. £8, child £5 on operator portal; Day Out With The Kids lists from £13. User's £12 is in between and not matched exactly.",
+    "website": "https://manchestersightseeingtours.digitickets.co.uk/event-tickets/12643?catID=9585",
+    "tip": "Cheapest direct from the venue ticket portal: adult £9 + £1 fee, over-60s £8, child £5. Some resellers list 'from £13'. Arrive 10 minutes before sailing; weather can change times.",
+    "meals": [],
+    "cuisine": null,
+    "price": "£",
+    "id": "manchester-river-cruise",
+    "name": "Manchester River Cruises (City River Tour)",
+    "type": "do",
+    "tags": [
+      "cruise",
+      "river",
+      "Irwell",
+      "views",
+      "sightseeing"
+    ],
+    "blurb": "60-minute round-trip cruise from Ralli Quay on the River Irwell, between the city centre and Salford Quays.",
+    "userNote": "Canal tour /river cruise £12 great views",
+    "address": "Ralli Quay, 3 Stanley Street, Salford M3 5EJ",
+    "neighbourhood": "Spinningfields",
+    "lat": 53.48132,
+    "lng": -2.25477,
+    "booking": "tickets",
+    "hours": {
+      "fri": [
+        [
+          "11:00",
+          "17:00"
+        ]
+      ],
+      "sat": [
+        [
+          "11:00",
+          "17:00"
+        ]
+      ],
+      "sun": [
+        [
+          "11:00",
+          "17:00"
+        ]
+      ],
+      "mon": [
+        [
+          "11:00",
+          "17:00"
+        ]
+      ]
+    },
+    "hoursNote": "11:00-17:00 is the operating window on Day Out With The Kids; typical departures 11:30, 12:45, 14:00, 15:15 from reseller/blog pages - NOT confirmed for late Nov. Operator portal gives no times.",
+    "sources": [
+      "https://manchestersightseeingtours.digitickets.co.uk/event-tickets/12643?catID=9585",
+      "https://www.dayoutwiththekids.co.uk/tickets/manchester-river-cruises-aaf81000",
+      "https://nominatim.openstreetmap.org/search?q=Ralli+Quay+Salford"
+    ],
+    "confidence": "low"
+  },
+  {
+    "events": [],
+    "travel": {
+      "car": "About 5 miles west of the city centre via the M60 (junction 9 or 10), roughly 20 minutes; paid parking at Trafford Centre.",
+      "transit": "Metrolink Trafford Centre tram stop or the X50/X5 bus, about 35-45 minutes from the city centre.",
+      "from": "city centre"
+    },
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Out-of-centre; allow about 40 minutes each way.",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": "https://www.visitsealife.com/manchester/tickets-prices/",
+    "bookingNote": null,
+    "priceNote": "Standard adult £18.50, child £15.50 (Trafford Palazzo page); another reseller lists £20.50 / £17.50; cheaper online in advance.",
+    "website": "https://www.visitsealife.com/manchester/",
+    "tip": "Book online in advance for up to 27% off; combi ticket with LEGOLAND Discovery Centre saves about £15.",
+    "meals": [],
+    "cuisine": null,
+    "price": "££",
+    "id": "sea-life-manchester",
+    "name": "SEA LIFE Manchester",
+    "type": "see",
+    "tags": [
+      "aquarium",
+      "family",
+      "Trafford Centre",
+      "rainy day"
+    ],
+    "blurb": "Aquarium with an ocean tunnel and rays, sharks and turtles, in Trafford City next to the Trafford Centre.",
+    "userNote": "Sealife Manchester Trafford Centre",
+    "address": "Venus Building, 1 Old Park Lane, Trafford City, Manchester M41 7JS",
+    "neighbourhood": "Trafford",
+    "lat": 53.46779,
+    "lng": -2.34096,
+    "booking": "tickets",
+    "hours": {
+      "fri": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "sat": [
+        [
+          "10:00",
+          "19:00"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "18:00"
+        ]
+      ],
+      "mon": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ]
+    },
+    "hoursNote": "Hours from traffordpalazzo.co.uk/sealife (Mon-Fri 10-17, Sat 10-19, Sun 10-18); resellers say last entry 16:00 and hours vary by school term - check before going. Postcode M41 7JS is from memory/area, not confirmed.",
+    "sources": [
+      "https://traffordpalazzo.co.uk/sealife",
+      "https://www.visitsealife.com/manchester/tickets/combi-tickets",
+      "https://nominatim.openstreetmap.org/search?q=SEA+LIFE+Manchester+Trafford"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Closed Sunday 22 Nov; the Sunday-opening scheme only starts January 2027.",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": null,
+    "priceNote": null,
+    "website": "https://www.manchester.gov.uk/directory_record/470317/central_library",
+    "tip": "Free to walk in; the circular Wolfson reading room is the highlight.",
+    "meals": [],
+    "cuisine": null,
+    "price": "free",
+    "id": "manchester-central-library",
+    "name": "Manchester Central Library",
+    "type": "see",
+    "tags": [
+      "library",
+      "architecture",
+      "free",
+      "St Peter's Square",
+      "rotunda"
+    ],
+    "blurb": "Domed 1930s rotunda library on St Peter's Square, reopened after a major refurbishment, with free entry and reading rooms.",
+    "userNote": "Check out the renovated library!",
+    "address": "St Peter's Square, Manchester M2 5PD",
+    "neighbourhood": "Deansgate",
+    "lat": 53.47813,
+    "lng": -2.24471,
+    "booking": "free-entry",
+    "hours": {
+      "fri": [
+        [
+          "09:00",
+          "17:00"
+        ]
+      ],
+      "sat": [
+        [
+          "09:00",
+          "17:00"
+        ]
+      ],
+      "sun": [],
+      "mon": [
+        [
+          "09:00",
+          "20:00"
+        ]
+      ]
+    },
+    "hoursNote": "Third-party listings (not the council page, which returned 403): Mon-Thu 09:00-20:00, Fri-Sat 09:00-17:00. Council says Sunday opening (12:00-16:00) starts January 2027, so closed Sun 22 Nov.",
+    "sources": [
+      "https://manclibraries.blog/after-15-years-away-sunday-opening-hours-return-to-manchesters-libraries/",
+      "https://librarylive.co.uk/?p=26",
+      "https://nominatim.openstreetmap.org/search?q=Manchester+Central+Library"
+    ],
+    "confidence": "medium"
   }
 ]

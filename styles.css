@@ -49,6 +49,9 @@ h3 { font-size: .9rem; margin: 14px 0 4px; text-transform: uppercase; letter-spa
 .filters { display: grid; gap: 8px; padding: 12px 0; }
 .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.group { display: grid; gap: 4px; }
+.hint { color: var(--muted); font-size: .75rem; }
+.group-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; }
 input[type="search"], select, input[type="time"] {
   font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border);
   border-radius: 8px; padding: 7px 10px; min-width: 0;

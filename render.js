@@ -45,6 +45,13 @@
 
   const travelHtml = (t) => (t ? `<h3>Getting there</h3><p>From ${esc(t.from)}: ${esc(t.car)} by car, ${esc(t.transit)} by public transport.</p>` : '');
 
+  function ratingHtml(place) {
+    if (typeof place.googleRating !== 'number') return '';
+    const reviews = typeof place.googleReviews === 'number' ? ` · ${place.googleReviews.toLocaleString('en-GB')} reviews` : '';
+    const src = link(place.ratingSource, '(source)', 'src');
+    return `<p class="small">${esc(`★ ${place.googleRating.toFixed(1)} Google rating${reviews}`)}${src ? ` ${src}` : ''}</p>`;
+  }
+
   function detailsHtml(place, ctx) {
     const dir = `https://www.google.com/maps/dir/?api=1&destination=${place.lat},${place.lng}`;
     const src = (place.sources || []).map((s, i) => link(s, `source ${i + 1}`, 'src')).join(' ');
@@ -56,6 +63,7 @@
       <p>${esc(place.blurb)}</p>
       ${place.userNote ? `<p class="note">Your note: ${esc(place.userNote)}</p>` : ''}
       ${place.tip ? `<p>Tip: ${esc(place.tip)}</p>` : ''}
+      ${ratingHtml(place)}
       ${badges(place, ctx.openState)}
       ${place.tripNote ? `<div class="warn">${esc(place.tripNote)}</div>` : ''}
       ${place.bookingNote ? `<p class="small">Booking: ${esc(place.bookingNote)}</p>` : ''}
@@ -72,7 +80,7 @@
     const cls = ['card', 't-' + place.type, ctx.dim ? 'dim' : '', ctx.visited ? 'visited' : '', ctx.active ? 'active' : ''].join(' ');
     return `<article class="${cls}" data-id="${esc(place.id)}" tabindex="0" role="button">
       <div class="name">${TYPES[place.type].icon} ${esc(place.name)}</div>
-      <div class="meta">${esc(TYPES[place.type].label)} · ${esc(place.neighbourhood)}${place.price ? ' · ' + esc(place.price) : ''}${ctx.distance ? ' · <span class="dist">' + esc(ctx.distance) + '</span>' : ''}</div>
+      <div class="meta">${esc(TYPES[place.type].label)} · ${esc(place.neighbourhood)}${place.price ? ' · ' + esc(place.price) : ''}${typeof place.googleRating === 'number' ? ' · ★ ' + esc(place.googleRating.toFixed(1)) : ''}${ctx.distance ? ' · <span class="dist">' + esc(ctx.distance) + '</span>' : ''}</div>
       <p class="blurb">${esc(place.blurb)}</p>
       <button class="star" data-star="${esc(place.id)}" aria-pressed="${ctx.starred}" aria-label="Shortlist ${esc(place.name)}">${ctx.starred ? '★' : '☆'}</button>
     </article>`;

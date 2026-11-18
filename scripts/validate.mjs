@@ -52,6 +52,11 @@ function validatePlace(p, warnings) {
   for (const k of ['website', 'menuUrl', 'bookingUrl']) need(k, isHttpsOrNull(p[k]), 'must be https URL or null');
   for (const k of ['booking', 'addedBy', 'confidence']) need(k, ENUMS[k].includes(p[k]), `must be one of ${ENUMS[k].join('|')}`);
   need('price', p.price === null || ENUMS.price.includes(p.price), `must be null or one of ${ENUMS.price.join('|')}`);
+  const optional = (key, ok, msg) => { if (p[key] != null && !ok) errs.push(`${key}: ${msg}`); };
+  optional('googleRating', typeof p.googleRating === 'number' && p.googleRating >= 1 && p.googleRating <= 5, 'must be number 1.0-5.0 or null');
+  optional('googleReviews', Number.isInteger(p.googleReviews) && p.googleReviews >= 0, 'must be non-negative integer or null');
+  optional('ratingSource', isHttps(p.ratingSource), 'must be https URL or null');
+  if (typeof p.googleRating === 'number' && p.ratingSource == null) errs.push('ratingSource: required when googleRating is set');
   if ('hours' in p) checkSchedule(p.hours, 'hours', errs); else errs.push('missing key "hours"');
   if (!('kitchenHours' in p)) errs.push('missing key "kitchenHours"');
   else if (p.kitchenHours !== null) checkSchedule(p.kitchenHours, 'kitchenHours', errs);

@@ -27,7 +27,7 @@
       "drinks"
     ],
     "cuisine": "Brunch & global small plates",
-    "userNote": "Evelyn's cafe bar",
+    "userNote": "Evelyn's cafe bar / Evelyns - roast and lamb",
     "blurb": "Easy-going Northern Quarter cafe-bar doing brunch classics by day and sharing plates and drinks at night.",
     "address": "Smithfield Building, 44 Tib Street, Manchester M4 1LA",
     "neighbourhood": "Northern Quarter",
@@ -67,7 +67,10 @@
       "https://www.designmynight.com/manchester/restaurants/northern-quarter/evelyns-cafe-bar",
       "https://www.creativetourist.com/venue/evelyns-cafe-bar"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": 4.4,
+    "googleReviews": 1842,
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/evelyns-cafe-bar"
   },
   {
     "events": [],
@@ -134,7 +137,10 @@
       "https://www.creativetourist.com/venue/sugar-junction",
       "https://www.manchestersfinest.com/places/sugar-junction/"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": 4.4,
+    "googleReviews": 1084,
+    "ratingSource": "https://thatsup.co.uk/manchester/cafe/sugar-junction"
   },
   {
     "events": [],
@@ -204,7 +210,10 @@
       "https://www.creativetourist.com/venue/this-that-cafe",
       "https://www.theskinny.co.uk/whats-on/manchester/restaurants/this-that"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": 4.7,
+    "googleReviews": 1639,
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/this-that"
   },
   {
     "events": [],
@@ -272,7 +281,10 @@
       "https://www.creativetourist.com/venue/pot-kettle-black",
       "https://www.tripadvisor.com/Restaurant_Review-g187069-d7131888-Reviews-or15-Pot_Kettle_Black-Manchester_Greater_Manchester_England.html"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": 4.4,
+    "googleReviews": 1515,
+    "ratingSource": "https://thatsup.co.uk/manchester/cafe/pot-kettle-black-barton-arcade"
   },
   {
     "events": [],
@@ -286,7 +298,7 @@
     "bookingNote": null,
     "priceNote": "Varies by trader",
     "website": null,
-    "tip": "Each trader keeps its own hours, so go 12:00-21:00 for the full line-up; the covered outdoor canopy has long benches.",
+    "tip": "Each trader keeps its own hours, so go 12:00-21:00 for the full line-up; the covered outdoor canopy has long benches. / New Wave Ramen started as a Mackie Mayor kitchen (2020); a recent guide still lists it among the traders and its lamb tantanmen is the dish reviewers single out, but a current 2026 trader list was not found. It also has its own restaurant at 16 Tib Lane, M2 4JB (Mon 17:00-22:00, Sun 12:00-18:00 per Creative Tourist) - check which you want.",
     "id": "mackie-mayor",
     "name": "Mackie Mayor",
     "type": "cafe",
@@ -303,7 +315,7 @@
       "drinks"
     ],
     "cuisine": "Food hall (ramen, tacos, fried chicken, coffee)",
-    "userNote": "Mackie mayor - food market",
+    "userNote": "Mackie mayor - food market / New wave ramen mackoe mayor signature lamb tantanmen.",
     "blurb": "Glass-roofed Victorian meat market turned food hall with independent traders and a bar on Eagle Street.",
     "address": "1 Eagle Street, Manchester M4 5BU",
     "neighbourhood": "Northern Quarter",
@@ -337,7 +349,10 @@
       "https://www.creativetourist.com/venue/mackie-mayor",
       "https://tasteofmanchester.com/news/mackie-mayor-is-now-open-for-japanese-mexican-and-fried-chicken-breakfasts/"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": 4.5,
+    "googleReviews": 5769,
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/mackie-mayor"
   },
   {
     "events": [],
@@ -430,7 +445,10 @@
     "sources": [
       "https://marblebeers.com/the-marble-arch/"
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "googleRating": 4.7,
+    "googleReviews": 2125,
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/the-marble-arch"
   },
   {
     "events": [],
@@ -459,7 +477,7 @@
       "dinner"
     ],
     "cuisine": "Sichuan noodles & street food",
-    "userNote": "Noodle alley",
+    "userNote": "Noodle alley / Noodle alley - mainly schezuan but great food. / Noodle alley noodles!",
     "blurb": "Basement Sichuan noodle bar near the Chinatown arch with handmade noodle soups and small plates inspired by the alleys of Chengdu.",
     "address": "56A Faulkner Street, Manchester M1 4FH",
     "neighbourhood": "Chinatown",
@@ -498,7 +516,10 @@
       "https://manchestersfinest.com/places/noodle-alley",
       "https://www.happycow.net/reviews/noodle-alley-greater-manchester-472681"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": 4.7,
+    "googleReviews": 947,
+    "ratingSource": "https://spinach.guide/venues/kuanzhai-xiang-noodle-alley-noodle-alley-239149/"
   },
   {
     "events": [],
@@ -566,7 +587,10 @@
       "https://www.manchestersfinest.com/places/fat-pats/",
       "https://secretmanchester.com/the-manchester-deli-in-the-wall-offering-immense-sarnies-fat-pats/"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": 4.2,
+    "googleReviews": 527,
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/fat-pats"
   },
   {
     "events": [],
@@ -661,7 +685,10 @@
       "https://watd.co.uk",
       "https://www.manchestersfinest.com/news/from-april-12th-1-baos-and-tacos-at-wolf-at-the-door/"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": 4.4,
+    "googleReviews": 687,
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/wolf-at-the-door"
   },
   {
     "events": [],
@@ -730,7 +757,10 @@
       "https://www.manchestersfinest.com/places/kongs-nq",
       "https://themanc.com/news/kongs-is-opening-a-taco-and-quesadilla-kitchen-in-the-northern-quarter/"
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "googleRating": 4.6,
+    "googleReviews": 188,
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/kongs-nq"
   },
   {
     "events": [],
@@ -823,7 +853,10 @@
       "https://bundobust.com/locations/manchester/",
       "https://bundobust.com/locations/manchester-brewery/"
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "googleRating": 4.6,
+    "googleReviews": 3495,
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/bundobust-piccadilly"
   },
   {
     "events": [],
@@ -882,7 +915,10 @@
       "https://www.manchestersfinest.com/places/peter-street-kitchen/",
       "https://www.squaremeal.co.uk/restaurants/website?id=12648"
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "googleRating": 4.5,
+    "googleReviews": 664,
+    "ratingSource": "https://restaurantguru.com/Peter-Street-Kitchen-Manchester"
   },
   {
     "events": [],
@@ -912,7 +948,7 @@
       "drinks"
     ],
     "cuisine": "Thai",
-    "userNote": "Try Thai",
+    "userNote": "Try Thai / Try Thai - Chinatown great lunch deals",
     "blurb": "Reliable Chinatown Thai with punchy classics and cocktails in a bright upper-ground-floor room.",
     "address": "Upper Ground Floor, 52-54 Faulkner Street, Manchester M1 4FH",
     "neighbourhood": "Chinatown",
@@ -951,7 +987,10 @@
       "https://www.manchestersfinest.com/places/try-thai/",
       "https://spinach.guide/venues/try-thai-64181/"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": 4.4,
+    "googleReviews": 3415,
+    "ratingSource": "https://www.sluurpy.co.uk/manchester/restaurant/1655372/try-thai"
   },
   {
     "events": [],
@@ -1019,7 +1058,10 @@
       "https://www.elgatonegrotapas.com/manchester/",
       "https://kingstreetmcr.co.uk/?p=4484"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": 4.6,
+    "googleReviews": 4848,
+    "ratingSource": "https://restaurantguru.com/El-Gato-Negro-Manchester"
   },
   {
     "events": [],
@@ -1087,7 +1129,10 @@
       "https://rozafa.uk",
       "https://rozafa.uk/find-us"
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "googleRating": 4.3,
+    "googleReviews": 1926,
+    "ratingSource": "https://restaurantguru.com/Rozafa-Manchester"
   },
   {
     "events": [],
@@ -1117,7 +1162,7 @@
       "drinks"
     ],
     "cuisine": "Pizza & tequila bar",
-    "userNote": "Crazy pedros - weird pizza",
+    "userNote": "Crazy pedros - weird pizza / Crazy Pedro pizzas and by the slice. £3",
     "blurb": "Pizza-and-tequila party bar on Short Street selling slices and 16-inch pizzas into the early hours.",
     "address": "1 Short Street, Manchester M4 1AA",
     "neighbourhood": "Northern Quarter",
@@ -1156,7 +1201,10 @@
       "https://www.designmynight.com/manchester/bars/northern-quarter/crazy-pedros-northern-quarter",
       "https://northernquartermanchester.com/places/crazy-pedros/"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": 4.3,
+    "googleReviews": 1940,
+    "ratingSource": "https://restaurantguru.com/Crazy-Pedros-Northern-Quarter-Manchester"
   },
   {
     "events": [],
@@ -1217,7 +1265,10 @@
       "https://www.noiquattro.co.uk",
       "https://www.firsttable.co.uk/manchester/northern-quarter/noi-quattro"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": 4.6,
+    "googleReviews": 1796,
+    "ratingSource": "https://restaurantguru.com/Noi-Quattro-Pizzeria-Manchester"
   },
   {
     "events": [],
@@ -1313,7 +1364,10 @@
     "sources": [
       "https://thehawksmoor.com/locations/manchester/"
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "googleRating": 4.7,
+    "googleReviews": 5502,
+    "ratingSource": "https://restaurantguru.com/Hawksmoor-Manchester-Manchester"
   },
   {
     "events": [],
@@ -1370,7 +1424,10 @@
       "https://www.designmynight.com/manchester/bars/the-printworks/the-washhouse",
       "https://secretmanchester.com/washhouse-secret-bar-speakeasy/"
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "googleRating": 4.6,
+    "googleReviews": 1902,
+    "ratingSource": "https://restaurantguru.com/The-Washhouse-Manchester"
   },
   {
     "events": [],
@@ -1398,7 +1455,7 @@
       "drinks"
     ],
     "cuisine": "Cocktails",
-    "userNote": "Cloud 23 - good panoramic views",
+    "userNote": "Cloud 23 - good panoramic views / Cloud 23 views! Cocktails.",
     "blurb": "Sky bar on the 23rd floor of the Beetham Tower with panoramic views over Manchester.",
     "address": "Cloud 23, The Manchester Deansgate Hotel (Beetham Tower), 303 Deansgate, Manchester M3 4LQ",
     "neighbourhood": "Deansgate",
@@ -1436,7 +1493,10 @@
     "sources": [
       "https://www.cloud23bar.com"
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "googleRating": 4.3,
+    "googleReviews": 3241,
+    "ratingSource": "https://restaurantguru.com/Cloud-23-Manchester"
   },
   {
     "events": [],
@@ -1490,10 +1550,10 @@
       "drinks"
     ],
     "cuisine": "Chicken wings & bar food",
-    "userNote": "Bunny Jackson - dive bar 20p wings",
+    "userNote": "Bunny Jackson - dive bar 20p wings / Bunny Jackson,american dive bar vibe. 20p chicken wings! Deansgate.",
     "blurb": "New Orleans-style dive bar near Deansgate tram stop, known for 20p chicken wings.",
     "address": "1 Jack Rosenthal Street, Manchester M15 4RA",
-    "neighbourhood": "First Street / Deansgate",
+    "neighbourhood": "First Street",
     "lat": 53.47362,
     "lng": -2.24578,
     "booking": "walk-in",
@@ -1529,7 +1589,10 @@
       "https://bunnysdivebars.co.uk/bunnyjacksons/",
       "https://designmynight.com/manchester/blog/bunny-jackson-20p-chicken-wings"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": null,
+    "googleReviews": null,
+    "ratingSource": null
   },
   {
     "events": [],
@@ -1595,7 +1658,10 @@
       "https://www.creativetourist.com/venue/castle-hotel",
       "https://www.theskinny.co.uk/venue/9499-the_castle_hotel"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": null,
+    "googleReviews": null,
+    "ratingSource": null
   },
   {
     "events": [],
@@ -1661,6 +1727,2779 @@
       "https://www.manchestersfinest.com/places/peveril-of-the-peak/",
       "https://www.creativetourist.com/venue/peveril-of-the-peak"
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "googleRating": 4.6,
+    "googleReviews": 2077,
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/the-peveril-of-the-peak/"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Hours unverified; book ahead for a weekend evening.",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": null,
+    "priceNote": "Reviewer cited about £30 per person (unverified, may be outdated).",
+    "website": "https://www.m8hotpot.co.uk",
+    "id": "m8-hotpot",
+    "name": "M8 Hot Pot",
+    "type": "restaurant",
+    "tags": [
+      "hotpot",
+      "all you can eat",
+      "Cheetham Hill",
+      "Chinese"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Chinese all-you-can-eat hotpot",
+    "userNote": "All you can eat mini hotpot M8",
+    "blurb": "All-you-can-eat Chinese hotpot on Cheetham Hill Road with tabletop broths, sushi, sauce bar and ice cream.",
+    "tip": "Pick a broth such as spicy beef butter or fish maw; sauce station and unlimited ice cream included. Not confirmed that pots are individual ('mini') - check on arrival. Same address is also listed for Sakura AYCE sushi, so it may share a building.",
+    "address": "175 Cheetham Hill Road, Manchester M8 8LG",
+    "neighbourhood": "Cheetham Hill",
+    "lat": 53.49746,
+    "lng": -2.23795,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "22:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "22:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "22:00"
+        ]
+      ],
+      "mon": [
+        [
+          "12:00",
+          "22:00"
+        ]
+      ]
+    },
+    "hoursNote": "Opening hours NOT found; 12:00-22:00 is a placeholder. Check the website or Google before going.",
+    "sources": [
+      "https://ma.to/venue/m8hotpot_mcr",
+      "https://manchesterwire.co.uk/guide/the-best-places-to-try-korean-and-chinese-hotpot-in-manchester/"
+    ],
+    "confidence": "low"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Fri/Sat evenings busy - book ahead.",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": "https://oneplusrestaurant.co.uk",
+    "bookingNote": null,
+    "priceNote": "Reviewer: hotpot base about £6.50, plates from £1.80 (older review).",
+    "website": "https://oneplusrestaurant.co.uk",
+    "id": "one-plus",
+    "name": "One Plus",
+    "type": "restaurant",
+    "tags": [
+      "hotpot",
+      "Korean-style BBQ",
+      "noodles",
+      "Chinatown",
+      "three floors"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Chinese hotpot, BBQ & noodles",
+    "userNote": "One plus Hotpot! 3 different floors. 3Kbbq 2hotpot 1rice and noodles.",
+    "blurb": "Three-floor Chinatown restaurant with conveyor-belt individual hotpot, tabletop coal BBQ and a hand-pulled noodle and rice bar.",
+    "tip": "Floors differ by source: hotpot with conveyor belt, BBQ meats on a personal coal pit, and a basement noodle bar. Book for weekends.",
+    "address": "42 Charles Street, Manchester M1 7DB",
+    "neighbourhood": "Chinatown",
+    "lat": 53.47394,
+    "lng": -2.23838,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "11:30",
+          "22:30"
+        ]
+      ],
+      "sat": [
+        [
+          "11:30",
+          "22:30"
+        ]
+      ],
+      "sun": [
+        [
+          "11:30",
+          "22:00"
+        ]
+      ],
+      "mon": [
+        [
+          "11:30",
+          "21:30"
+        ]
+      ]
+    },
+    "hoursNote": "From Manchester's Finest listing; not cross-checked with venue site.",
+    "sources": [
+      "https://www.manchestersfinest.com/places/one-plus/",
+      "https://confidentials.com/manchester/one-plus-chinese-hot-pot-charles-street-manchester-reviewed",
+      "https://themanc.com/eats/one-plus-chinese-restaurant-crowned-best-in-manchester-for-third-year-running"
+    ],
+    "confidence": "high",
+    "googleRating": 4.5,
+    "googleReviews": 1279,
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/one-chinese-restaurant/"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": null,
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": null,
+    "priceNote": null,
+    "website": "https://hofoodhall.com",
+    "id": "hello-oriental",
+    "name": "Hello Oriental",
+    "type": "restaurant",
+    "tags": [
+      "food hall",
+      "Asian",
+      "Circle Square",
+      "three floors"
+    ],
+    "meals": [
+      "breakfast",
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cuisine": "Pan-Asian food hall",
+    "userNote": "Hello oriental - 3 floors different shops food hall.",
+    "blurb": "Three-storey underground Asian food hall at Circle Square with Chinese roast meats, sushi, Korean fried chicken, dim sum, noodles and bubble tea.",
+    "tip": "Many separate stalls - split up and share. Also has karaoke, bubble tea and cocktails.",
+    "address": "Circle Square, South Pavilion, 2 Symphony Park, Manchester M1 7FS",
+    "neighbourhood": "Oxford Road",
+    "lat": 53.47301,
+    "lng": -2.23938,
+    "booking": "walk-in",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "08:00",
+          "22:00"
+        ]
+      ],
+      "sat": [
+        [
+          "10:00",
+          "24:00"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "21:30"
+        ]
+      ],
+      "mon": [
+        [
+          "08:00",
+          "21:30"
+        ]
+      ]
+    },
+    "hoursNote": "From Manchester's Finest listing; 2022 launch coverage said 10:00-23:00 daily, so hours conflict.",
+    "sources": [
+      "https://www.manchestersfinest.com/places/hello-oriental/",
+      "https://www.placenorthwest.co.uk/underground-food-hall-opens-this-weekend-at-manchesters-circle-square/"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.2,
+    "googleReviews": 1125,
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/hello-oriental-circle-square/"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": null,
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": null,
+    "priceNote": "Dishes from £3.50, max £12 (2024).",
+    "website": null,
+    "id": "hong-thai",
+    "name": "Hong Thai",
+    "type": "restaurant",
+    "tags": [
+      "Thai",
+      "Hong Kong",
+      "cheap eats",
+      "Ancoats"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Thai & Hong Kong snacks",
+    "userNote": "Hong Thai",
+    "blurb": "Former Arndale Market favourite serving Thai curries and Hong Kong snacks from its Oldham Road site.",
+    "tip": "Try Khao Soi, Hong Kong beef buns and crispy chilli chicken; dishes from £3.50, nothing over £12 (May 2024).",
+    "address": "140 Oldham Road, Manchester M4 6BG",
+    "neighbourhood": "Ancoats",
+    "lat": 53.48694,
+    "lng": -2.22695,
+    "booking": "walk-in",
+    "price": "£",
+    "hours": {
+      "fri": [
+        [
+          "11:00",
+          "21:30"
+        ]
+      ],
+      "sat": [
+        [
+          "11:00",
+          "21:30"
+        ]
+      ],
+      "sun": [
+        [
+          "11:00",
+          "21:30"
+        ]
+      ],
+      "mon": [
+        [
+          "11:00",
+          "21:30"
+        ]
+      ]
+    },
+    "hoursNote": "Uber Eats says 11:00-21:30 daily; Pinloco 11:00-21:30; the 2024 reopening article said 11:00-21:00.",
+    "sources": [
+      "https://themanc.com/eats/hong-thai-manchester-restaurant-arndale-oldham-road/",
+      "https://feedthelion.co.uk/?p=59478",
+      "https://pinloco.com/business/4616"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.7,
+    "googleReviews": 940,
+    "ratingSource": "https://wanderlog.com/place/details/3638253/hong-thai"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": null,
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": null,
+    "priceNote": null,
+    "website": null,
+    "id": "chef-diao",
+    "name": "Chef Diao",
+    "type": "restaurant",
+    "tags": [
+      "dumplings",
+      "dim sum",
+      "Cantonese",
+      "Northern Quarter"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Dim sum, dumplings & Chinese",
+    "userNote": "Chefdiao for dumplings",
+    "blurb": "Unassuming Northern Quarter Chinese restaurant known for handmade dim sum, soup dumplings and hand-pulled noodles.",
+    "tip": "Order several dim sum plates to share: har gau, siu mai, Shanghai soup dumplings, char siu bao, pan-fried dumplings.",
+    "address": "92-94 Oldham Street, Manchester M4 1LJ",
+    "neighbourhood": "Northern Quarter",
+    "lat": 53.48459,
+    "lng": -2.23284,
+    "booking": "walk-in",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "22:30"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "22:30"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "21:00"
+        ]
+      ],
+      "mon": [
+        [
+          "12:00",
+          "22:00"
+        ]
+      ]
+    },
+    "hoursNote": "Manchester's Finest and SquareMeal agree; some listings show Wednesday closed (irrelevant to trip). Coordinates are street-level (OSM), approximate.",
+    "sources": [
+      "https://www.manchestersfinest.com/places/chef-diao/",
+      "https://www.squaremeal.co.uk/restaurants/chef-diao_29560"
+    ],
+    "confidence": "high",
+    "googleRating": 4.3,
+    "googleReviews": 857,
+    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/chef-diao-manchester"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Expect a queue at peak times.",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": null,
+    "priceNote": null,
+    "website": null,
+    "id": "happy-seasons",
+    "name": "Happy Seasons",
+    "type": "restaurant",
+    "tags": [
+      "Cantonese",
+      "roast meat",
+      "Chinatown",
+      "institution"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Cantonese roast meats",
+    "userNote": "Happy seasons 3 meat roast",
+    "blurb": "Chinatown roast-meat specialist since 1982, famed for Hong Kong-style roast duck, crispy belly pork and char siu.",
+    "tip": "Get the 3-meat roast platter (duck, crispy pork, char siu). Queues for walk-ins; bookings limited.",
+    "address": "59 Faulkner Street, Manchester M1 4FH",
+    "neighbourhood": "Chinatown",
+    "lat": 53.4781,
+    "lng": -2.24009,
+    "booking": "walk-in",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "21:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "22:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "21:00"
+        ]
+      ],
+      "mon": [
+        [
+          "12:00",
+          "21:00"
+        ]
+      ]
+    },
+    "hoursNote": "Sources conflict: 12-21:00 (22:00 Sat) vs 12-22:00 daily. Conservative values used.",
+    "sources": [
+      "https://themanc.com/eats/happy-seasons-chinatown-manchester-chinese-restaurant/",
+      "https://www.hungryonion.org/t/manchester-city-centre-happy-seasons/16689",
+      "https://pinloco.com/business/2389"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.1,
+    "googleReviews": 1981,
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/happy-seasons-restaurant/"
+  },
+  {
+    "bookingNote": null,
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "menuUrl": null,
+    "bookingUrl": null,
+    "website": "https://phocue.co.uk",
+    "kitchenHours": null,
+    "tripNote": null,
+    "priceNote": "Street box £11 is the user's note and is unverified; 2020-21 coverage listed street boxes at about £15 (Ultimate Lockdown Street Box).",
+    "id": "pho-cue",
+    "name": "Pho Cue",
+    "type": "restaurant",
+    "tags": [
+      "Vietnamese",
+      "pho",
+      "banh mi",
+      "street box",
+      "Chinatown"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Vietnamese",
+    "userNote": "Pho cue / Pho cue street box £11",
+    "blurb": "Busy Vietnamese kitchen on Faulkner Street known for pho, banh mi and loaded street boxes.",
+    "address": "52a Faulkner Street, Manchester M1 4FH",
+    "neighbourhood": "Chinatown",
+    "lat": 53.47809,
+    "lng": -2.24037,
+    "booking": "walk-in",
+    "price": "£",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "21:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "21:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "21:00"
+        ]
+      ],
+      "mon": [
+        [
+          "12:00",
+          "21:00"
+        ]
+      ]
+    },
+    "hoursNote": "Manchester's Finest: 12:00-21:00 Mon and Wed-Sun, closed Tuesday. One aggregator shows a 16:00-17:00 afternoon break; unconfirmed.",
+    "tip": "Pho and banh mi are the staples; the street box (user says £11) is the sharing option - current price unverified. Usually busy, so go off-peak.",
+    "sources": [
+      "https://www.manchestersfinest.com/places/pho-cue/",
+      "https://manchestersfinest.com/eating-and-drinking/now-delivering-pho-cues-vietnamese-lockdown-street-boxes",
+      "https://nominatim.openstreetmap.org/search?q=Pho+Cue,Faulkner+Street,Manchester&format=json"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.6,
+    "googleReviews": 866,
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/pho-cue"
+  },
+  {
+    "bookingNote": null,
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "menuUrl": null,
+    "bookingUrl": null,
+    "website": null,
+    "kitchenHours": null,
+    "tripNote": "Closes at 6pm every day, so do not leave it to the evening.",
+    "priceNote": null,
+    "id": "ca-phe-viet",
+    "name": "Ca Phe Viet",
+    "type": "cafe",
+    "tags": [
+      "Vietnamese",
+      "coffee",
+      "pho",
+      "banh mi",
+      "Ancoats"
+    ],
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "Vietnamese cafe",
+    "userNote": "Ca phe viet for pho",
+    "blurb": "Independent Vietnamese cafe on Oldham Road serving pho, banh mi and traditional condensed-milk Vietnamese coffee.",
+    "address": "80-86 Oldham Road, Manchester M4 5EB",
+    "neighbourhood": "Ancoats",
+    "lat": 53.48617,
+    "lng": -2.22908,
+    "booking": "walk-in",
+    "price": "£",
+    "hours": {
+      "fri": [
+        [
+          "11:00",
+          "18:00"
+        ]
+      ],
+      "sat": [
+        [
+          "11:00",
+          "18:00"
+        ]
+      ],
+      "sun": [
+        [
+          "11:00",
+          "18:00"
+        ]
+      ],
+      "mon": [
+        [
+          "11:00",
+          "18:00"
+        ]
+      ]
+    },
+    "hoursNote": "Manchester's Finest: 11:00-18:00, closed Wednesday. Autoreserve (user-provided) is inconsistent; check before going.",
+    "tip": "Order the pho and a hot or iced ca phe sua da (Vietnamese coffee). Closes at 18:00 so it is a lunch/early-afternoon stop.",
+    "sources": [
+      "https://www.manchestersfinest.com/places/ca-phe-viet/",
+      "https://autoreserve.com/en/restaurants/BhytmZChRf5Pc6YpX2bi",
+      "https://nominatim.openstreetmap.org/search?q=Ca+Phe+Viet,Oldham+Road,Manchester&format=json"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.8,
+    "googleReviews": 353,
+    "ratingSource": "https://www.sluurpy.at/manchester/restaurant/1664213/ca-phe-viet"
+  },
+  {
+    "bookingNote": null,
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "menuUrl": "https://sapporo.co.uk/menu/",
+    "bookingUrl": null,
+    "website": "https://sapporo.co.uk/",
+    "kitchenHours": null,
+    "tripNote": "Book ahead for a Fri/Sat teppanyaki table; Christmas menus are on in late November.",
+    "priceNote": "Standard prices not listed on site; festive tasting menu £53.99 and weekday Christmas lunch £29 are advertised.",
+    "id": "sapporo-teppanyaki",
+    "name": "Sapporo Teppanyaki",
+    "type": "restaurant",
+    "tags": [
+      "Japanese",
+      "teppanyaki",
+      "show",
+      "groups",
+      "Castlefield"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Japanese teppanyaki",
+    "userNote": "Soporro teppanyaki - great food and show(cooks in front of you)",
+    "blurb": "Japanese teppanyaki restaurant where chefs cook and perform at the table, on Liverpool Road.",
+    "address": "91-93 Liverpool Road, Manchester M3 4JN",
+    "neighbourhood": "Castlefield",
+    "lat": 53.47656,
+    "lng": -2.25574,
+    "booking": "essential",
+    "price": "£££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "22:30"
+        ]
+      ],
+      "mon": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ]
+    },
+    "hoursNote": "From sapporo.co.uk: Mon-Sat 12:00-23:00, Sun 12:00-22:30.",
+    "tip": "Sit at a teppanyaki table for the show (tables seat up to 20); the site recommends booking ahead as they fill quickly. Phone 0161 831 9888.",
+    "sources": [
+      "https://sapporo.co.uk/",
+      "https://nominatim.openstreetmap.org/search?q=Sapporo+Teppanyaki,Liverpool+Road,Manchester&format=json"
+    ],
+    "confidence": "high",
+    "googleRating": 4.5,
+    "googleReviews": 2697,
+    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/sapporo-teppanyaki-manchester-manchester"
+  },
+  {
+    "bookingNote": null,
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "menuUrl": null,
+    "bookingUrl": null,
+    "website": null,
+    "kitchenHours": null,
+    "tripNote": "Hours unverified - check before going.",
+    "priceNote": "The £1 cheesy coin is the user's note; no source mentions a coin item, so unverified.",
+    "id": "bangga-bangga",
+    "name": "BangGa BangGa",
+    "type": "cafe",
+    "tags": [
+      "Korean",
+      "halal",
+      "corn dogs",
+      "cheese",
+      "street food",
+      "Northern Quarter"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Korean street food (halal)",
+    "userNote": "BangGa banga viral cheesy £1 coin",
+    "blurb": "Halal Korean street-food spot on Church Street known for cheese corn dogs and fried chicken, with a stall at Piccadilly Street Food Market.",
+    "address": "Unit 1A, Transmission House, 28 Church Street, Manchester M4 1PN",
+    "neighbourhood": "Northern Quarter",
+    "lat": 53.48283,
+    "lng": -2.23738,
+    "booking": "walk-in",
+    "price": "£",
+    "hours": {
+      "fri": [
+        [
+          "11:00",
+          "18:00"
+        ]
+      ],
+      "sat": [
+        [
+          "11:00",
+          "18:00"
+        ]
+      ],
+      "sun": [
+        [
+          "11:00",
+          "18:00"
+        ]
+      ],
+      "mon": [
+        [
+          "11:00",
+          "18:00"
+        ]
+      ]
+    },
+    "hoursNote": "Church Street hours not published in sources found; 11:00-18:00 Mon-Sat is the Piccadilly stall's listed time (Sunday assumed). Verify before going.",
+    "tip": "Menu items found: mozzarella 'Original Cheese' corn dog, Potato Cheese hotdog, Snow Cheese fried chicken, rice cakes with melted cheese. The £1 coin item is unverified, so ask when you arrive.",
+    "sources": [
+      "https://www.feedthelion.co.uk/?p=64108",
+      "https://ratings.food.gov.uk/api/download-data/xml/establishments/1894467",
+      "https://ratings.food.gov.uk/api/download-data/xml/establishments/1821510"
+    ],
+    "confidence": "low",
+    "googleRating": null,
+    "googleReviews": null,
+    "ratingSource": null
+  },
+  {
+    "bookingNote": null,
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "menuUrl": "https://www.tops-restaurants.co.uk/prices/",
+    "bookingUrl": "https://www.tops-restaurants.co.uk/book/",
+    "website": "https://www.tops-restaurants.co.uk/",
+    "kitchenHours": null,
+    "tripNote": "Pre-Christmas offer on the site: dinner £19.95 Mon-Fri until 27 Nov, advance booking only (applies to Fri 20 and Mon 23 Nov).",
+    "priceNote": "From 4 May 2026: Fri lunch £17.95; Fri dinner £22.95; Sat and Sun all day £22.95; Mon dinner £21.95 (Mon-Thu no lunch). 3% discretionary service charge; drinks extra.",
+    "id": "tops-buffet",
+    "name": "TOPS Buffet",
+    "type": "restaurant",
+    "tags": [
+      "buffet",
+      "all you can eat",
+      "world food",
+      "live cooking",
+      "Chinatown"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "International all-you-can-eat buffet",
+    "userNote": "Tops buffet. World food. Live station if u like prawns then a double of this is worth the entry price alone!",
+    "blurb": "Large all-you-can-eat world buffet on Portland Street with live cooking stations.",
+    "address": "106 Portland Street, Manchester M1 4RJ",
+    "neighbourhood": "Piccadilly",
+    "lat": 53.47682,
+    "lng": -2.24159,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "16:00"
+        ],
+        [
+          "16:30",
+          "22:30"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "22:30"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "22:00"
+        ]
+      ],
+      "mon": [
+        [
+          "16:30",
+          "22:30"
+        ]
+      ]
+    },
+    "hoursNote": "From tops-restaurants.co.uk/prices. Last booking slot 21:00; seating limit 1.5h Fri-Sun, 2h Mon-Thu.",
+    "tip": "Live cooking stations on site; advance booking strongly recommended (0161 237 1000). Time limit applies, so pace the prawns.",
+    "sources": [
+      "https://www.tops-restaurants.co.uk/prices/",
+      "https://www.tops-restaurants.co.uk/",
+      "https://nominatim.openstreetmap.org/search?q=106+Portland+Street,Manchester+M1+4RJ&format=json"
+    ],
+    "confidence": "high",
+    "googleRating": 3.9,
+    "googleReviews": 4941,
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/tops-buffet-restaurant"
+  },
+  {
+    "bookingNote": null,
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "menuUrl": null,
+    "bookingUrl": null,
+    "website": null,
+    "kitchenHours": null,
+    "tripNote": "Closed Monday per listing.",
+    "priceNote": null,
+    "id": "thief-street",
+    "name": "Thief Street",
+    "type": "restaurant",
+    "tags": [
+      "chicken",
+      "Korean-style",
+      "waffles",
+      "First Street"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Chicken restaurant",
+    "userNote": "Thief street.",
+    "blurb": "Chicken restaurant at the Gasworks in First Street, listed as a restaurant/cafe/canteen.",
+    "address": "5 Jack Rosenthal Street, Manchester M15 4RA",
+    "neighbourhood": "First Street",
+    "lat": 53.47346,
+    "lng": -2.24615,
+    "booking": "walk-in",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "21:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "21:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "19:00"
+        ]
+      ],
+      "mon": []
+    },
+    "hoursNote": "Wanderlog listing only (Mon closed, Sun 12-19, Fri/Sat 12-21); not confirmed on a venue site. Identification of 'Thief street' is a best guess.",
+    "tip": "Reviews mention Korean BBQ-style waffles and a Malaysian 'Thief Waffle'; some report slow service.",
+    "sources": [
+      "https://wanderlog.com/place/details/3746808",
+      "https://nominatim.openstreetmap.org/search?q=Thief+Street,Jack+Rosenthal+Street,Manchester&format=json"
+    ],
+    "confidence": "low",
+    "googleRating": null,
+    "googleReviews": null,
+    "ratingSource": null
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "bookingUrl": null,
+    "bookingNote": null,
+    "booking": "walk-in",
+    "menuUrl": null,
+    "id": "rollers-cafe-arndale",
+    "name": "Rollers Café (Arndale)",
+    "type": "cafe",
+    "tags": [
+      "cinnamon rolls",
+      "bakery",
+      "dessert",
+      "Arndale"
+    ],
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "Cinnamon rolls & coffee",
+    "userNote": "Rollers-amazing fresh cinnamon rolls",
+    "blurb": "Arndale cafe baking fresh cinnamon rolls in store with cream cheese frosting.",
+    "address": "Unit 17, Market Way, Upper Mall, Manchester Arndale, Manchester M4 3AQ",
+    "neighbourhood": "Northern Quarter",
+    "lat": 53.48405,
+    "lng": -2.24007,
+    "tip": "Famous for in-store baked cinnamon rolls with cream cheese frosting (2013 coverage; current prices unverified).",
+    "website": "https://www.rollerscafe.co.uk",
+    "price": "£",
+    "priceNote": "2013 article: Cinnamon King £2.50; likely higher now (unverified).",
+    "hours": {
+      "fri": [
+        [
+          "08:30",
+          "20:00"
+        ]
+      ],
+      "sat": [
+        [
+          "08:30",
+          "20:00"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "18:00"
+        ]
+      ],
+      "mon": [
+        [
+          "08:30",
+          "20:00"
+        ]
+      ]
+    },
+    "kitchenHours": null,
+    "hoursNote": "From rollerscafe.co.uk/locations (Mon-Sat 08:30-20:00, Sun 10:00-18:00); mall hours may vary. Coordinates approximate (Arndale Upper Mall), not from a map source; postcode is the Arndale's.",
+    "tripNote": "Inside the Arndale so follows mall opening; Christmas trading hours may extend.",
+    "sources": [
+      "https://www.rollerscafe.co.uk/locations/",
+      "https://confidentials.com/manchester/rollers-caf233-arndale"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.2,
+    "googleReviews": 347,
+    "ratingSource": "https://www.sluurpy.com/es/manchester/restaurant/1667918/rollers-cafe"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "bookingUrl": null,
+    "bookingNote": null,
+    "booking": "walk-in",
+    "menuUrl": null,
+    "id": "gooey-northern-quarter",
+    "name": "Gooey Café + Bakery (Northern Quarter)",
+    "type": "cafe",
+    "tags": [
+      "bakery",
+      "cookies",
+      "brownies",
+      "French toast",
+      "brunch",
+      "dessert"
+    ],
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "Bakery, stuffed cookies & brunch",
+    "userNote": "Gooey - all brownies and cookies buy so good. / Gooey dulce de leche filled French tst",
+    "blurb": "Viral NQ bakery known for stuffed cookies, brioche donuts and dulce de leche French toast.",
+    "address": "103 High Street, Manchester M4 1HQ",
+    "neighbourhood": "Northern Quarter",
+    "lat": 53.48433,
+    "lng": -2.23753,
+    "tip": "Dulce de leche stuffed French toast (about £11-12 in 2022 reviews); one reviewer found it swapped for a rhubarb and custard special, so ask. Cookies/brownies from the counter.",
+    "website": "https://gooeybakery.co.uk",
+    "price": "££",
+    "priceNote": "French toast approx £11.30-12 (2022 reviews, may have risen).",
+    "hours": {
+      "fri": [
+        [
+          "09:00",
+          "18:00"
+        ]
+      ],
+      "sat": [
+        [
+          "09:00",
+          "18:00"
+        ]
+      ],
+      "sun": [
+        [
+          "09:00",
+          "18:00"
+        ]
+      ],
+      "mon": [
+        [
+          "09:00",
+          "18:00"
+        ]
+      ]
+    },
+    "kitchenHours": {
+      "fri": [
+        [
+          "09:00",
+          "17:00"
+        ]
+      ],
+      "sat": [
+        [
+          "09:00",
+          "17:00"
+        ]
+      ],
+      "sun": [
+        [
+          "09:00",
+          "17:00"
+        ]
+      ],
+      "mon": [
+        [
+          "09:00",
+          "17:00"
+        ]
+      ]
+    },
+    "hoursNote": "Hours and kitchen from gooeybakery.co.uk; Manchester's Finest agrees 9-6 daily. Coordinates approximate for 103 High St. Also at Oxford Road (Circle Square), weekdays only.",
+    "tripNote": "Weekend brunch queues likely; go early.",
+    "sources": [
+      "https://gooeybakery.co.uk",
+      "https://www.manchestersfinest.com/places/gooey-cafe/",
+      "https://www.manchestersfinest.com/eating-and-drinking/new-opening-gooeys-northern-quarter-neighbourhood-bakery-cafe/"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.4,
+    "googleReviews": null,
+    "ratingSource": "https://thatsup.co.uk/manchester/bakery/gooey-northern-quarter/"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "bookingUrl": null,
+    "bookingNote": null,
+    "booking": "walk-in",
+    "menuUrl": null,
+    "id": "the-flat-baker-ancoats",
+    "name": "The Flat Baker (Ancoats)",
+    "type": "cafe",
+    "tags": [
+      "bakery",
+      "croissants",
+      "pistachio",
+      "Ancoats",
+      "brunch"
+    ],
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "Bakery & brunch",
+    "userNote": "Flat Baker - postscio croissaint 🥐 7.50",
+    "blurb": "Ancoats bakery famed for its pistachio croissant, with a cafe on Jersey Street and a hatch on Radium Street.",
+    "address": "97 Jersey Street, Ancoats, Manchester M4 6JG",
+    "neighbourhood": "Ancoats",
+    "lat": 53.48501,
+    "lng": -2.22569,
+    "tip": "Order the pistachio croissant (user notes £7.50; price unverified); bakes can sell out before closing.",
+    "website": "https://www.theflatbaker.co.uk/",
+    "price": "££",
+    "priceNote": "Pistachio croissant £7.50 per user; not verified.",
+    "hours": {
+      "fri": [
+        [
+          "08:00",
+          "16:00"
+        ]
+      ],
+      "sat": [
+        [
+          "08:00",
+          "16:00"
+        ]
+      ],
+      "sun": [],
+      "mon": []
+    },
+    "kitchenHours": null,
+    "hoursNote": "Tue-Sat 8-4 per Manchester's Finest and Secret Manchester; one source says hatch Wed-Sat until sold out. Coordinates approximate. Also runs a Piccadilly Gardens Christmas Market stall (queues).",
+    "tripNote": "Closed Sun 22 and Mon 23 Nov; only Fri/Sat open.",
+    "sources": [
+      "https://www.manchestersfinest.com/places/flat-baker-ancoats/",
+      "https://secretmanchester.com/the-flat-baker-cafe-brunch/"
+    ],
+    "confidence": "medium",
+    "googleRating": null,
+    "googleReviews": null,
+    "ratingSource": null
+  },
+  {
+    "events": [],
+    "travel": {
+      "car": "About 15 min from city centre",
+      "transit": "Bus along Oxford Rd / Wilmslow Rd, about 25-30 min",
+      "from": "Piccadilly Gardens"
+    },
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "bookingUrl": null,
+    "bookingNote": null,
+    "booking": "walk-in",
+    "menuUrl": null,
+    "id": "biskits-withington",
+    "name": "Biskits (Withington)",
+    "type": "cafe",
+    "tags": [
+      "mini pancakes",
+      "brunch",
+      "desserts",
+      "waffles",
+      "Withington"
+    ],
+    "meals": [
+      "breakfast",
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Brunch & desserts",
+    "userNote": "Biskits mini Dutch pancake and brunch.",
+    "blurb": "Wilmslow Road dessert and brunch diner serving mini pancakes, waffles and French toast.",
+    "address": "478 Wilmslow Road, Withington, Manchester M20 3BG",
+    "neighbourhood": "Withington",
+    "lat": 53.43305,
+    "lng": -2.22895,
+    "tip": "Menu includes pancakes, waffles, pistachio French toast and brownies; not in the city centre.",
+    "website": null,
+    "price": "££",
+    "priceNote": null,
+    "hours": {
+      "fri": [
+        [
+          "10:00",
+          "22:00"
+        ]
+      ],
+      "sat": [
+        [
+          "10:00",
+          "22:00"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "22:00"
+        ]
+      ],
+      "mon": [
+        [
+          "10:00",
+          "22:00"
+        ]
+      ]
+    },
+    "kitchenHours": null,
+    "hoursNote": "Only from Sluurpy listing (10:00-22:00 daily, 2025); no official source. Coordinates approximate. Match to user's note is a guess.",
+    "tripNote": "Out of centre, Wilmslow Road bus corridor.",
+    "sources": [
+      "https://www.sluurpy.com/de/manchester/restaurant/7995657/biskits"
+    ],
+    "confidence": "low",
+    "googleRating": 4.7,
+    "googleReviews": 441,
+    "ratingSource": "https://thatsup.co.uk/manchester/cafe/biskits/"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": null,
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": null,
+    "priceNote": null,
+    "website": null,
+    "tip": "Menu runs all day; small space so expect a wait at weekend brunch.",
+    "hoursNote": "Manchester's Finest: Mon-Fri 07:30-16:00, Sat-Sun 08:00-17:00; older listings differ (some show evening hours), so unconfirmed.",
+    "id": "federal-cafe-nq",
+    "name": "Federal Cafe & Bar",
+    "type": "cafe",
+    "tags": [
+      "brunch",
+      "Antipodean",
+      "coffee",
+      "dog friendly"
+    ],
+    "meals": [
+      "breakfast",
+      "lunch"
+    ],
+    "cuisine": "Australian/NZ-style brunch",
+    "userNote": "Federal brunch.",
+    "blurb": "All-day Antipodean brunch cafe tucked down Nicholas Croft in the Northern Quarter.",
+    "address": "9 Nicholas Croft, Manchester M4 1EY",
+    "neighbourhood": "Northern Quarter",
+    "lat": 53.48424,
+    "lng": -2.23845,
+    "booking": "walk-in",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "07:30",
+          "16:00"
+        ]
+      ],
+      "sat": [
+        [
+          "08:00",
+          "17:00"
+        ]
+      ],
+      "sun": [
+        [
+          "08:00",
+          "17:00"
+        ]
+      ],
+      "mon": [
+        [
+          "07:30",
+          "16:00"
+        ]
+      ]
+    },
+    "sources": [
+      "https://www.manchestersfinest.com/places/federal/",
+      "https://www.theskinny.co.uk/whats-on/manchester/restaurants/federal-cafe-bar"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.7,
+    "googleReviews": 3104,
+    "ratingSource": "https://thatsup.co.uk/manchester/cafe/federal-northern-quarter/"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": null,
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": null,
+    "priceNote": "Listing mentions grilled cheese, fries and drink for £10 on Mondays (unverified currency).",
+    "website": null,
+    "tip": "Try The Soul (three cheeses, sourdough, up to three fillings) or the Triple Burger Toastie; Monday meal deal reported.",
+    "hoursNote": "Manchester's Finest listing only; not cross-checked.",
+    "id": "northern-soul-grilled-cheese",
+    "name": "Northern Soul Grilled Cheese",
+    "type": "cafe",
+    "tags": [
+      "grilled cheese",
+      "toasties",
+      "casual",
+      "Northern Quarter"
+    ],
+    "meals": [
+      "lunch"
+    ],
+    "cuisine": "Grilled cheese sandwiches",
+    "userNote": "Northern soul packed cheesy toasties.",
+    "blurb": "Grilled cheese specialist (since 2013) in Smithfield Buildings with a terrace and Northern Soul soundtrack.",
+    "address": "20-21 Smithfield Buildings, 44 Tib Street, Manchester M4 1LA",
+    "neighbourhood": "Northern Quarter",
+    "lat": 53.48292,
+    "lng": -2.23568,
+    "booking": "walk-in",
+    "price": "£",
+    "hours": {
+      "fri": [
+        [
+          "10:00",
+          "20:00"
+        ]
+      ],
+      "sat": [
+        [
+          "10:00",
+          "20:00"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "17:00"
+        ]
+      ],
+      "mon": [
+        [
+          "10:00",
+          "18:00"
+        ]
+      ]
+    },
+    "sources": [
+      "https://www.manchestersfinest.com/places/northern-soul-grilled-cheese/"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.7,
+    "googleReviews": 790,
+    "ratingSource": "https://www.sluurpy.at/manchester/restaurant/1653306/northern-soul-grilled-cheese"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Closed Monday 23 Nov.",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": null,
+    "priceNote": null,
+    "website": null,
+    "tip": "Order The Hot Take (bestseller) and Birdies (biscuit doughnuts in cinnamon sugar); weekend gravy specials.",
+    "hoursNote": "Manchester's Finest listing; pop-up residency so confirm it is still trading before going.",
+    "id": "cardinal-rule",
+    "name": "Cardinal Rule (Northern Monk Refectory)",
+    "type": "restaurant",
+    "tags": [
+      "fried chicken",
+      "biscuits",
+      "Southern American",
+      "pop-up"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Southern American fried chicken & biscuits",
+    "userNote": "Cardinal rule American biscuit and 🐥",
+    "blurb": "Fried chicken biscuit sandwiches from a Virginia-born couple, based inside Northern Monk Refectory.",
+    "address": "Northern Monk Refectory, 10 Tariff Street, Manchester M1 2FF",
+    "neighbourhood": "Northern Quarter",
+    "lat": 53.48121,
+    "lng": -2.23222,
+    "booking": "walk-in",
+    "price": "£",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "21:00"
+        ]
+      ],
+      "sat": [
+        [
+          "11:00",
+          "21:00"
+        ]
+      ],
+      "sun": [
+        [
+          "11:00",
+          "19:00"
+        ]
+      ],
+      "mon": []
+    },
+    "sources": [
+      "https://www.manchestersfinest.com/places/cardinal-rule/"
+    ],
+    "confidence": "medium",
+    "googleRating": null,
+    "googleReviews": null,
+    "ratingSource": null
+  },
+  {
+    "events": [],
+    "travel": {
+      "car": "About 25-30 min from central Manchester.",
+      "transit": "Train from Piccadilly to Stalybridge, about 20 min.",
+      "from": "Manchester Piccadilly"
+    },
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Closed Monday 23 Nov. Outside the city centre.",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": null,
+    "priceNote": null,
+    "website": null,
+    "tip": "Sunday roast has a reputation; book ahead. Garlic bread / 3-day potatoes / prawns not verified on current menu.",
+    "hoursNote": "Manchester's Finest listing only. Venue matched by name; user's dishes not verified against menu.",
+    "id": "cafe-continental-stalybridge",
+    "name": "Cafe Continental",
+    "type": "restaurant",
+    "tags": [
+      "Mediterranean",
+      "bistro",
+      "Sunday roast",
+      "Stalybridge"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Mediterranean-leaning bistro",
+    "userNote": "Cafe continental garlic bread lamb ribs,3 day potatoes prawns. Roast",
+    "blurb": "Flame-cooked Mediterranean-style bistro in Stalybridge with crispy lamb belly, seafood and a Sunday roast.",
+    "address": "5 Melbourne Street, Stalybridge SK15 2JE",
+    "neighbourhood": "Stalybridge",
+    "lat": 53.48299,
+    "lng": -2.05744,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "21:30"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "21:30"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "19:00"
+        ]
+      ],
+      "mon": []
+    },
+    "sources": [
+      "https://www.manchestersfinest.com/places/cafe-continental/"
+    ],
+    "confidence": "low",
+    "googleRating": null,
+    "googleReviews": null,
+    "ratingSource": null
+  },
+  {
+    "events": [],
+    "travel": {
+      "car": "About 10 min drive south of centre.",
+      "transit": "Frequent buses along Wilmslow Road (Curry Mile) from Oxford Road.",
+      "from": "Piccadilly Gardens"
+    },
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": null,
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": null,
+    "priceNote": null,
+    "website": "https://walnutrestaurant.co.uk",
+    "tip": "Charcoal-grilled meats and stews are the focus; hummus claim unverified.",
+    "hoursNote": "Manchester's Finest listing; venue identified by name (Persian, Rusholme) and hummus not confirmed on menu.",
+    "id": "walnut-rusholme",
+    "name": "Walnut",
+    "type": "restaurant",
+    "tags": [
+      "Persian",
+      "charcoal grill",
+      "hummus",
+      "Rusholme"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Persian",
+    "userNote": "Walnut great place hummus amazing.",
+    "blurb": "Persian restaurant serving charcoal-grilled meats and traditional stews on the quieter end of Wilmslow Road.",
+    "address": "237 Wilmslow Road, Manchester M14 5LW",
+    "neighbourhood": "Rusholme",
+    "lat": 53.45223,
+    "lng": -2.2222,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "22:00"
+        ]
+      ],
+      "mon": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ]
+    },
+    "sources": [
+      "https://www.manchestersfinest.com/places/walnut/"
+    ],
+    "confidence": "low",
+    "googleRating": 4.7,
+    "googleReviews": 2835,
+    "ratingSource": "https://restaurantguru.com/Walnut-Manchester"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "kitchenHours": null,
+    "bookingNote": null,
+    "menuUrl": null,
+    "bookingUrl": "https://www.sevenrooms.com/reservations/americanpies",
+    "priceNote": "Deep dish roughly 14.50-18.50 (unofficial menu site, unverified).",
+    "website": "https://www.americanpies.co.uk",
+    "tripNote": "Hours unverified - check before going.",
+    "id": "american-pies-ancoats",
+    "name": "American Pies (Ancoats)",
+    "type": "restaurant",
+    "tags": [
+      "Chicago deep dish",
+      "pizza",
+      "American",
+      "Ancoats"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Chicago-style deep dish pizza",
+    "userNote": "American pies / American pies deep dish 🍕",
+    "blurb": "Manchester's Chicago-style deep-dish pizzeria, with a parmesan-butter crust, garlic bread and loaded American sides.",
+    "tip": "Order a Chicago deep dish (about 14.50-18.50 per one unofficial menu guide) and allow time as deep dish bakes slowly; booking via SevenRooms.",
+    "address": "23 Blossom Street, Ancoats, Manchester M4 5EP",
+    "neighbourhood": "Ancoats",
+    "lat": 53.48433,
+    "lng": -2.22968,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "22:00"
+        ]
+      ],
+      "mon": [
+        [
+          "12:00",
+          "22:00"
+        ]
+      ]
+    },
+    "hoursNote": "Official site lists no hours; times are an estimate (licence application sought late refreshments to midnight Sun-Fri, 1am Sat). Confirm on 0161 215 8276. Original branch on Mosley Street (opened 2021) not confirmed still open.",
+    "sources": [
+      "https://www.americanpies.co.uk",
+      "https://www.manchestersfinest.com/eating-and-drinking/american-pies-second-location-ancoats/"
+    ],
+    "confidence": "low",
+    "googleRating": 4.5,
+    "googleReviews": 1977,
+    "ratingSource": "https://pinloco.com/business/3973"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "kitchenHours": null,
+    "bookingNote": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "priceNote": null,
+    "website": null,
+    "tripNote": null,
+    "id": "almost-famous-nq",
+    "name": "Almost Famous (Northern Quarter)",
+    "type": "restaurant",
+    "tags": [
+      "burgers",
+      "loaded fries",
+      "milkshakes",
+      "Northern Quarter"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Burgers",
+    "userNote": "Almost famous for burgers.",
+    "blurb": "Rock 'n' roll Northern Quarter burger joint known for towering 100% prime beef burgers with novelty toppings.",
+    "tip": "Famous for over-the-top burgers (e.g. Monster Munch toppings) plus loaded fries and shakes; check the venue's site to book.",
+    "address": "49-51 Edge Street, Manchester M4 1HW",
+    "neighbourhood": "Northern Quarter",
+    "lat": 53.4841,
+    "lng": -2.23583,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "22:00"
+        ]
+      ],
+      "mon": [
+        [
+          "12:00",
+          "22:00"
+        ]
+      ]
+    },
+    "hoursNote": "Manchester's Finest listing; it reopened after a brief closure so older listings (High Street) are outdated. Another branch is at The Great Northern.",
+    "sources": [
+      "https://www.manchestersfinest.com/places/almost-famous/",
+      "https://www.manchestersfinest.com/eating-and-drinking/lets-get-saucy-guide-dirty-food-manchester/"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.3,
+    "googleReviews": 1897,
+    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/almost-famous-manchester-manchester"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "kitchenHours": null,
+    "bookingNote": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "priceNote": null,
+    "website": null,
+    "tripNote": "Closed Monday 23 Nov.",
+    "id": "ramona",
+    "name": "Ramona",
+    "type": "restaurant",
+    "tags": [
+      "Detroit-style pizza",
+      "pizza",
+      "cocktails",
+      "live music",
+      "Ancoats"
+    ],
+    "meals": [
+      "dinner",
+      "drinks"
+    ],
+    "cuisine": "Detroit-style pizza",
+    "userNote": "Ramona cali style pizza peperoni",
+    "blurb": "Converted MOT garage in Ancoats serving square Detroit-style pizzas, frozen margaritas and DJs.",
+    "tip": "Pizza is Detroit-style (square, focaccia-like) rather than California-style; try the Jabba (salami, 'nduja, hot honey, jalapeno) and tots. Fri/Sat club nights.",
+    "address": "40 Swan Street, Ancoats, Manchester M4 5JG",
+    "neighbourhood": "Ancoats",
+    "lat": 53.48572,
+    "lng": -2.23444,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "16:00",
+          "01:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "01:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "24:00"
+        ]
+      ],
+      "mon": []
+    },
+    "hoursNote": "Manchester's Finest: closed Mon/Tue; Fri 4pm-1am, Sat 12pm-1am, Sun 12pm-12am.",
+    "sources": [
+      "https://www.manchestersfinest.com/places/ramona/"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.6,
+    "googleReviews": 2571,
+    "ratingSource": "https://firsttable.co.uk/manchester/ancoats/ramona"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "bookingNote": null,
+    "menuUrl": null,
+    "bookingUrl": "https://www.firsttable.co.uk/manchester/piccadilly/madre-manchester",
+    "website": null,
+    "kitchenHours": null,
+    "tripNote": null,
+    "priceNote": null,
+    "id": "madre-manchester",
+    "name": "Madre",
+    "type": "restaurant",
+    "tags": [
+      "Mexican",
+      "tacos",
+      "tequila",
+      "mezcal"
+    ],
+    "meals": [
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cuisine": "Mexican taqueria",
+    "userNote": "Madre Mexican.",
+    "blurb": "Liverpool-born Mexican taqueria in Kampus serving tacos (incl. birria), ceviche and a big tequila and mezcal list.",
+    "address": "Minshull House, 47 Chorlton Street, Manchester M1 3FY",
+    "neighbourhood": "Piccadilly",
+    "lat": 53.4776,
+    "lng": -2.2351,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "12:30",
+          "23:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:30",
+          "23:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:30",
+          "22:00"
+        ]
+      ],
+      "mon": [
+        [
+          "12:30",
+          "23:00"
+        ]
+      ]
+    },
+    "hoursNote": "Conflicting: FirstTable says daily 12:00-late; DesignMyNight 12:30-23:00 Mon-Sat, 12:30-22:00 Sun; SquareMeal lists Sat closed (likely wrong).",
+    "tip": "Order the tacos (pollo asado, birria) and a mezcal; FirstTable advertises 50% off food for the first table of the night.",
+    "sources": [
+      "https://www.firsttable.co.uk/manchester/piccadilly/madre-manchester",
+      "https://tasteofmanchester.com/news/spicy-spicy-where-to-get-proper-good-mexican-food-in-manchester/",
+      "https://designmynight.com/manchester/restaurants/piccadilly/madre"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.5,
+    "googleReviews": 1462,
+    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/madre-manchester-manchester"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "bookingNote": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "website": null,
+    "kitchenHours": null,
+    "tripNote": "Closed Sunday 22 Nov.",
+    "priceNote": null,
+    "id": "birria-bros-tacos",
+    "name": "Birria Bros Tacos",
+    "type": "restaurant",
+    "tags": [
+      "Mexican",
+      "birria",
+      "tacos",
+      "street food"
+    ],
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "Mexican birria tacos",
+    "userNote": "Birria bros tacos",
+    "blurb": "Evening birria taco spot inside The Koffee Pot on Oldham Street, known for cheesy beef-shin tacos with dipping consommé.",
+    "address": "84-86 Oldham Street, Manchester M4 1LE",
+    "neighbourhood": "Northern Quarter",
+    "lat": 53.48417,
+    "lng": -2.23322,
+    "booking": "walk-in",
+    "price": "£",
+    "hours": {
+      "fri": [
+        [
+          "16:00",
+          "23:00"
+        ]
+      ],
+      "sat": [
+        [
+          "16:00",
+          "23:00"
+        ]
+      ],
+      "sun": [],
+      "mon": [
+        [
+          "16:00",
+          "21:00"
+        ]
+      ]
+    },
+    "hoursNote": "From Manchester's Finest listing (Mon-Thu 16-21, Fri-Sat 16-23, closed Sun); hours have changed over time so unverified on the day.",
+    "tip": "Get the beef birria tacos with the consommé for dipping; takes over The Koffee Pot after its daytime service.",
+    "sources": [
+      "https://www.manchestersfinest.com/places/birria-bros-tacos/",
+      "https://tasteofmanchester.com/news/spicy-spicy-where-to-get-proper-good-mexican-food-in-manchester/"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.5,
+    "googleReviews": 225,
+    "ratingSource": "https://wanderlog.com/place/details/10125946/birria-brothers"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "bookingNote": null,
+    "menuUrl": null,
+    "bookingUrl": "https://firsttable.co.uk/manchester/northern-quarter/boogalu",
+    "website": null,
+    "kitchenHours": null,
+    "tripNote": "Closed Sunday 22 and Monday 23 Nov.",
+    "priceNote": null,
+    "id": "boogalu",
+    "name": "Boogalú",
+    "type": "restaurant",
+    "tags": [
+      "Mexican",
+      "tacos",
+      "birria",
+      "cocktails",
+      "rum",
+      "agave"
+    ],
+    "meals": [
+      "dinner",
+      "drinks"
+    ],
+    "cuisine": "Mexican taqueria & cocktail bar",
+    "userNote": "Bugalu £2 🌮 £3birria and tapas",
+    "blurb": "Two-storey Northern Quarter taqueria and cocktail bar with tacos, tapas and basement dancing.",
+    "address": "12 Tariff Street, Manchester M1 2FF",
+    "neighbourhood": "Northern Quarter",
+    "lat": 53.48125,
+    "lng": -2.23211,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "16:00",
+          "23:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "sun": [],
+      "mon": []
+    },
+    "hoursNote": "FirstTable: Mon-Fri 16:00-23:00, Sat 12:00-23:00, closed Sun; another listing says closed Mon. Treated Mon as closed.",
+    "tip": "Menu has lamb quesabirria and carnitas tacos. Your £2 taco / £3 birria deal is unverified: only a Jan 2025 50%-off promo was found, so ask on arrival (identified as Boogalú from 'Bugalu').",
+    "sources": [
+      "https://firsttable.co.uk/manchester/northern-quarter/boogalu",
+      "https://themanc.com/eats/january-deals-discounts-and-offers-manchester-restaurants-bars-2025/amp",
+      "https://tagvenue.com/venues/manchester/7110/boogalu"
+    ],
+    "confidence": "medium",
+    "googleRating": 4,
+    "googleReviews": 25,
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/boogalu"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "bookingNote": null,
+    "menuUrl": null,
+    "bookingUrl": "https://fogodechao.uk/reservations/",
+    "website": "https://fogodechao.uk/location/manchester/",
+    "kitchenHours": null,
+    "tripNote": null,
+    "priceNote": "Full churrasco £41 lunch, £58 dinner (per fogodechao.uk).",
+    "id": "fogo-de-chao-manchester",
+    "name": "Fogo de Chão (formerly Fazenda)",
+    "type": "restaurant",
+    "tags": [
+      "Brazilian",
+      "rodizio",
+      "all you can eat",
+      "steakhouse",
+      "BBQ"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Brazilian churrasco / rodizio",
+    "userNote": "Fazenda all you can eat meat bbq.",
+    "blurb": "Fazenda's Spinningfields site was rebranded Fogo de Chão (reopened 22 Sept) and serves all-you-can-eat rodizio meats plus a Market Table.",
+    "address": "The Avenue, Spinningfields, Manchester M3 3AP",
+    "neighbourhood": "Spinningfields",
+    "lat": 53.47994,
+    "lng": -2.24992,
+    "booking": "recommended",
+    "price": "£££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "15:00"
+        ],
+        [
+          "15:30",
+          "22:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "15:00"
+        ],
+        [
+          "15:30",
+          "22:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "15:00"
+        ],
+        [
+          "15:30",
+          "21:00"
+        ]
+      ],
+      "mon": [
+        [
+          "12:00",
+          "15:00"
+        ],
+        [
+          "15:30",
+          "21:00"
+        ]
+      ]
+    },
+    "hoursNote": "From fogodechao.uk; happy hour daily 15:00-19:00 in Bar Fogo. Opening year inferred as recent from Manchester's Finest article (undated).",
+    "tip": "Lunch rodizio is £17 cheaper than dinner; the user's 'Fazenda' no longer exists under that name.",
+    "sources": [
+      "https://fogodechao.uk/location/manchester/",
+      "https://www.manchestersfinest.com/eating-and-drinking/former-fazenda-restaurant-reopens-as-fogo-de-chao-after-1m-refurbishment/"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.8,
+    "googleReviews": 7045,
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/fogo-de-chao-manchester/"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "bookingNote": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "website": null,
+    "kitchenHours": null,
+    "tripNote": "Closed Monday 23 Nov; book well ahead for the weekend.",
+    "priceNote": null,
+    "id": "onda-pasta-bar",
+    "name": "Onda Pasta Bar",
+    "type": "restaurant",
+    "tags": [
+      "Italian",
+      "pasta",
+      "tiramisu"
+    ],
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "Italian pasta",
+    "userNote": "Onda",
+    "blurb": "Pasta restaurant from the Gooey team at Circle Square, famed for fresh pasta and a viral tiramisu.",
+    "address": "Circle Square, 3 Symphony Park, Oxford Road, Manchester M1 7FS",
+    "neighbourhood": "Oxford Road",
+    "lat": 53.47193,
+    "lng": -2.23495,
+    "booking": "essential",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "16:00",
+          "23:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "mon": []
+    },
+    "hoursNote": "Manchester's Finest: closed Mon-Tue, Wed-Fri 16-23, Sat-Sun 12-23. Coordinates approximate for Circle Square (geocoder had no result).",
+    "tip": "Book ahead; Sunday has lasagne and the tiramisu is the signature.",
+    "sources": [
+      "https://manchestersfinest.com/places/onda-pasta-bar",
+      "https://confidentials.com/manchester/the-hottest-table-in-town-onda-circle-square-reviewed"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.2,
+    "googleReviews": 109,
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/onda-pasta-bar"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "bookingNote": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "website": "https://www.theblueskitchen.com/manchester/",
+    "kitchenHours": null,
+    "tripNote": "Wings deal would be Sunday 22 Nov only (if still running); Fri/Sat open to 3am.",
+    "priceNote": null,
+    "id": "blues-kitchen-manchester",
+    "name": "The Blues Kitchen",
+    "type": "bar",
+    "tags": [
+      "live music",
+      "blues",
+      "American",
+      "wings",
+      "cocktails"
+    ],
+    "meals": [
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cuisine": "American grill",
+    "userNote": "Blues kitchen / Blue kitchen unlimited wings £14.",
+    "blurb": "Multi-floor Quay Street music venue with American grill food and live blues, soul and funk nightly.",
+    "address": "13 Quay Street, Manchester M3 3HN",
+    "neighbourhood": "Spinningfields",
+    "lat": 53.47832,
+    "lng": -2.25085,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "03:00"
+        ]
+      ],
+      "sat": [
+        [
+          "11:00",
+          "03:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "24:00"
+        ]
+      ],
+      "mon": [
+        [
+          "12:00",
+          "24:00"
+        ]
+      ]
+    },
+    "hoursNote": "From Manchester's Finest listing; Sunday hours differ across sources.",
+    "tip": "Unlimited wings: Sunday 12-6pm, 90 minutes, was £12 pp in 2023 coverage. Your £14 price is unverified, so confirm with the venue. Live music every night.",
+    "sources": [
+      "https://www.manchestersfinest.com/places/the-blues-kitchen/",
+      "https://themanc.com/eats/manchester-bottomless-brunch-chicken-wings-blues-kitchen/",
+      "https://mancunion.com/2023/03/02/the-perfect-cure-for-those-hangover-blues-bottomless-wings/"
+    ],
+    "confidence": "medium",
+    "googleRating": 4.6,
+    "googleReviews": 4068,
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/the-blues-kitchen-manchester/"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Fri/Sat evenings and Sat/Sun are busy; book ahead if you want the biryani at dinner.",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": "https://www.dishoom.com/manchester",
+    "bookingNote": null,
+    "priceNote": null,
+    "website": "https://www.dishoom.com/manchester",
+    "tip": "The lamb shank dish is the Nalli Nihari Biryani (Manchester special, lamb shank layered with rice under a pastry crust, built for sharing). Mostly walk-in; queues 30-60 min after 6pm and at weekends, so book or go at breakfast/lunch.",
+    "confidence": "high",
+    "id": "dishoom-manchester",
+    "name": "Dishoom Manchester",
+    "type": "restaurant",
+    "tags": [
+      "Indian",
+      "biryani",
+      "Bombay cafe",
+      "Bridge Street"
+    ],
+    "meals": [
+      "breakfast",
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cuisine": "Bombay cafe / Indian",
+    "userNote": "Dishoom Indian lamb shank biryani.",
+    "blurb": "Bombay-cafe style Indian restaurant on Bridge Street, known for its lamb shank Nalli Nihari Biryani.",
+    "address": "32 Bridge Street, Manchester M3 3BT",
+    "neighbourhood": "Deansgate",
+    "lat": 53.48109,
+    "lng": -2.25019,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "08:00",
+          "24:00"
+        ]
+      ],
+      "sat": [
+        [
+          "09:00",
+          "24:00"
+        ]
+      ],
+      "sun": [
+        [
+          "09:00",
+          "23:00"
+        ]
+      ],
+      "mon": [
+        [
+          "08:00",
+          "23:00"
+        ]
+      ]
+    },
+    "hoursNote": "Hours from dishoom.com/manchester.",
+    "sources": [
+      "https://www.dishoom.com/manchester"
+    ],
+    "googleRating": 4.7,
+    "googleReviews": 4543,
+    "ratingSource": "https://www.sluurpy.com/pt/manchester/restaurant/1653977/dishoom-manchester"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Open evenings only; Sunday opens at 16:00.",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": "Phone 01618 347222",
+    "priceNote": null,
+    "website": "https://akbars.co.uk",
+    "tip": "Famous for the giant naans; expect a queue on Fri/Sat nights, so book (01618 347222).",
+    "confidence": "high",
+    "id": "akbars-manchester",
+    "name": "Akbar's Manchester",
+    "type": "restaurant",
+    "tags": [
+      "Indian",
+      "curry",
+      "Castlefield",
+      "balti"
+    ],
+    "meals": [
+      "dinner"
+    ],
+    "cuisine": "Indian (Bradford-style)",
+    "userNote": "Akbars Indian",
+    "blurb": "Large Bradford-born Indian restaurant on Liverpool Road known for huge hanging naans and balti dishes.",
+    "address": "73-83 Liverpool Road, Manchester M3 4NQ",
+    "neighbourhood": "Castlefield",
+    "lat": 53.47641,
+    "lng": -2.2548,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "17:00",
+          "23:30"
+        ]
+      ],
+      "sat": [
+        [
+          "17:00",
+          "23:30"
+        ]
+      ],
+      "sun": [
+        [
+          "16:00",
+          "23:00"
+        ]
+      ],
+      "mon": [
+        [
+          "17:00",
+          "23:00"
+        ]
+      ]
+    },
+    "hoursNote": "Hours from akbars.co.uk/restaurants; evening-only.",
+    "sources": [
+      "https://akbars.co.uk/restaurants",
+      "https://tasteofmanchester.com/venue/akbars/"
+    ],
+    "googleRating": 4.1,
+    "googleReviews": 3781,
+    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/akbars-restaurant-manchester"
+  },
+  {
+    "events": [],
+    "travel": {
+      "car": "About 10 min from centre; limited street parking on Curry Mile",
+      "transit": "Bus 42/43/142 along Oxford Road/Wilmslow Road, ~20 min",
+      "from": "Piccadilly Gardens"
+    },
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": null,
+    "kitchenHours": null,
+    "menuUrl": "https://mylahore.co.uk/menu/?restaurant=manchester",
+    "bookingUrl": null,
+    "bookingNote": null,
+    "priceNote": null,
+    "website": "https://www.mylahore.co.uk",
+    "tip": "Lamb kheema lasagne not found on the website or listings (unverified); check the menu at mylahore.co.uk/menu. About 2 miles south of the centre, taxi or bus down Oxford Rd/Wilmslow Rd.",
+    "confidence": "medium",
+    "id": "mylahore-manchester",
+    "name": "MyLahore Manchester",
+    "type": "restaurant",
+    "tags": [
+      "Pakistani",
+      "Indian-English fusion",
+      "Curry Mile",
+      "halal"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Pakistani / Indian-English fusion",
+    "userNote": "My lahore Indian English fusion - ie lamb kheema lasagne.",
+    "blurb": "Lahori-style restaurant on the Curry Mile in Rusholme with a fusion section alongside traditional karahi dishes.",
+    "address": "14-18 Wilmslow Road, Manchester M14 5TQ",
+    "neighbourhood": "Rusholme",
+    "lat": 53.45615,
+    "lng": -2.22583,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "01:00"
+        ]
+      ],
+      "sat": [
+        [
+          "13:00",
+          "01:00"
+        ]
+      ],
+      "sun": [
+        [
+          "13:00",
+          "24:00"
+        ]
+      ],
+      "mon": [
+        [
+          "12:00",
+          "24:00"
+        ]
+      ]
+    },
+    "hoursNote": "Site: Mon-Thu 12-12, Fri 12-1am, Sat-Sun 1pm-1am; SquareMeal says Sun closes midnight.",
+    "sources": [
+      "https://www-mylahore-wp.azurewebsites.net/?p=120",
+      "https://www.zabihah.com/restaurants/cac748f4-7767-11ef-95ae-6045bdeb9f57/mylahore-manchester-northwest-england"
+    ],
+    "googleRating": null,
+    "googleReviews": null,
+    "ratingSource": null
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Whole stuffed lamb must be pre-ordered about 2 days ahead.",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": "https://zoukteabar.co.uk/booking",
+    "bookingNote": null,
+    "priceNote": null,
+    "website": "https://zoukteabar.co.uk",
+    "tip": "Signature dish is lamb nihari; Sunday roast with Indian twist (leg of lamb/whole stuffed lamb, reported 12pm-4pm and often sells out - book). Whole stuffed lamb needs ~2 days notice. Steak praise is the user's, unverified.",
+    "confidence": "medium",
+    "id": "zouk-tea-bar-grill",
+    "name": "Zouk Tea Bar & Grill",
+    "type": "restaurant",
+    "tags": [
+      "Pakistani",
+      "Indian",
+      "lamb",
+      "grill",
+      "halal"
+    ],
+    "meals": [
+      "breakfast",
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cuisine": "Pakistani / Indian grill",
+    "userNote": "Zouks amazing lamb and other things and steak was apparantly good too!",
+    "blurb": "Contemporary Pakistani and Indian grill just off Oxford Road, known for lamb nihari and whole stuffed lamb.",
+    "address": "Unit 5, The Quadrangle, Chester Street, Manchester M1 5QS",
+    "neighbourhood": "Oxford Road",
+    "lat": 53.47231,
+    "lng": -2.24006,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "08:00",
+          "24:00"
+        ]
+      ],
+      "sat": [
+        [
+          "09:00",
+          "24:00"
+        ]
+      ],
+      "sun": [
+        [
+          "09:00",
+          "24:00"
+        ]
+      ],
+      "mon": [
+        [
+          "12:00",
+          "24:00"
+        ]
+      ]
+    },
+    "hoursNote": "Hours from Manchester's Finest listing; Zouk's own site says only open 7 days.",
+    "sources": [
+      "https://www.manchestersfinest.com/places/zouk-tea-bar-grill",
+      "https://zoukteabar.co.uk",
+      "https://www.manchestersfinest.com/?p=47119"
+    ],
+    "googleRating": 3.9,
+    "googleReviews": 3828,
+    "ratingSource": "https://restaurantguru.com/Zouk-Tea-Bar-and-Grill-United-Kingdom"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": null,
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": "https://jimmyskillerprawns.com/book-now-manchester/",
+    "bookingNote": null,
+    "priceNote": "Deliveroo: 12 Queen prawns £37.50, Kashmiri prawns £33.30",
+    "website": "https://jimmyskillerprawns.com",
+    "tip": "Order the grilled prawns (e.g. 12 Queens large about £37.50 on Deliveroo). Book online or 0161 819 1560.",
+    "confidence": "medium",
+    "id": "jimmys-killer-prawns",
+    "name": "Jimmy's Killer Prawns",
+    "type": "restaurant",
+    "tags": [
+      "seafood",
+      "prawns",
+      "Castlefield",
+      "halal"
+    ],
+    "meals": [
+      "lunch",
+      "dinner"
+    ],
+    "cuisine": "Seafood",
+    "userNote": "Jimmy's killer prawns",
+    "blurb": "Seafood restaurant on Liverpool Road famous for its spice-grilled prawns.",
+    "address": "13-25 Liverpool Road, Manchester M3 4NW",
+    "neighbourhood": "Castlefield",
+    "lat": 53.47579,
+    "lng": -2.25188,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "mon": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ]
+    },
+    "hoursNote": "From jimmyskillerprawns.com/restaurants. One listing mentions a possible move to Ancoats, unconfirmed.",
+    "sources": [
+      "https://jimmyskillerprawns.com/restaurants/",
+      "https://www.dishcult.com/articles/jimmys-killer-prawns-from-dream-to-manchesters-seafood-haven"
+    ],
+    "googleRating": 4.4,
+    "googleReviews": 2181,
+    "ratingSource": "https://www.sluurpy.co.uk/manchester/restaurant/7997090/jimmy-s-killer-prawns"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Sunday roast on Sun 22 Nov, 12:00-20:30; book via SevenRooms.",
+    "kitchenHours": {
+      "fri": [
+        [
+          "11:00",
+          "15:00"
+        ],
+        [
+          "16:00",
+          "21:30"
+        ]
+      ],
+      "sat": [
+        [
+          "11:00",
+          "15:00"
+        ],
+        [
+          "17:00",
+          "21:30"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "20:30"
+        ]
+      ],
+      "mon": [
+        [
+          "11:00",
+          "15:00"
+        ],
+        [
+          "17:00",
+          "21:00"
+        ]
+      ]
+    },
+    "menuUrl": null,
+    "bookingUrl": "https://www.elnecot.com",
+    "bookingNote": null,
+    "priceNote": null,
+    "website": "https://www.elnecot.com",
+    "tip": "Sunday roast served Sunday only, 12:00-20:30; whether lamb is the roast meat this week is unverified, see Sunday at Elnecot menu on site.",
+    "confidence": "medium",
+    "id": "elnecot-ancoats",
+    "name": "Elnecot",
+    "type": "restaurant",
+    "tags": [
+      "British",
+      "Sunday roast",
+      "lamb",
+      "Ancoats",
+      "cocktails"
+    ],
+    "meals": [
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cuisine": "Modern British",
+    "userNote": "Elnecott roast and lamb",
+    "blurb": "Heritage-themed Ancoats bar and kitchen serving British small plates and a Sunday roast.",
+    "address": "41 Blossom Street, Cutting Room Square, Manchester M4 6AJ",
+    "neighbourhood": "Ancoats",
+    "lat": 53.48472,
+    "lng": -2.22868,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "12:00",
+          "24:00"
+        ]
+      ],
+      "sat": [
+        [
+          "10:00",
+          "24:00"
+        ]
+      ],
+      "sun": [
+        [
+          "10:00",
+          "22:00"
+        ]
+      ],
+      "mon": [
+        [
+          "12:00",
+          "22:00"
+        ]
+      ]
+    },
+    "hoursNote": "Kitchen/roast times from elnecot.com; header there says 12-11pm, hours box says Fri 12-12, Sat 10-12, Sun 10-10 (used). Fri kitchen evening start taken as 16:00; Monday evening 17:00-21:00.",
+    "sources": [
+      "https://www.elnecot.com",
+      "https://creativetourist.com/venue/elnecot"
+    ],
+    "googleRating": null,
+    "googleReviews": null,
+    "ratingSource": null
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Book for Sun 22 Nov roast.",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": "https://trof.co.uk/book-now",
+    "bookingNote": null,
+    "priceNote": null,
+    "website": "https://trof.co.uk",
+    "tip": "Sunday roast from about 12 noon (unverified exact window); recent guide mentions slow-roasted hogget (lamb-type) and rump of beef from about GBP22 - lamb option unconfirmed.",
+    "confidence": "medium",
+    "id": "trof-nq",
+    "name": "Trof NQ",
+    "type": "restaurant",
+    "tags": [
+      "Sunday roast",
+      "bar",
+      "Northern Quarter",
+      "British"
+    ],
+    "meals": [
+      "breakfast",
+      "lunch",
+      "dinner",
+      "drinks"
+    ],
+    "cuisine": "British / bar and kitchen",
+    "userNote": "The trof roast and lamb",
+    "blurb": "Northern Quarter bar and kitchen locally famous for its Sunday roast.",
+    "address": "6-8 Thomas Street, Manchester M4 1EU",
+    "neighbourhood": "Northern Quarter",
+    "lat": 53.48479,
+    "lng": -2.23802,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "11:00",
+          "01:00"
+        ]
+      ],
+      "sat": [
+        [
+          "11:00",
+          "01:00"
+        ]
+      ],
+      "sun": [
+        [
+          "11:00",
+          "24:00"
+        ]
+      ],
+      "mon": [
+        [
+          "11:00",
+          "24:00"
+        ]
+      ]
+    },
+    "hoursNote": "trof.co.uk: Sun-Thu 11am-12am, Fri/Sat 11am-1am (used). Roast service times not stated on site; other listing says roast from 12 noon. Trof.co.uk lists only this one Manchester branch.",
+    "sources": [
+      "https://trof.co.uk/",
+      "https://tasteofmanchester.com/venue/trof-nq/",
+      "https://www.manchestersfinest.com/eating-and-drinking/finest-finally-reviews-famous-trof-sunday-roast"
+    ],
+    "googleRating": 4.4,
+    "googleReviews": null,
+    "ratingSource": "https://www.sluurpy.co.uk/manchester/restaurant/1654601/trof-northern-quarter"
+  },
+  {
+    "events": [],
+    "travel": null,
+    "addedBy": "user",
+    "checked": "2026-11-18",
+    "tripNote": "Closed Mon 23 Nov. Sunday roast Sun 22 Nov 12:00-23:00 (exact roast cut-off unverified).",
+    "kitchenHours": null,
+    "menuUrl": null,
+    "bookingUrl": null,
+    "bookingNote": null,
+    "priceNote": null,
+    "website": null,
+    "tip": "Sunday roast from 12:00; Taste of Manchester cites a slow-cooked lamb shank among five proteins, Dishcult cites lamb shoulder - menu may vary.",
+    "confidence": "medium",
+    "id": "firehouse-manchester",
+    "name": "The Firehouse",
+    "type": "restaurant",
+    "tags": [
+      "Sunday roast",
+      "lamb shank",
+      "small plates",
+      "Swan Street"
+    ],
+    "meals": [
+      "dinner",
+      "lunch",
+      "drinks"
+    ],
+    "cuisine": "Peri-peri / modern British",
+    "userNote": "Firehouse roast and lamb shank. Great food app.",
+    "blurb": "Fire-cooked kitchen on Swan Street with a Sunday roast and shared plates.",
+    "address": "40 Swan Street, Manchester M4 5JG",
+    "neighbourhood": "Ancoats",
+    "lat": 53.48569,
+    "lng": -2.23437,
+    "booking": "recommended",
+    "price": "££",
+    "hours": {
+      "fri": [
+        [
+          "16:00",
+          "01:00"
+        ]
+      ],
+      "sat": [
+        [
+          "12:00",
+          "01:00"
+        ]
+      ],
+      "sun": [
+        [
+          "12:00",
+          "23:00"
+        ]
+      ],
+      "mon": []
+    },
+    "hoursNote": "Manchester's Finest: Wed 4-11, Thu 4-12, Fri 4pm-1am, Sat 12-1am, Sun 12-11pm, Mon/Tue closed. First Table says Fri closes midnight, Sat/Sun to midnight.",
+    "sources": [
+      "https://www.manchestersfinest.com/places/the-firehouse/",
+      "https://tasteofmanchester.com/venue/firehouse",
+      "https://www.dishcult.com/articles/set-your-weekend-alight-with-the-firehouse"
+    ],
+    "googleRating": 4.8,
+    "googleReviews": 1769,
+    "ratingSource": "https://wanderlog.com/place/details/4642639/firehouse-manchester"
   }
 ]
