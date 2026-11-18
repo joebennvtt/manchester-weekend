@@ -31,3 +31,9 @@ test('rejects bad googleReviews and ratingSource', () => {
   assert.ok(run({ googleReviews: 1.5 }) > 0);
   assert.ok(run({ ratingSource: 'http://x.com' }) > 0);
 });
+test('validates optional foodTypes', () => {
+  assert.equal(run({ foodTypes: ['Korean', 'Brunch'] }), 0);
+  assert.equal(run({ foodTypes: [] }), 0);
+  assert.ok(run({ foodTypes: ['Martian'] }) > 0);
+  assert.ok(run({ foodTypes: 'Korean' }) > 0);
+});

@@ -71,7 +71,11 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.4,
     "googleReviews": 1842,
-    "ratingSource": "https://thatsup.co.uk/manchester/bar/evelyns-cafe-bar"
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/evelyns-cafe-bar",
+    "foodTypes": [
+      "Brunch",
+      "British & roasts"
+    ]
   },
   {
     "events": [],
@@ -141,7 +145,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.4,
     "googleReviews": 1084,
-    "ratingSource": "https://thatsup.co.uk/manchester/cafe/sugar-junction"
+    "ratingSource": "https://thatsup.co.uk/manchester/cafe/sugar-junction",
+    "foodTypes": [
+      "Bakery & sweets"
+    ]
   },
   {
     "events": [],
@@ -214,7 +221,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.7,
     "googleReviews": 1639,
-    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/this-that"
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/this-that",
+    "foodTypes": [
+      "Indian & Pakistani"
+    ]
   },
   {
     "events": [],
@@ -285,7 +295,11 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.4,
     "googleReviews": 1515,
-    "ratingSource": "https://thatsup.co.uk/manchester/cafe/pot-kettle-black-barton-arcade"
+    "ratingSource": "https://thatsup.co.uk/manchester/cafe/pot-kettle-black-barton-arcade",
+    "foodTypes": [
+      "Brunch",
+      "Bakery & sweets"
+    ]
   },
   {
     "events": [],
@@ -353,7 +367,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.5,
     "googleReviews": 5769,
-    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/mackie-mayor"
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/mackie-mayor",
+    "foodTypes": [
+      "Food halls & buffets"
+    ]
   },
   {
     "events": [],
@@ -449,7 +466,10 @@ window.PLACES = [
     "confidence": "high",
     "googleRating": 4.7,
     "googleReviews": 2125,
-    "ratingSource": "https://thatsup.co.uk/manchester/bar/the-marble-arch"
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/the-marble-arch",
+    "foodTypes": [
+      "British & roasts"
+    ]
   },
   {
     "events": [],
@@ -520,7 +540,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.7,
     "googleReviews": 947,
-    "ratingSource": "https://spinach.guide/venues/kuanzhai-xiang-noodle-alley-noodle-alley-239149/"
+    "ratingSource": "https://spinach.guide/venues/kuanzhai-xiang-noodle-alley-noodle-alley-239149/",
+    "foodTypes": [
+      "Chinese"
+    ]
   },
   {
     "events": [],
@@ -591,7 +614,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.2,
     "googleReviews": 527,
-    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/fat-pats"
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/fat-pats",
+    "foodTypes": [
+      "Sandwiches"
+    ]
   },
   {
     "events": [],
@@ -689,7 +715,11 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.4,
     "googleReviews": 687,
-    "ratingSource": "https://thatsup.co.uk/manchester/bar/wolf-at-the-door"
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/wolf-at-the-door",
+    "foodTypes": [
+      "Pan-Asian",
+      "Mexican"
+    ]
   },
   {
     "events": [],
@@ -761,7 +791,10 @@ window.PLACES = [
     "confidence": "low",
     "googleRating": 4.6,
     "googleReviews": 188,
-    "ratingSource": "https://thatsup.co.uk/manchester/bar/kongs-nq"
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/kongs-nq",
+    "foodTypes": [
+      "American"
+    ]
   },
   {
     "events": [],
@@ -857,7 +890,10 @@ window.PLACES = [
     "confidence": "high",
     "googleRating": 4.6,
     "googleReviews": 3495,
-    "ratingSource": "https://thatsup.co.uk/manchester/bar/bundobust-piccadilly"
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/bundobust-piccadilly",
+    "foodTypes": [
+      "Indian & Pakistani"
+    ]
   },
   {
     "events": [],
@@ -919,7 +955,11 @@ window.PLACES = [
     "confidence": "low",
     "googleRating": 4.5,
     "googleReviews": 664,
-    "ratingSource": "https://restaurantguru.com/Peter-Street-Kitchen-Manchester"
+    "ratingSource": "https://restaurantguru.com/Peter-Street-Kitchen-Manchester",
+    "foodTypes": [
+      "Japanese",
+      "Mexican"
+    ]
   },
   {
     "events": [],
@@ -991,7 +1031,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.4,
     "googleReviews": 3415,
-    "ratingSource": "https://www.sluurpy.co.uk/manchester/restaurant/1655372/try-thai"
+    "ratingSource": "https://www.sluurpy.co.uk/manchester/restaurant/1655372/try-thai",
+    "foodTypes": [
+      "Thai & Vietnamese"
+    ]
   },
   {
     "events": [],
@@ -1062,7 +1105,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.6,
     "googleReviews": 4848,
-    "ratingSource": "https://restaurantguru.com/El-Gato-Negro-Manchester"
+    "ratingSource": "https://restaurantguru.com/El-Gato-Negro-Manchester",
+    "foodTypes": [
+      "Mediterranean & Middle Eastern"
+    ]
   },
   {
     "events": [],
@@ -1133,7 +1179,10 @@ window.PLACES = [
     "confidence": "high",
     "googleRating": 4.3,
     "googleReviews": 1926,
-    "ratingSource": "https://restaurantguru.com/Rozafa-Manchester"
+    "ratingSource": "https://restaurantguru.com/Rozafa-Manchester",
+    "foodTypes": [
+      "Mediterranean & Middle Eastern"
+    ]
   },
   {
     "events": [],
@@ -1205,7 +1254,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.3,
     "googleReviews": 1940,
-    "ratingSource": "https://restaurantguru.com/Crazy-Pedros-Northern-Quarter-Manchester"
+    "ratingSource": "https://restaurantguru.com/Crazy-Pedros-Northern-Quarter-Manchester",
+    "foodTypes": [
+      "Italian & pizza"
+    ]
   },
   {
     "events": [],
@@ -1269,7 +1321,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.6,
     "googleReviews": 1796,
-    "ratingSource": "https://restaurantguru.com/Noi-Quattro-Pizzeria-Manchester"
+    "ratingSource": "https://restaurantguru.com/Noi-Quattro-Pizzeria-Manchester",
+    "foodTypes": [
+      "Italian & pizza"
+    ]
   },
   {
     "events": [],
@@ -1368,7 +1423,10 @@ window.PLACES = [
     "confidence": "high",
     "googleRating": 4.7,
     "googleReviews": 5502,
-    "ratingSource": "https://restaurantguru.com/Hawksmoor-Manchester-Manchester"
+    "ratingSource": "https://restaurantguru.com/Hawksmoor-Manchester-Manchester",
+    "foodTypes": [
+      "Steak & grill"
+    ]
   },
   {
     "events": [],
@@ -1428,7 +1486,8 @@ window.PLACES = [
     "confidence": "low",
     "googleRating": 4.6,
     "googleReviews": 1902,
-    "ratingSource": "https://restaurantguru.com/The-Washhouse-Manchester"
+    "ratingSource": "https://restaurantguru.com/The-Washhouse-Manchester",
+    "foodTypes": []
   },
   {
     "events": [],
@@ -1497,7 +1556,8 @@ window.PLACES = [
     "confidence": "high",
     "googleRating": 4.3,
     "googleReviews": 3241,
-    "ratingSource": "https://restaurantguru.com/Cloud-23-Manchester"
+    "ratingSource": "https://restaurantguru.com/Cloud-23-Manchester",
+    "foodTypes": []
   },
   {
     "events": [],
@@ -1593,7 +1653,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": null,
     "googleReviews": null,
-    "ratingSource": null
+    "ratingSource": null,
+    "foodTypes": [
+      "American"
+    ]
   },
   {
     "events": [],
@@ -1662,7 +1725,8 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": null,
     "googleReviews": null,
-    "ratingSource": null
+    "ratingSource": null,
+    "foodTypes": []
   },
   {
     "events": [],
@@ -1731,7 +1795,8 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.6,
     "googleReviews": 2077,
-    "ratingSource": "https://thatsup.co.uk/manchester/bar/the-peveril-of-the-peak/"
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/the-peveril-of-the-peak/",
+    "foodTypes": []
   },
   {
     "events": [],
@@ -1799,7 +1864,10 @@ window.PLACES = [
       "https://ma.to/venue/m8hotpot_mcr",
       "https://manchesterwire.co.uk/guide/the-best-places-to-try-korean-and-chinese-hotpot-in-manchester/"
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "foodTypes": [
+      "Chinese"
+    ]
   },
   {
     "events": [],
@@ -1872,7 +1940,11 @@ window.PLACES = [
     "confidence": "high",
     "googleRating": 4.5,
     "googleReviews": 1279,
-    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/one-chinese-restaurant/"
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/one-chinese-restaurant/",
+    "foodTypes": [
+      "Chinese",
+      "Korean"
+    ]
   },
   {
     "events": [],
@@ -1945,7 +2017,11 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.2,
     "googleReviews": 1125,
-    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/hello-oriental-circle-square/"
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/hello-oriental-circle-square/",
+    "foodTypes": [
+      "Pan-Asian",
+      "Food halls & buffets"
+    ]
   },
   {
     "events": [],
@@ -2017,7 +2093,11 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.7,
     "googleReviews": 940,
-    "ratingSource": "https://wanderlog.com/place/details/3638253/hong-thai"
+    "ratingSource": "https://wanderlog.com/place/details/3638253/hong-thai",
+    "foodTypes": [
+      "Thai & Vietnamese",
+      "Chinese"
+    ]
   },
   {
     "events": [],
@@ -2088,7 +2168,10 @@ window.PLACES = [
     "confidence": "high",
     "googleRating": 4.3,
     "googleReviews": 857,
-    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/chef-diao-manchester"
+    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/chef-diao-manchester",
+    "foodTypes": [
+      "Chinese"
+    ]
   },
   {
     "events": [],
@@ -2160,7 +2243,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.1,
     "googleReviews": 1981,
-    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/happy-seasons-restaurant/"
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/happy-seasons-restaurant/",
+    "foodTypes": [
+      "Chinese"
+    ]
   },
   {
     "bookingNote": null,
@@ -2233,7 +2319,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.6,
     "googleReviews": 866,
-    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/pho-cue"
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/pho-cue",
+    "foodTypes": [
+      "Thai & Vietnamese"
+    ]
   },
   {
     "bookingNote": null,
@@ -2305,7 +2394,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.8,
     "googleReviews": 353,
-    "ratingSource": "https://www.sluurpy.at/manchester/restaurant/1664213/ca-phe-viet"
+    "ratingSource": "https://www.sluurpy.at/manchester/restaurant/1664213/ca-phe-viet",
+    "foodTypes": [
+      "Thai & Vietnamese"
+    ]
   },
   {
     "bookingNote": null,
@@ -2377,7 +2469,10 @@ window.PLACES = [
     "confidence": "high",
     "googleRating": 4.5,
     "googleReviews": 2697,
-    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/sapporo-teppanyaki-manchester-manchester"
+    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/sapporo-teppanyaki-manchester-manchester",
+    "foodTypes": [
+      "Japanese"
+    ]
   },
   {
     "bookingNote": null,
@@ -2451,7 +2546,10 @@ window.PLACES = [
     "confidence": "low",
     "googleRating": null,
     "googleReviews": null,
-    "ratingSource": null
+    "ratingSource": null,
+    "foodTypes": [
+      "Korean"
+    ]
   },
   {
     "bookingNote": null,
@@ -2528,7 +2626,10 @@ window.PLACES = [
     "confidence": "high",
     "googleRating": 3.9,
     "googleReviews": 4941,
-    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/tops-buffet-restaurant"
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/tops-buffet-restaurant",
+    "foodTypes": [
+      "Food halls & buffets"
+    ]
   },
   {
     "bookingNote": null,
@@ -2594,7 +2695,10 @@ window.PLACES = [
     "confidence": "low",
     "googleRating": null,
     "googleReviews": null,
-    "ratingSource": null
+    "ratingSource": null,
+    "foodTypes": [
+      "Korean"
+    ]
   },
   {
     "events": [],
@@ -2665,7 +2769,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.2,
     "googleReviews": 347,
-    "ratingSource": "https://www.sluurpy.com/es/manchester/restaurant/1667918/rollers-cafe"
+    "ratingSource": "https://www.sluurpy.com/es/manchester/restaurant/1667918/rollers-cafe",
+    "foodTypes": [
+      "Bakery & sweets"
+    ]
   },
   {
     "events": [],
@@ -2764,7 +2871,11 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.4,
     "googleReviews": null,
-    "ratingSource": "https://thatsup.co.uk/manchester/bakery/gooey-northern-quarter/"
+    "ratingSource": "https://thatsup.co.uk/manchester/bakery/gooey-northern-quarter/",
+    "foodTypes": [
+      "Bakery & sweets",
+      "Brunch"
+    ]
   },
   {
     "events": [],
@@ -2826,7 +2937,11 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": null,
     "googleReviews": null,
-    "ratingSource": null
+    "ratingSource": null,
+    "foodTypes": [
+      "Bakery & sweets",
+      "Brunch"
+    ]
   },
   {
     "events": [],
@@ -2902,7 +3017,11 @@ window.PLACES = [
     "confidence": "low",
     "googleRating": 4.7,
     "googleReviews": 441,
-    "ratingSource": "https://thatsup.co.uk/manchester/cafe/biskits/"
+    "ratingSource": "https://thatsup.co.uk/manchester/cafe/biskits/",
+    "foodTypes": [
+      "Brunch",
+      "Bakery & sweets"
+    ]
   },
   {
     "events": [],
@@ -2973,7 +3092,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.7,
     "googleReviews": 3104,
-    "ratingSource": "https://thatsup.co.uk/manchester/cafe/federal-northern-quarter/"
+    "ratingSource": "https://thatsup.co.uk/manchester/cafe/federal-northern-quarter/",
+    "foodTypes": [
+      "Brunch"
+    ]
   },
   {
     "events": [],
@@ -3042,7 +3164,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.7,
     "googleReviews": 790,
-    "ratingSource": "https://www.sluurpy.at/manchester/restaurant/1653306/northern-soul-grilled-cheese"
+    "ratingSource": "https://www.sluurpy.at/manchester/restaurant/1653306/northern-soul-grilled-cheese",
+    "foodTypes": [
+      "Sandwiches"
+    ]
   },
   {
     "events": [],
@@ -3107,7 +3232,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": null,
     "googleReviews": null,
-    "ratingSource": null
+    "ratingSource": null,
+    "foodTypes": [
+      "American"
+    ]
   },
   {
     "events": [],
@@ -3176,7 +3304,11 @@ window.PLACES = [
     "confidence": "low",
     "googleRating": null,
     "googleReviews": null,
-    "ratingSource": null
+    "ratingSource": null,
+    "foodTypes": [
+      "Mediterranean & Middle Eastern",
+      "British & roasts"
+    ]
   },
   {
     "events": [],
@@ -3250,7 +3382,10 @@ window.PLACES = [
     "confidence": "low",
     "googleRating": 4.7,
     "googleReviews": 2835,
-    "ratingSource": "https://restaurantguru.com/Walnut-Manchester"
+    "ratingSource": "https://restaurantguru.com/Walnut-Manchester",
+    "foodTypes": [
+      "Mediterranean & Middle Eastern"
+    ]
   },
   {
     "events": [],
@@ -3321,7 +3456,11 @@ window.PLACES = [
     "confidence": "low",
     "googleRating": 4.5,
     "googleReviews": 1977,
-    "ratingSource": "https://pinloco.com/business/3973"
+    "ratingSource": "https://pinloco.com/business/3973",
+    "foodTypes": [
+      "Italian & pizza",
+      "American"
+    ]
   },
   {
     "events": [],
@@ -3392,7 +3531,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.3,
     "googleReviews": 1897,
-    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/almost-famous-manchester-manchester"
+    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/almost-famous-manchester-manchester",
+    "foodTypes": [
+      "American"
+    ]
   },
   {
     "events": [],
@@ -3458,7 +3600,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.6,
     "googleReviews": 2571,
-    "ratingSource": "https://firsttable.co.uk/manchester/ancoats/ramona"
+    "ratingSource": "https://firsttable.co.uk/manchester/ancoats/ramona",
+    "foodTypes": [
+      "Italian & pizza"
+    ]
   },
   {
     "events": [],
@@ -3531,7 +3676,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.5,
     "googleReviews": 1462,
-    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/madre-manchester-manchester"
+    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/madre-manchester-manchester",
+    "foodTypes": [
+      "Mexican"
+    ]
   },
   {
     "events": [],
@@ -3596,7 +3744,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.5,
     "googleReviews": 225,
-    "ratingSource": "https://wanderlog.com/place/details/10125946/birria-brothers"
+    "ratingSource": "https://wanderlog.com/place/details/10125946/birria-brothers",
+    "foodTypes": [
+      "Mexican"
+    ]
   },
   {
     "events": [],
@@ -3660,7 +3811,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4,
     "googleReviews": 25,
-    "ratingSource": "https://thatsup.co.uk/manchester/bar/boogalu"
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/boogalu",
+    "foodTypes": [
+      "Mexican"
+    ]
   },
   {
     "events": [],
@@ -3748,7 +3902,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.8,
     "googleReviews": 7045,
-    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/fogo-de-chao-manchester/"
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/fogo-de-chao-manchester/",
+    "foodTypes": [
+      "Steak & grill"
+    ]
   },
   {
     "events": [],
@@ -3812,7 +3969,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.2,
     "googleReviews": 109,
-    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/onda-pasta-bar"
+    "ratingSource": "https://thatsup.co.uk/manchester/restaurant/onda-pasta-bar",
+    "foodTypes": [
+      "Italian & pizza"
+    ]
   },
   {
     "events": [],
@@ -3886,7 +4046,10 @@ window.PLACES = [
     "confidence": "medium",
     "googleRating": 4.6,
     "googleReviews": 4068,
-    "ratingSource": "https://thatsup.co.uk/manchester/bar/the-blues-kitchen-manchester/"
+    "ratingSource": "https://thatsup.co.uk/manchester/bar/the-blues-kitchen-manchester/",
+    "foodTypes": [
+      "American"
+    ]
   },
   {
     "events": [],
@@ -3958,7 +4121,10 @@ window.PLACES = [
     ],
     "googleRating": 4.7,
     "googleReviews": 4543,
-    "ratingSource": "https://www.sluurpy.com/pt/manchester/restaurant/1653977/dishoom-manchester"
+    "ratingSource": "https://www.sluurpy.com/pt/manchester/restaurant/1653977/dishoom-manchester",
+    "foodTypes": [
+      "Indian & Pakistani"
+    ]
   },
   {
     "events": [],
@@ -4028,7 +4194,10 @@ window.PLACES = [
     ],
     "googleRating": 4.1,
     "googleReviews": 3781,
-    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/akbars-restaurant-manchester"
+    "ratingSource": "https://familyfriendlyuk.co.uk/restaurants/akbars-restaurant-manchester",
+    "foodTypes": [
+      "Indian & Pakistani"
+    ]
   },
   {
     "events": [],
@@ -4103,7 +4272,10 @@ window.PLACES = [
     ],
     "googleRating": null,
     "googleReviews": null,
-    "ratingSource": null
+    "ratingSource": null,
+    "foodTypes": [
+      "Indian & Pakistani"
+    ]
   },
   {
     "events": [],
@@ -4178,7 +4350,11 @@ window.PLACES = [
     ],
     "googleRating": 3.9,
     "googleReviews": 3828,
-    "ratingSource": "https://restaurantguru.com/Zouk-Tea-Bar-and-Grill-United-Kingdom"
+    "ratingSource": "https://restaurantguru.com/Zouk-Tea-Bar-and-Grill-United-Kingdom",
+    "foodTypes": [
+      "Indian & Pakistani",
+      "Steak & grill"
+    ]
   },
   {
     "events": [],
@@ -4249,7 +4425,10 @@ window.PLACES = [
     ],
     "googleRating": 4.4,
     "googleReviews": 2181,
-    "ratingSource": "https://www.sluurpy.co.uk/manchester/restaurant/7997090/jimmy-s-killer-prawns"
+    "ratingSource": "https://www.sluurpy.co.uk/manchester/restaurant/7997090/jimmy-s-killer-prawns",
+    "foodTypes": [
+      "Seafood"
+    ]
   },
   {
     "events": [],
@@ -4359,7 +4538,10 @@ window.PLACES = [
     ],
     "googleRating": null,
     "googleReviews": null,
-    "ratingSource": null
+    "ratingSource": null,
+    "foodTypes": [
+      "British & roasts"
+    ]
   },
   {
     "events": [],
@@ -4433,7 +4615,10 @@ window.PLACES = [
     ],
     "googleRating": 4.4,
     "googleReviews": null,
-    "ratingSource": "https://www.sluurpy.co.uk/manchester/restaurant/1654601/trof-northern-quarter"
+    "ratingSource": "https://www.sluurpy.co.uk/manchester/restaurant/1654601/trof-northern-quarter",
+    "foodTypes": [
+      "British & roasts"
+    ]
   },
   {
     "events": [],
@@ -4501,7 +4686,10 @@ window.PLACES = [
     ],
     "googleRating": 4.8,
     "googleReviews": 1769,
-    "ratingSource": "https://wanderlog.com/place/details/4642639/firehouse-manchester"
+    "ratingSource": "https://wanderlog.com/place/details/4642639/firehouse-manchester",
+    "foodTypes": [
+      "British & roasts"
+    ]
   },
   {
     "tags": [

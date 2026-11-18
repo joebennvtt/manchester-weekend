@@ -39,7 +39,7 @@
     const q = String(query || '').trim().toLowerCase();
     if (!q) return true;
     const hay = [place.name, place.cuisine, place.neighbourhood, place.blurb, place.userNote, place.address,
-      ...(place.tags || [])].filter(Boolean).join(' ').toLowerCase();
+      ...(place.foodTypes || []), ...(place.tags || [])].filter(Boolean).join(' ').toLowerCase();
     return hay.includes(q);
   }
 
@@ -53,6 +53,7 @@
       if (!passesSet(s.prices, s.prices && s.prices.has(p.price))) return false;
       if (typeof s.minRating === 'number' && !(typeof p.googleRating === 'number' && p.googleRating >= s.minRating)) return false;
       if (!passesSet(s.areas, s.areas && s.areas.has(p.neighbourhood))) return false;
+      if (!passesSet(s.foodTypes, s.foodTypes && (p.foodTypes || []).some((f) => s.foodTypes.has(f)))) return false;
       if (!passesSet(s.booking, s.booking && s.booking.has(p.booking))) return false;
       if (s.openAt && !isOpenAt(p, s.openAt.day, s.openAt.time, { kitchen: !!s.openAt.kitchen })) return false;
       if (!matchesQuery(p, s.query)) return false;

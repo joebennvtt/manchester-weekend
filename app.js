@@ -1,11 +1,12 @@
 /* State, map and wiring. Uses window.PLACES, TripLib, TripRender, Leaflet. */
 (function () {
   const { filterPlaces, bookAhead, isOpenAt, isCentral, distanceKm, formatDistance, sortByDistance, hasMoved } = window.TripLib;
-  const { TYPES, MEALS, BOOKINGS, esc, detailsHtml, cardHtml, bookItemHtml } = window.TripRender;
+  const { TYPES, FOOD_TYPES, MEALS, BOOKINGS, esc, detailsHtml, cardHtml, bookItemHtml } = window.TripRender;
   const MOVE_THRESHOLD_M = 15;
   const PRICE_ORDER = ['free', '£', '££', '£££', '££££'];
   const AREA_TOP = 8;
   const AREA_COLLAPSE_MAX = 10;
+  const FOOD_TOP = 8;
   const KNOWN_TYPES = new Set(['cafe', 'restaurant', 'bar', 'pub', 'see', 'do', 'trip', 'vintage', 'music']);
   const isUsable = (p) => Boolean(p) && KNOWN_TYPES.has(p.type) && Array.isArray(p.meals) && Array.isArray(p.events) &&
     p.hours && typeof p.hours === 'object' && Number.isFinite(p.lat) && Number.isFinite(p.lng);
@@ -18,6 +19,9 @@
   const presentPrices = PRICE_ORDER.filter((v) => PLACES.some((p) => p.price === v));
   const areaCounts = PLACES.reduce((m, p) => (p.neighbourhood ? m.set(p.neighbourhood, (m.get(p.neighbourhood) || 0) + 1) : m), new Map());
   const AREAS = [...areaCounts.keys()].sort((a, b) => areaCounts.get(b) - areaCounts.get(a) || a.localeCompare(b));
+  const foodCount = (f) => PLACES.filter((p) => (p.foodTypes || []).includes(f)).length;
+  // Most common first (ties keep FOOD_TYPES order) so the collapsed top 8 are the useful ones.
+  const FOODS = FOOD_TYPES.filter((f) => foodCount(f) > 0).sort((a, b) => foodCount(b) - foodCount(a));
   const byId = new Map(PLACES.map((p) => [p.id, p]));
   const $ = (id) => document.getElementById(id);
   const STORE_KEY = 'manchester-trip-v1';
@@ -26,9 +30,9 @@
     try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch (e) { return {}; }
   };
   const saved = loadStore();
-  const emptyFilters = () => ({ types: new Set(), meals: new Set(), booking: new Set(), prices: new Set(), areas: new Set(), minRating: null, query: '', openOn: false, hideClosed: false, shortlistOnly: false });
+  const emptyFilters = () => ({ types: new Set(), meals: new Set(), booking: new Set(), prices: new Set(), areas: new Set(), foodTypes: new Set(), minRating: null, query: '', openOn: false, hideClosed: false, shortlistOnly: false });
   let state = {
-    ...emptyFilters(), showAllAreas: false, day: 'sat', time: '12:00',
+    ...emptyFilters(), showAllAreas: false, showAllFood: false, day: 'sat', time: '12:00',
     shortlist: new Set(saved.shortlist || []), visited: new Set(saved.visited || []),
     tab: 'explore', selected: null, active: null, me: null, sortNearest: false,
   };
@@ -89,6 +93,11 @@
     $('price-group').hidden = presentPrices.length === 0;
     $('price-chips').innerHTML = presentPrices.map((v) => chip(esc(v), state.prices.has(v), `data-price="${esc(v)}"`)).join('');
     $('rating-chips').innerHTML = RATING_STEPS.map((v) => chip(`${v.toFixed(1)}+`, state.minRating === v, `data-rating="${v}"`)).join('');
+    $('food-group').hidden = FOODS.length === 0;
+    const foodCollapsible = FOODS.length > AREA_COLLAPSE_MAX;
+    const shownFoods = foodCollapsible && !state.showAllFood ? FOODS.filter((f, i) => i < FOOD_TOP || state.foodTypes.has(f)) : FOODS;
+    $('food-chips').innerHTML = shownFoods.map((f) => chip(esc(f), state.foodTypes.has(f), `data-food="${esc(f)}"`)).join('') +
+      (foodCollapsible ? chip(state.showAllFood ? 'Fewer' : 'More…', state.showAllFood, 'data-food-more="1"') : '');
     $('area-group').hidden = AREAS.length === 0;
     const collapsible = AREAS.length > AREA_COLLAPSE_MAX;
     const shownAreas = collapsible && !state.showAllAreas ? AREAS.filter((a, i) => i < AREA_TOP || state.areas.has(a)) : AREAS;
@@ -161,7 +170,7 @@
   /* ---- events ---- */
   const toggleIn = (key, v) => setState({ [key]: toggled(state[key], v) });
   document.addEventListener('click', (e) => {
-    const t = e.target.closest('[data-type],[data-meal],[data-booking],[data-price],[data-rating],[data-area],[data-area-more],[data-star],[data-visit],[data-open],.card,#back');
+    const t = e.target.closest('[data-type],[data-meal],[data-booking],[data-price],[data-rating],[data-area],[data-area-more],[data-food],[data-food-more],[data-star],[data-visit],[data-open],.card,#back');
     if (!t) return;
     const d = t.dataset;
     if (d.type) return toggleIn('types', d.type);
@@ -170,6 +179,8 @@
     if (d.price) return toggleIn('prices', d.price);
     if (d.rating) return setState({ minRating: state.minRating === Number(d.rating) ? null : Number(d.rating) });
     if (d.area) return toggleIn('areas', d.area);
+    if (d.food) return toggleIn('foodTypes', d.food);
+    if (d.foodMore) return setState({ showAllFood: !state.showAllFood });
     if (d.areaMore) return setState({ showAllAreas: !state.showAllAreas });
     if (d.star) { e.stopPropagation(); const s = toggled(state.shortlist, d.star); state = { ...state, shortlist: s }; persist(); return update(); }
     if (d.visit) { const v = toggled(state.visited, d.visit); state = { ...state, visited: v }; persist(); return update(); }

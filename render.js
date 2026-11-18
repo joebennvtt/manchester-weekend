@@ -5,6 +5,7 @@
     pub: { label: 'Pub', icon: '🍺' }, see: { label: 'See', icon: '🏛' }, do: { label: 'Do', icon: '🎭' },
     trip: { label: 'Trip', icon: '🚗' }, vintage: { label: 'Vintage', icon: '👗' }, music: { label: 'Music', icon: '💿' },
   };
+  const FOOD_TYPES = ["Brunch","Bakery & sweets","Sandwiches","British & roasts","American","Italian & pizza","Mexican","Mediterranean & Middle Eastern","Indian & Pakistani","Chinese","Japanese","Korean","Thai & Vietnamese","Pan-Asian","Steak & grill","Seafood","Food halls & buffets"];
   const MEALS = ['breakfast', 'lunch', 'dinner', 'drinks'];
   const BOOKINGS = { 'walk-in': 'Walk-in', recommended: 'Book recommended', essential: 'Book essential', tickets: 'Tickets', 'free-entry': 'Free entry' };
   const DAY_LABELS = { fri: 'Fri 20', sat: 'Sat 21', sun: 'Sun 22', mon: 'Mon 23' };
@@ -58,6 +59,7 @@
     return `<button class="back" id="back">← Back</button>
       <div class="meta small">${esc(TYPES[place.type].label)} · ${esc(place.neighbourhood)} · ${esc(place.address)}</div>
       <h2>${TYPES[place.type].icon} ${esc(place.name)}</h2>
+      ${(place.foodTypes || []).length ? `<div class="meta small">${place.foodTypes.map(esc).join(' · ')}</div>` : ''}
       ${ctx.distance ? `<div class="dist">📍 ${esc(ctx.distance)} from you</div>` : ''}
       ${place.confidence === 'low' ? '<div class="warn">⚠ unverified, check before going</div>' : ''}
       <p>${esc(place.blurb)}</p>
@@ -95,5 +97,5 @@
       <button class="chip" data-open="${esc(place.id)}">Details</button></div></div>`;
   }
 
-  window.TripRender = { TYPES, MEALS, BOOKINGS, esc, detailsHtml, cardHtml, bookItemHtml };
+  window.TripRender = { TYPES, FOOD_TYPES, MEALS, BOOKINGS, esc, detailsHtml, cardHtml, bookItemHtml };
 })();

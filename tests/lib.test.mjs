@@ -141,6 +141,23 @@ describe('filterPlaces', () => {
   });
 });
 
+describe('filterPlaces foodTypes', () => {
+  const k = mk({ id: 'k', foodTypes: ['Korean', 'Japanese'] });
+  const i = mk({ id: 'i', foodTypes: ['Italian & pizza'] });
+  const n = mk({ id: 'n' });
+  const all = [k, i, n];
+  const ids = (r) => r.map((p) => p.id);
+  test('keeps places whose foodTypes intersect, excludes missing', () => {
+    assert.deepEqual(ids(filterPlaces(all, { foodTypes: new Set(['Japanese', 'Italian & pizza']) })), ['k', 'i']);
+  });
+  test('empty set keeps all', () => {
+    assert.equal(filterPlaces(all, { foodTypes: new Set() }).length, 3);
+  });
+  test('search matches food types', () => {
+    assert.deepEqual(ids(filterPlaces(all, { query: 'korean' })), ['k']);
+  });
+});
+
 describe('bookAhead', () => {
   test('lists essential before recommended before tickets, stable within group, excluding others', () => {
     const places = [

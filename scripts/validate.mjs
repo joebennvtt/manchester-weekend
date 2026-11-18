@@ -14,6 +14,7 @@ const ENUMS = {
   addedBy: ['user', 'claude'],
   confidence: ['high', 'medium', 'low'],
 };
+const FOOD_TYPES = ["Brunch","Bakery & sweets","Sandwiches","British & roasts","American","Italian & pizza","Mexican","Mediterranean & Middle Eastern","Indian & Pakistani","Chinese","Japanese","Korean","Thai & Vietnamese","Pan-Asian","Steak & grill","Seafood","Food halls & buffets"];
 const MEALS = ['breakfast', 'lunch', 'dinner', 'drinks'];
 const DAYS = ['fri', 'sat', 'sun', 'mon'];
 const HHMM = /^([01]\d|2[0-3]):[0-5]\d$|^24:00$/;
@@ -53,6 +54,7 @@ function validatePlace(p, warnings) {
   for (const k of ['booking', 'addedBy', 'confidence']) need(k, ENUMS[k].includes(p[k]), `must be one of ${ENUMS[k].join('|')}`);
   need('price', p.price === null || ENUMS.price.includes(p.price), `must be null or one of ${ENUMS.price.join('|')}`);
   const optional = (key, ok, msg) => { if (p[key] != null && !ok) errs.push(`${key}: ${msg}`); };
+  optional('foodTypes', Array.isArray(p.foodTypes) && p.foodTypes.every((f) => FOOD_TYPES.includes(f)), 'must be array of known food types');
   optional('googleRating', typeof p.googleRating === 'number' && p.googleRating >= 1 && p.googleRating <= 5, 'must be number 1.0-5.0 or null');
   optional('googleReviews', Number.isInteger(p.googleReviews) && p.googleReviews >= 0, 'must be non-negative integer or null');
   optional('ratingSource', isHttps(p.ratingSource), 'must be https URL or null');
