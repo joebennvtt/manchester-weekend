@@ -251,3 +251,7 @@ input[type="search"], select, input[type="time"] { font-size: 16px; }
 .route-num { width: 22px; height: 22px; border-radius: 50%; background: var(--color-action); color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; }
 @media (max-width: 767px) { .tbtn.icon-sm { min-height: 44px; min-width: 44px; } }
 .panel > .toast { margin: var(--space-3) var(--space-4) 0; }
+.add-plan { display: grid; gap: 6px; margin: var(--space-3) 0; }
+.pbtn.secondary[aria-pressed="true"] { border-color: var(--color-ok); color: var(--color-ok); }
+.preview-actions { flex-wrap: wrap; }
+.pbtn { white-space: nowrap; }

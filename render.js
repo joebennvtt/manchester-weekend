@@ -66,6 +66,7 @@
       ${(place.foodTypes || []).length ? `<div class="meta small">${place.foodTypes.map(esc).join(' · ')}</div>` : ''}
       ${ctx.status ? `<div class="statusline">${statusHtml(ctx.status)}</div>` : ''}
       ${ctx.distance ? `<div class="dist">📍 ${esc(ctx.distance)}${ctx.km ? ' · ' + esc(ctx.km) : ''} from ${esc(ctx.from)}</div>` : ''}
+      ${ctx.planHtml || ''}
       ${place.confidence === 'low' ? '<div class="warn">⚠ unverified, check before going</div>' : ''}
       <p>${esc(place.blurb)}</p>
       ${place.userNote ? `<p class="note">Your note: ${esc(place.userNote)}</p>` : ''}
@@ -102,7 +103,7 @@
       <div class="name">${TYPES[place.type].icon} ${esc(place.name)}</div>
       <div class="meta">${esc(TYPES[place.type].label)} · ${esc(place.neighbourhood)}${esc(rating)}</div>
       <div class="statusline">${statusHtml(ctx.status)}${ctx.distance ? ' · <span class="dist">' + esc(ctx.distance) + '</span>' : ''}${ctx.homeText ? ' · <span class="home-text">' + esc(ctx.homeText) + '</span>' : ''}</div>
-      <div class="preview-actions"><button class="pbtn" data-open="${esc(place.id)}">Details</button>${link(directionsUrl(place), 'Directions', 'pbtn secondary')}</div>`;
+      <div class="preview-actions"><button class="pbtn" data-open="${esc(place.id)}">Details</button>${link(directionsUrl(place), 'Directions', 'pbtn secondary')}${ctx.planButton || ''}</div>`;
   }
 
   function bookItemHtml(place) {

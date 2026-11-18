@@ -3,7 +3,7 @@
   const { filterPlaces, bookAhead, isOpenAt, isCentral, distanceKm, sortByDistance, hasMoved, tripNow, openStatus, formatWalk, walkMinutes, startPoint, DEFAULT_BASE, splitByView } = window.TripLib;
   const { TYPES, FOOD_TYPES, MEALS, BOOKINGS, DAY_LABELS, esc, clockLabel, detailsHtml, cardHtml, previewHtml, bookItemHtml } = window.TripRender;
   const { normalisePlans, addStop, removeStop, moveStop, setStay, setStart, planTimeline, encodeShare, decodeShare, mergeShared, sharedCount } = window.TripPlan;
-  const { planHtml, homeHtml, homeShort, addToPlanHtml, shareBannerHtml } = window.TripRenderPlan;
+  const { planHtml, homeHtml, homeShort, addToPlanHtml, planButtonHtml, shareBannerHtml } = window.TripRenderPlan;
   const { homeOptions, nightOf } = window.TripHome;
   const HOME = window.GETTING_HOME;
   const MOVE_THRESHOLD_M = 15;
@@ -170,7 +170,7 @@
   }
   function renderPreview(shown) {
     const p = state.preview && shown.find((x) => x.id === state.preview);
-    const html = p ? previewHtml(p, { status: statusOf(p), distance: distanceText(p), homeText: homeText(p) }) : '';
+    const html = p ? previewHtml(p, { status: statusOf(p), distance: distanceText(p), homeText: homeText(p), planButton: planButtonHtml(p.id, state.planDay, state.plans) }) : '';
     $('preview').hidden = !p;
     if ($('preview').dataset.html !== html) { $('preview').innerHTML = html; $('preview').dataset.html = html; }
   }
@@ -253,12 +253,12 @@
     $('view-plan').hidden = showDetails || state.tab !== 'plan';
     if (!p) return;
     const night = nightOf(state.day, state.time);
-    const extraHtml = addToPlanHtml(p.id, state.plans) +
-      homeHtml(homeFor(p, night.day, night.min), HOME, walkToHub(p), `${DAY_LABELS[night.day]}, leaving ${state.time}`);
+    const addPlan = addToPlanHtml(p.id, state.plans);
+    const extraHtml = homeHtml(homeFor(p, night.day, night.min), HOME, walkToHub(p), `${DAY_LABELS[night.day]}, leaving ${state.time}`);
     $('details').innerHTML = detailsHtml(p, {
       distance: distanceText(p), km: `${distanceKm(origin(), p).toFixed(1)} km`, from: origin().label === 'you' ? 'you' : origin().label, status: statusOf(p),
       day: state.openOn ? state.day : null, starred: state.shortlist.has(p.id), visited: state.visited.has(p.id),
-      openState: state.openOn ? isOpenAt(p, state.day, state.time) : null, extraHtml,
+      openState: state.openOn ? isOpenAt(p, state.day, state.time) : null, planHtml: addPlan, extraHtml,
     });
   }
   // Filter chips are re-rendered on every change; keep keyboard focus on the same chip inside the sheet.

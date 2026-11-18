@@ -90,9 +90,15 @@
   function addToPlanHtml(placeId, plans) {
     const chips = DAYS.map((d) => {
       const on = plans[d].stops.some((s) => s.id === placeId);
-      return `<button class="chip" data-plan-toggle="${d}" data-id="${esc(placeId)}" aria-pressed="${on}">${esc(DAY_LABELS[d])}</button>`;
+      return `<button class="chip" data-plan-toggle="${d}" data-id="${esc(placeId)}" aria-pressed="${on}">${on ? '✓' : '＋'} ${esc(DAY_LABELS[d])}</button>`;
     }).join('');
-    return `<h3>Add to plan</h3><div class="chips">${chips}</div>`;
+    return `<div class="add-plan"><span class="group-label">Add to plan</span><div class="chips">${chips}</div></div>`;
+  }
+
+  /* Map pop-up: one button for the day shown in the Plan tab. */
+  function planButtonHtml(placeId, day, plans) {
+    const on = plans[day].stops.some((s) => s.id === placeId);
+    return `<button class="pbtn secondary" data-plan-toggle="${day}" data-id="${esc(placeId)}" aria-pressed="${on}">${on ? '✓ In' : '＋ Add to'} ${esc(DAY_LABELS[day].split(' ')[0])} plan</button>`;
   }
 
   function shareBannerHtml(shared, stopCount) {
@@ -104,5 +110,5 @@
       <button class="pbtn secondary" data-share-dismiss="1">Dismiss</button></div>`;
   }
 
-  window.TripRenderPlan = { planHtml, homeHtml, homeShort, addToPlanHtml, shareBannerHtml };
+  window.TripRenderPlan = { planHtml, homeHtml, homeShort, addToPlanHtml, planButtonHtml, shareBannerHtml };
 })();
