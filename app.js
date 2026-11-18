@@ -1,7 +1,7 @@
 /* State, map and wiring. Uses window.PLACES, TripLib, TripRender, Leaflet. */
 (function () {
-  const { filterPlaces, bookAhead, isOpenAt, isCentral, distanceKm, formatDistance, sortByDistance, hasMoved } = window.TripLib;
-  const { TYPES, FOOD_TYPES, MEALS, BOOKINGS, esc, detailsHtml, cardHtml, bookItemHtml } = window.TripRender;
+  const { filterPlaces, bookAhead, isOpenAt, isCentral, distanceKm, sortByDistance, hasMoved, tripNow, openStatus, formatWalk } = window.TripLib;
+  const { TYPES, FOOD_TYPES, MEALS, BOOKINGS, esc, clockLabel, detailsHtml, cardHtml, previewHtml, bookItemHtml } = window.TripRender;
   const MOVE_THRESHOLD_M = 15;
   const PRICE_ORDER = ['free', '£', '££', '£££', '££££'];
   const AREA_TOP = 8;
@@ -24,6 +24,10 @@
   const FOODS = FOOD_TYPES.filter((f) => foodCount(f) > 0).sort((a, b) => foodCount(b) - foodCount(a));
   const byId = new Map(PLACES.map((p) => [p.id, p]));
   const $ = (id) => document.getElementById(id);
+  const QUICK_TYPES = { food: ['cafe', 'restaurant'], drinks: ['bar', 'pub'], sights: ['see', 'do'], shops: ['vintage', 'music'] };
+  const CLOCK_REFRESH_MS = 60000;
+  const PREVIEW_PAD_PX = 200;
+  const DETAIL_ZOOM = 17;
   const STORE_KEY = 'manchester-trip-v1';
 
   const loadStore = () => {
@@ -31,10 +35,13 @@
   };
   const saved = loadStore();
   const emptyFilters = () => ({ types: new Set(), meals: new Set(), booking: new Set(), prices: new Set(), areas: new Set(), foodTypes: new Set(), minRating: null, query: '', openOn: false, hideClosed: false, shortlistOnly: false });
+  const trip = tripNow();
+  // During the trip, start on the real day/time with "Open now" on; otherwise the Sat 12:00 default.
   let state = {
-    ...emptyFilters(), showAllAreas: false, showAllFood: false, day: 'sat', time: '12:00',
+    ...emptyFilters(), showAllAreas: false, showAllFood: false, day: trip ? trip.day : 'sat', time: trip ? trip.time : '12:00',
+    openOn: Boolean(trip), hideClosed: Boolean(trip), live: Boolean(trip),
     shortlist: new Set(saved.shortlist || []), visited: new Set(saved.visited || []),
-    tab: 'explore', selected: null, active: null, me: null, sortNearest: false,
+    tab: 'explore', selected: null, active: null, preview: null, me: null, sortNearest: false,
   };
   function persist() {
     try { localStorage.setItem(STORE_KEY, JSON.stringify({ shortlist: [...state.shortlist], visited: [...state.visited] })); } catch (e) { /* storage unavailable */ }
@@ -43,29 +50,29 @@
   const toggled = (set, v) => { const n = new Set(set); if (n.has(v)) n.delete(v); else n.add(v); return n; };
 
   /* ---- map ---- */
-  const map = L.map('map', { zoomControl: true });
+  // markercluster needs a map-level maxZoom; the MapLibre vector layer doesn't provide one.
+  const map = L.map('map', { zoomControl: true, maxZoom: 19 });
   window.TripBasemap.add(map);
-  const markerLayer = L.layerGroup().addTo(map);
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clusterLayer = L.markerClusterGroup({
+    maxClusterRadius: 40, disableClusteringAtZoom: 17, spiderfyOnMaxZoom: true, showCoverageOnHover: false, animate: !reducedMotion,
+    iconCreateFunction: (c) => L.divIcon({ className: '', iconSize: [36, 36], html: `<div class="cluster">${c.getChildCount()}</div>` }),
+  }).addTo(map);
   const markers = new Map();
+  const inCluster = new Set();
   const pinIcon = (p, dim, active) => L.divIcon({
     className: '', iconSize: [28, 28], iconAnchor: [14, 14],
     html: `<div class="pin t-${p.type}${dim ? ' dim' : ''}${active ? ' active' : ''}">${TYPES[p.type].icon}</div>`,
   });
   PLACES.forEach((p) => {
     const m = L.marker([p.lat, p.lng], { title: p.name, icon: pinIcon(p, false, false) });
-    m.bindPopup(() => {
-      const wrap = document.createElement('div');
-      const title = document.createElement('strong');
-      title.textContent = p.name;
-      const btn = document.createElement('button');
-      btn.textContent = 'Details';
-      btn.addEventListener('click', () => openDetails(p.id, false));
-      wrap.append(title, document.createElement('br'), btn);
-      return wrap;
+    m.on('click', () => {
+      setState({ active: p.id, preview: p.id, tab: 'explore', selected: null });
+      map.panInside(m.getLatLng(), { paddingTopLeft: [40, 60], paddingBottomRight: [40, PREVIEW_PAD_PX] });
     });
-    m.on('click', () => setState({ active: p.id, tab: 'explore', selected: null }));
     markers.set(p.id, m);
   });
+  map.on('click', () => { if (state.preview) setState({ preview: null, active: null }); });
   const fit = (places) => {
     if (places.length === 0) return;
     map.fitBounds(L.latLngBounds(places.map((p) => [p.lat, p.lng])), { padding: [30, 30], maxZoom: 16 });
@@ -78,7 +85,13 @@
     const filtered = filterPlaces(PLACES, { ...state, openAt: state.hideClosed ? openAtState() : null });
     return state.me && state.sortNearest ? sortByDistance(filtered, state.me) : filtered;
   };
-  const distanceText = (p) => (state.me ? formatDistance(distanceKm(state.me, p)) : null);
+  const distanceText = (p) => (state.me ? formatWalk(distanceKm(state.me, p)) : null);
+  const statusOf = (p) => openStatus(p, state.day, state.time);
+  const filterCount = () => [
+    state.types.size, state.foodTypes.size, state.meals.size, state.prices.size, state.areas.size, state.booking.size,
+    state.minRating !== null, state.openOn || state.hideClosed, state.shortlistOnly,
+  ].filter(Boolean).length;
+  const sameSet = (set, values) => set.size === values.length && values.every((v) => set.has(v));
   const isClosedNow = (p) => state.openOn && !isOpenAt(p, state.day, state.time);
 
   /* ---- render ---- */
@@ -105,20 +118,42 @@
       (collapsible ? chip(state.showAllAreas ? 'Fewer' : 'More…', state.showAllAreas, 'data-area-more="1"') : '');
     $('shortlist-only').setAttribute('aria-pressed', state.shortlistOnly);
   }
+  function renderToolbar(shown) {
+    const n = filterCount();
+    $('filters-btn').textContent = n ? `Filters · ${n}` : 'Filters';
+    $('toolbar').hidden = state.tab !== 'explore' || Boolean(state.selected);
+    $('clock').textContent = `Showing ${clockLabel(state.day, state.time)}`;
+    $('sheet-done').textContent = `Show ${shown.length} place${shown.length === 1 ? '' : 's'}`;
+    document.querySelectorAll('[data-quick]').forEach((b) => {
+      const k = b.dataset.quick;
+      const on = k === 'open' ? state.openOn && state.hideClosed : k === 'shortlist' ? state.shortlistOnly : sameSet(state.types, QUICK_TYPES[k]);
+      b.setAttribute('aria-pressed', on);
+    });
+  }
+  function renderPreview(shown) {
+    const p = state.preview && shown.find((x) => x.id === state.preview);
+    const html = p ? previewHtml(p, { status: statusOf(p), distance: distanceText(p) }) : '';
+    $('preview').hidden = !p;
+    if ($('preview').dataset.html !== html) { $('preview').innerHTML = html; $('preview').dataset.html = html; }
+  }
   function renderList(shown) {
     $('count').textContent = `${shown.length} of ${PLACES.length} places`;
     $('list').innerHTML = shown.length === 0 ? '<p class="empty">No places match these filters.</p>' :
-      shown.map((p) => cardHtml(p, { distance: distanceText(p), dim: isClosedNow(p), starred: state.shortlist.has(p.id), visited: state.visited.has(p.id), active: state.active === p.id })).join('');
+      shown.map((p) => cardHtml(p, { status: statusOf(p), distance: distanceText(p), dim: isClosedNow(p), starred: state.shortlist.has(p.id), visited: state.visited.has(p.id), active: state.active === p.id })).join('');
   }
   function renderMarkers(shown) {
     const shownIds = new Set(shown.map((p) => p.id));
-    markers.forEach((m, id) => {
-      const p = byId.get(id);
-      if (!shownIds.has(id)) { markerLayer.removeLayer(m); return; }
-      m.setIcon(pinIcon(p, isClosedNow(p), state.active === id));
+    const gone = [...inCluster].filter((id) => !shownIds.has(id));
+    const added = [...shownIds].filter((id) => !inCluster.has(id));
+    clusterLayer.removeLayers(gone.map((id) => markers.get(id)));
+    gone.forEach((id) => inCluster.delete(id));
+    shownIds.forEach((id) => {
+      const m = markers.get(id);
+      m.setIcon(pinIcon(byId.get(id), isClosedNow(byId.get(id)), state.active === id));
       m.setZIndexOffset(state.active === id ? 1000 : 0);
-      markerLayer.addLayer(m);
     });
+    clusterLayer.addLayers(added.map((id) => markers.get(id)));
+    added.forEach((id) => inCluster.add(id));
   }
   function renderBook() {
     const items = bookAhead(PLACES);
@@ -134,17 +169,34 @@
     $('view-book').hidden = showDetails || state.tab !== 'book';
     if (!p) return;
     $('details').innerHTML = detailsHtml(p, {
-      distance: distanceText(p),
+      distance: distanceText(p), status: statusOf(p),
       day: state.openOn ? state.day : null, starred: state.shortlist.has(p.id), visited: state.visited.has(p.id),
       openState: state.openOn ? isOpenAt(p, state.day, state.time) : null,
     });
+  }
+  // Filter chips are re-rendered on every change; keep keyboard focus on the same chip inside the sheet.
+  function sheetFocusKey() {
+    const el = document.activeElement;
+    if (!el || !$('filters').contains(el) || !el.dataset) return null;
+    const attr = Object.keys(el.dataset)[0];
+    return attr ? { attr, value: el.dataset[attr] } : null;
+  }
+  function restoreSheetFocus(key) {
+    if (!key) return;
+    const next = [...$('filters').querySelectorAll('button')].find((b) => b.dataset[key.attr] === key.value);
+    if (next && document.activeElement !== next) next.focus();
   }
   function update() {
     const shown = visiblePlaces();
     $('sort-wrap').hidden = !state.me;
     $('open-on').checked = state.openOn;
+    $('sort-nearest').checked = state.sortNearest;
     $('hide-closed').checked = state.hideClosed;
-    renderFilters(); renderList(shown); renderMarkers(shown); renderDetails();
+    $('open-day').value = state.day;
+    $('open-time').value = state.time;
+    const focusKey = sheetFocusKey();
+    renderFilters(); renderToolbar(shown); renderList(shown); renderMarkers(shown); renderPreview(shown); renderDetails();
+    restoreSheetFocus(focusKey);
     document.querySelectorAll('.tab').forEach((t) => {
       const on = t.dataset.tab === state.tab;
       t.classList.toggle('active', on); t.setAttribute('aria-selected', on);
@@ -160,17 +212,25 @@
   function openDetails(id, fly = true) {
     const p = byId.get(id);
     if (!p) return;
-    if (fly) map.flyTo([p.lat, p.lng], Math.max(map.getZoom(), 16), { duration: 0.6 });
-    markers.get(id).openPopup();
+    if (fly) map.flyTo([p.lat, p.lng], Math.max(map.getZoom(), DETAIL_ZOOM), { duration: 0.6 });
     if (!state.selected) listScrollTop = $('panel').scrollTop;
-    setState({ selected: id, active: id });
+    setState({ selected: id, active: id, preview: null });
     $('panel').scrollTop = 0;
   }
 
   /* ---- events ---- */
+  function quickPatch(key) {
+    if (key === 'open') return { openOn: !(state.openOn && state.hideClosed), hideClosed: !(state.openOn && state.hideClosed) };
+    if (key === 'shortlist') return { shortlistOnly: !state.shortlistOnly };
+    return { types: sameSet(state.types, QUICK_TYPES[key]) ? new Set() : new Set(QUICK_TYPES[key]) };
+  }
+  function quickFilter(key) {
+    setState(quickPatch(key));
+    fit(visiblePlaces());
+  }
   const toggleIn = (key, v) => setState({ [key]: toggled(state[key], v) });
   document.addEventListener('click', (e) => {
-    const t = e.target.closest('[data-type],[data-meal],[data-booking],[data-price],[data-rating],[data-area],[data-area-more],[data-food],[data-food-more],[data-star],[data-visit],[data-open],.card,#back');
+    const t = e.target.closest('[data-type],[data-meal],[data-booking],[data-price],[data-rating],[data-area],[data-area-more],[data-food],[data-food-more],[data-star],[data-visit],[data-open],[data-quick],[data-preview-close],.card,#back');
     if (!t) return;
     const d = t.dataset;
     if (d.type) return toggleIn('types', d.type);
@@ -184,6 +244,8 @@
     if (d.areaMore) return setState({ showAllAreas: !state.showAllAreas });
     if (d.star) { e.stopPropagation(); const s = toggled(state.shortlist, d.star); state = { ...state, shortlist: s }; persist(); return update(); }
     if (d.visit) { const v = toggled(state.visited, d.visit); state = { ...state, visited: v }; persist(); return update(); }
+    if (d.quick) return quickFilter(d.quick);
+    if (d.previewClose) return setState({ preview: null, active: null });
     if (d.open) return openDetails(d.open);
     if (t.id === 'back') { setState({ selected: null }); $('panel').scrollTop = listScrollTop; return; }
     if (t.classList.contains('card')) return openDetails(d.id);
@@ -195,15 +257,34 @@
   document.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => setState({ tab: t.dataset.tab, selected: null })));
   $('q').addEventListener('input', (e) => setState({ query: e.target.value }));
   $('open-on').addEventListener('change', (e) => setState({ openOn: e.target.checked }));
-  $('open-day').addEventListener('change', (e) => setState({ day: e.target.value, openOn: true }));
-  $('open-time').addEventListener('change', (e) => e.target.value && setState({ time: e.target.value, openOn: true }));
+  // Picking a day/time means "what's open then", so also hide closed places (untick Hide closed to see them).
+  $('open-day').addEventListener('change', (e) => setState({ day: e.target.value, openOn: true, hideClosed: true, live: false }));
+  $('open-time').addEventListener('change', (e) => e.target.value && setState({ time: e.target.value, openOn: true, hideClosed: true, live: false }));
   $('hide-closed').addEventListener('change', (e) => setState({ hideClosed: e.target.checked, openOn: e.target.checked || state.openOn }));
   $('shortlist-only').addEventListener('click', () => setState({ shortlistOnly: !state.shortlistOnly }));
-  $('day-trips').addEventListener('click', () => fit(PLACES));
+  $('day-trips').addEventListener('click', () => { closeSheet(); fit(PLACES); });
   $('clear').addEventListener('click', () => {
-    ['q'].forEach((id) => { $(id).value = ''; });
-    setState({ ...emptyFilters(), selected: null, active: null });
+    $('q').value = '';
+    setState({ ...emptyFilters(), selected: null, active: null, preview: null });
     fitCentre();
+  });
+
+  /* ---- filters sheet (modal <dialog>: Esc, focus trap and focus return come from the platform) ---- */
+  const sheet = $('sheet');
+  function openSheet(focusId) {
+    if (sheet.open) return;
+    sheet.showModal();
+    if (focusId) $(focusId).focus();
+  }
+  function closeSheet() { if (sheet.open) sheet.close(); }
+  sheet.addEventListener('close', () => $('filters-btn').focus());
+  sheet.addEventListener('click', (e) => { if (e.target === sheet) closeSheet(); });
+  $('filters-btn').addEventListener('click', () => openSheet());
+  $('clock').addEventListener('click', () => openSheet('open-day'));
+  $('sheet-close').addEventListener('click', closeSheet);
+  $('sheet-done').addEventListener('click', () => { closeSheet(); fit(visiblePlaces()); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !sheet.open && state.preview) setState({ preview: null, active: null });
   });
 
   const toast = (text) => { $('toast').textContent = text; $('toast').hidden = !text; };
@@ -214,13 +295,16 @@
       renderList(visiblePlaces()); renderDetails();
       return;
     }
-    state = { ...state, me, ...(me ? {} : { sortNearest: false }) };
-    if (!me) $('sort-nearest').checked = false;
+    state = { ...state, me, sortNearest: Boolean(me) };
     update();
   }, toast);
   $('sort-nearest').addEventListener('change', (e) => setState({ sortNearest: e.target.checked }));
 
-  $('open-day').value = state.day;
+  setInterval(() => {
+    const now = tripNow();
+    if (state.live && now && (now.day !== state.day || now.time !== state.time)) setState({ day: now.day, time: now.time });
+  }, CLOCK_REFRESH_MS);
+
   renderBook();
   update();
   fitCentre();

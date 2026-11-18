@@ -2,7 +2,7 @@ import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 
-const { isOpenAt, filterPlaces, bookAhead, isCentral, distanceKm, formatDistance, sortByDistance } = createRequire(import.meta.url)('../lib.js');
+const { isOpenAt, filterPlaces, bookAhead, isCentral, distanceKm, formatDistance, sortByDistance, tripNow, openStatus, walkMinutes, formatWalk } = createRequire(import.meta.url)('../lib.js');
 
 const closedWeek = { fri: [], sat: [], sun: [], mon: [] };
 const mk = (over = {}) => ({
@@ -244,4 +244,88 @@ describe('filterPlaces minRating', () => {
     assert.equal(got.includes('d'), false);
   });
   test('keeps everything when minRating is null', () => assert.equal(ids({ minRating: null }).length, 4));
+});
+
+describe('tripNow', () => {
+  test('returns the trip day and London time inside the window', () => {
+    assert.deepEqual(tripNow(new Date('2026-11-21T12:05:00Z')), { day: 'sat', time: '12:05' });
+    assert.deepEqual(tripNow(new Date('2026-11-23T23:30:00Z')), { day: 'mon', time: '23:30' });
+  });
+
+  test('returns null before and after the trip', () => {
+    assert.equal(tripNow(new Date('2026-11-19T12:00:00Z')), null);
+    assert.equal(tripNow(new Date('2026-11-24T00:30:00Z')), null);
+  });
+
+  test('uses the Europe/London date at the window edges', () => {
+    assert.equal(tripNow(new Date('2026-11-19T23:30:00Z')), null);
+    assert.deepEqual(tripNow(new Date('2026-11-20T00:30:00Z')), { day: 'fri', time: '00:30' });
+  });
+
+  test('follows BST in summer rather than UTC', () => {
+    assert.equal(tripNow(new Date('2026-06-20T12:00:00Z')), null);
+  });
+});
+
+describe('openStatus', () => {
+  const week = (over) => mk({ hours: { ...closedWeek, ...over } });
+
+  test('reports open with the closing time when more than an hour remains', () => {
+    const p = week({ sat: [['09:00', '22:00']] });
+    assert.deepEqual(openStatus(p, 'sat', '12:00'), { state: 'open', text: 'Open · until 22:00' });
+  });
+
+  test('reports closing with minutes left within the last 60 minutes', () => {
+    const p = week({ sat: [['09:00', '22:00']] });
+    assert.deepEqual(openStatus(p, 'sat', '21:35'), { state: 'closing', text: 'Closes in 25 min' });
+    assert.equal(openStatus(p, 'sat', '21:00').state, 'closing');
+    assert.equal(openStatus(p, 'sat', '20:59').state, 'open');
+  });
+
+  test('reports the next opening later today', () => {
+    const p = week({ sat: [['10:00', '13:00'], ['17:00', '23:00']] });
+    assert.deepEqual(openStatus(p, 'sat', '14:00'), { state: 'later', text: 'Opens 17:00' });
+    assert.deepEqual(openStatus(p, 'sat', '08:00'), { state: 'later', text: 'Opens 10:00' });
+  });
+
+  test('reports closed today when nothing opens again', () => {
+    const p = week({ sat: [['10:00', '13:00']] });
+    assert.deepEqual(openStatus(p, 'sat', '14:00'), { state: 'closed', text: 'Closed today' });
+    assert.deepEqual(openStatus(p, 'sun', '12:00'), { state: 'closed', text: 'Closed today' });
+  });
+
+  test('counts a range spilling past midnight from the previous day', () => {
+    const p = week({ fri: [['17:00', '02:00']] });
+    assert.deepEqual(openStatus(p, 'sat', '00:30'), { state: 'open', text: 'Open · until 02:00' });
+    assert.deepEqual(openStatus(p, 'sat', '01:30'), { state: 'closing', text: 'Closes in 30 min' });
+    assert.equal(openStatus(p, 'sat', '02:00').state, 'closed');
+  });
+
+  test('shows the after-midnight close time for a range opened today', () => {
+    const p = week({ fri: [['17:00', '02:00']] });
+    assert.deepEqual(openStatus(p, 'fri', '20:00'), { state: 'open', text: 'Open · until 02:00' });
+    assert.equal(openStatus(p, 'fri', '01:00').state, 'later');
+  });
+
+  test('agrees with isOpenAt', () => {
+    const p = week({ sat: [['09:00', '17:00']], fri: [['18:00', '03:00']] });
+    for (const t of ['00:00', '02:59', '03:00', '09:00', '16:59', '17:00', '23:59']) {
+      const open = ['open', 'closing'].includes(openStatus(p, 'sat', t).state);
+      assert.equal(open, isOpenAt(p, 'sat', t), t);
+    }
+  });
+});
+
+describe('walkMinutes', () => {
+  test('converts km to minutes at 4.8 km/h with a 1.3 detour factor', () => {
+    assert.equal(walkMinutes(1), 16);
+    assert.equal(walkMinutes(0), 0);
+    assert.equal(walkMinutes(3.4), 55);
+  });
+
+  test('formatWalk shows minutes up to 40 and km beyond', () => {
+    assert.equal(formatWalk(0.8), '13 min walk');
+    assert.equal(formatWalk(0.001), '1 min walk');
+    assert.equal(formatWalk(3.4), '3.4 km');
+  });
 });

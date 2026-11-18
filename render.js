@@ -53,13 +53,18 @@
     return `<p class="small">${esc(`★ ${place.googleRating.toFixed(1)} Google rating${reviews}`)}${src ? ` ${src}` : ''}</p>`;
   }
 
+  const directionsUrl = (place) => `https://www.google.com/maps/dir/?api=1&destination=${place.lat},${place.lng}`;
+  const statusHtml = (status) => (status ? `<span class="status s-${esc(status.state)}">${esc(status.text)}</span>` : '');
+  const clockLabel = (day, time) => `${DAY_LABELS[day]} Nov, ${time}`;
+
   function detailsHtml(place, ctx) {
-    const dir = `https://www.google.com/maps/dir/?api=1&destination=${place.lat},${place.lng}`;
+    const dir = directionsUrl(place);
     const src = (place.sources || []).map((s, i) => link(s, `source ${i + 1}`, 'src')).join(' ');
     return `<button class="back" id="back">← Back</button>
       <div class="meta small">${esc(TYPES[place.type].label)} · ${esc(place.neighbourhood)} · ${esc(place.address)}</div>
       <h2>${TYPES[place.type].icon} ${esc(place.name)}</h2>
       ${(place.foodTypes || []).length ? `<div class="meta small">${place.foodTypes.map(esc).join(' · ')}</div>` : ''}
+      ${ctx.status ? `<div class="statusline">${statusHtml(ctx.status)}</div>` : ''}
       ${ctx.distance ? `<div class="dist">📍 ${esc(ctx.distance)} from you</div>` : ''}
       ${place.confidence === 'low' ? '<div class="warn">⚠ unverified, check before going</div>' : ''}
       <p>${esc(place.blurb)}</p>
@@ -82,10 +87,20 @@
     const cls = ['card', 't-' + place.type, ctx.dim ? 'dim' : '', ctx.visited ? 'visited' : '', ctx.active ? 'active' : ''].join(' ');
     return `<article class="${cls}" data-id="${esc(place.id)}" tabindex="0" role="button">
       <div class="name">${TYPES[place.type].icon} ${esc(place.name)}</div>
-      <div class="meta">${esc(TYPES[place.type].label)} · ${esc(place.neighbourhood)}${place.price ? ' · ' + esc(place.price) : ''}${typeof place.googleRating === 'number' ? ' · ★ ' + esc(place.googleRating.toFixed(1)) : ''}${ctx.distance ? ' · <span class="dist">' + esc(ctx.distance) + '</span>' : ''}</div>
+      <div class="meta">${esc(TYPES[place.type].label)} · ${esc(place.neighbourhood)}${place.price ? ' · ' + esc(place.price) : ''}${typeof place.googleRating === 'number' ? ' · ★ ' + esc(place.googleRating.toFixed(1)) : ''}</div>
+      <div class="statusline">${statusHtml(ctx.status)}${ctx.distance ? ' · <span class="dist">' + esc(ctx.distance) + '</span>' : ''}</div>
       <p class="blurb">${esc(place.blurb)}</p>
       <button class="star" data-star="${esc(place.id)}" aria-pressed="${ctx.starred}" aria-label="Shortlist ${esc(place.name)}">${ctx.starred ? '★' : '☆'}</button>
     </article>`;
+  }
+
+  function previewHtml(place, ctx) {
+    const rating = typeof place.googleRating === 'number' ? ` · ★ ${place.googleRating.toFixed(1)}` : '';
+    return `<button class="preview-close" data-preview-close="1" aria-label="Close preview">×</button>
+      <div class="name">${TYPES[place.type].icon} ${esc(place.name)}</div>
+      <div class="meta">${esc(TYPES[place.type].label)} · ${esc(place.neighbourhood)}${esc(rating)}</div>
+      <div class="statusline">${statusHtml(ctx.status)}${ctx.distance ? ' · <span class="dist">' + esc(ctx.distance) + '</span>' : ''}</div>
+      <div class="preview-actions"><button class="pbtn" data-open="${esc(place.id)}">Details</button>${link(directionsUrl(place), 'Directions', 'pbtn secondary')}</div>`;
   }
 
   function bookItemHtml(place) {
@@ -97,5 +112,5 @@
       <button class="chip" data-open="${esc(place.id)}">Details</button></div></div>`;
   }
 
-  window.TripRender = { TYPES, FOOD_TYPES, MEALS, BOOKINGS, esc, detailsHtml, cardHtml, bookItemHtml };
+  window.TripRender = { TYPES, FOOD_TYPES, MEALS, BOOKINGS, DAY_LABELS, esc, clockLabel, detailsHtml, cardHtml, previewHtml, bookItemHtml };
 })();

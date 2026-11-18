@@ -7,11 +7,15 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📍</text></svg>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="app">
-    <div id="map" aria-label="Map of places"></div>
+    <div class="map-wrap">
+      <div id="map" aria-label="Map of places"></div>
+      <div id="preview" class="preview" role="region" aria-label="Selected place" hidden></div>
+    </div>
     <aside class="panel" id="panel">
       <header class="top">
         <h1>Manchester Weekend</h1>
@@ -19,46 +23,70 @@
           <button role="tab" id="tab-explore" class="tab active" data-tab="explore" aria-selected="true">Explore</button>
           <button role="tab" id="tab-book" class="tab" data-tab="book" aria-selected="false">Book ahead <span id="book-count" class="count"></span></button>
         </nav>
+        <div class="toolbar" id="toolbar">
+          <div class="toolbar-row">
+            <input id="q" type="search" placeholder="Search places, tags, cuisine" aria-label="Search">
+            <button class="tbtn" id="filters-btn" aria-haspopup="dialog">Filters</button>
+          </div>
+          <div class="quick" id="quick" role="group" aria-label="Quick filters">
+            <button class="chip" data-quick="open" aria-pressed="false">Open now</button>
+            <button class="chip" data-quick="food" aria-pressed="false">Food</button>
+            <button class="chip" data-quick="drinks" aria-pressed="false">Drinks</button>
+            <button class="chip" data-quick="sights" aria-pressed="false">Sights</button>
+            <button class="chip" data-quick="shops" aria-pressed="false">Shops</button>
+            <button class="chip" data-quick="shortlist" aria-pressed="false">★ Shortlist</button>
+          </div>
+        </div>
       </header>
       <section id="view-explore">
-        <div class="filters" id="filters">
-          <input id="q" type="search" placeholder="Search places, tags, cuisine" aria-label="Search">
-          <div class="group"><span class="group-label" id="h-type">Type</span><div class="chips" id="type-chips" role="group" aria-labelledby="h-type"></div></div>
-          <div class="group" id="food-group" hidden><span class="group-label" id="h-food">Food type</span><div class="chips" id="food-chips" role="group" aria-labelledby="h-food"></div></div>
-          <div class="group"><span class="group-label" id="h-meal">Meal</span><div class="chips" id="meal-chips" role="group" aria-labelledby="h-meal"></div></div>
-          <div class="group" id="price-group" hidden><span class="group-label" id="h-price">Price</span><div class="chips" id="price-chips" role="group" aria-labelledby="h-price"></div></div>
-          <div class="group" id="rating-group"><span class="group-label" id="h-rating">Google rating</span><div class="chips" id="rating-chips" role="group" aria-labelledby="h-rating"></div><span class="hint">cafés, restaurants, bars &amp; pubs</span></div>
-          <div class="group" id="area-group" hidden><span class="group-label" id="h-area">Area</span><div class="chips" id="area-chips" role="group" aria-labelledby="h-area"></div></div>
-          <div class="group"><span class="group-label" id="h-booking">Booking</span><div class="chips" id="booking-chips" role="group" aria-labelledby="h-booking"></div></div>
-          <div class="group"><span class="group-label" aria-hidden="true">Open at</span>
-            <div class="row open-at" role="group" aria-label="Open at">
-              <label class="switch"><input type="checkbox" id="open-on"> Open at</label>
-              <select id="open-day" aria-label="Day">
-                <option value="fri">Fri 20 Nov</option><option value="sat">Sat 21 Nov</option>
-                <option value="sun">Sun 22 Nov</option><option value="mon">Mon 23 Nov</option>
-              </select>
-              <input type="time" id="open-time" value="12:00" aria-label="Time">
-              <label class="switch"><input type="checkbox" id="hide-closed"> Hide closed</label>
-            </div>
-          </div>
-          <div class="group"><span class="group-label" id="h-show">Show</span>
-            <div class="row" role="group" aria-labelledby="h-show">
-              <button class="chip" id="shortlist-only" aria-pressed="false">★ Shortlist only</button>
-              <button class="chip" id="day-trips" title="Fit all places including Chester and Altrincham">Day trips</button>
-              <label class="switch" id="sort-wrap" hidden><input type="checkbox" id="sort-nearest"> Sort: nearest</label>
-              <button class="chip" id="clear">Clear</button>
-              <span id="count" class="count" aria-live="polite"></span>
-            </div>
-          </div>
-          <div id="toast" class="toast" role="status" hidden></div>
+        <div class="infoline">
+          <span id="count" class="count" aria-live="polite"></span>
+          <button class="clock" id="clock" aria-label="Change day and time"></button>
         </div>
+        <div id="toast" class="toast" role="status" hidden></div>
         <div id="list" class="list"></div>
       </section>
       <section id="view-book" hidden></section>
       <section id="details" class="details" hidden></section>
     </aside>
   </div>
+  <dialog id="sheet" class="sheet" aria-labelledby="sheet-title">
+    <header class="sheet-head">
+      <h2 id="sheet-title">Filters</h2>
+      <button class="tbtn plain" id="clear">Clear all</button>
+      <button class="tbtn icon" id="sheet-close" aria-label="Close filters">×</button>
+    </header>
+    <div class="sheet-body filters" id="filters">
+      <div class="group"><span class="group-label" id="h-type">Type</span><div class="chips" id="type-chips" role="group" aria-labelledby="h-type"></div></div>
+      <div class="group" id="food-group" hidden><span class="group-label" id="h-food">Food type</span><div class="chips" id="food-chips" role="group" aria-labelledby="h-food"></div></div>
+      <div class="group"><span class="group-label" id="h-meal">Meal</span><div class="chips" id="meal-chips" role="group" aria-labelledby="h-meal"></div></div>
+      <div class="group" id="price-group" hidden><span class="group-label" id="h-price">Price</span><div class="chips" id="price-chips" role="group" aria-labelledby="h-price"></div></div>
+      <div class="group" id="rating-group"><span class="group-label" id="h-rating">Google rating</span><div class="chips" id="rating-chips" role="group" aria-labelledby="h-rating"></div><span class="hint">cafés, restaurants, bars &amp; pubs</span></div>
+      <div class="group" id="area-group" hidden><span class="group-label" id="h-area">Area</span><div class="chips" id="area-chips" role="group" aria-labelledby="h-area"></div></div>
+      <div class="group"><span class="group-label" id="h-booking">Booking</span><div class="chips" id="booking-chips" role="group" aria-labelledby="h-booking"></div></div>
+      <div class="group" id="open-at-group"><span class="group-label" aria-hidden="true">Open at</span>
+        <div class="row open-at" role="group" aria-label="Open at">
+          <label class="switch"><input type="checkbox" id="open-on"> Open at</label>
+          <select id="open-day" aria-label="Day">
+            <option value="fri">Fri 20 Nov</option><option value="sat">Sat 21 Nov</option>
+            <option value="sun">Sun 22 Nov</option><option value="mon">Mon 23 Nov</option>
+          </select>
+          <input type="time" id="open-time" value="12:00" aria-label="Time">
+          <label class="switch"><input type="checkbox" id="hide-closed"> Hide closed</label>
+        </div>
+      </div>
+      <div class="group"><span class="group-label" id="h-show">Show</span>
+        <div class="row" role="group" aria-labelledby="h-show">
+          <button class="chip" id="shortlist-only" aria-pressed="false">★ Shortlist only</button>
+          <button class="chip" id="day-trips" title="Fit all places including Chester and Altrincham">Day trips</button>
+          <label class="switch" id="sort-wrap" hidden><input type="checkbox" id="sort-nearest"> Sort: nearest</label>
+        </div>
+      </div>
+    </div>
+    <footer class="sheet-foot"><button class="primary" id="sheet-done">Show places</button></footer>
+  </dialog>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
   <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.22/leaflet-maplibre-gl.js"></script>
   <script src="data/places.js"></script>

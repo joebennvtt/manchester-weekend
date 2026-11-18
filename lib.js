@@ -35,6 +35,54 @@
     return prev ? inRanges(schedule[prev], t, true) : false;
   }
 
+  const pad2 = (n) => String(n).padStart(2, '0');
+  const fmtClock = (min) => `${pad2(Math.floor((min % 1440) / 60))}:${pad2(min % 60)}`;
+  const CLOSING_SOON_MIN = 60;
+
+  /* Latest close (minutes from today 00:00, may exceed 1440) of any range open at t, else null. */
+  function closeAfter(schedule, day, t) {
+    const dayIdx = DAYS.indexOf(day);
+    const ends = [];
+    (schedule[day] || []).forEach(([open, close]) => {
+      const o = toMinutes(open);
+      const c = toMinutes(close);
+      if (c <= o ? t >= o : t >= o && t < c) ends.push(c <= o ? c + 1440 : c);
+    });
+    (dayIdx > 0 ? schedule[DAYS[dayIdx - 1]] || [] : []).forEach(([open, close]) => {
+      const c = toMinutes(close);
+      if (c <= toMinutes(open) && t < c) ends.push(c);
+    });
+    return ends.length ? Math.max(...ends) : null;
+  }
+
+  function openStatus(place, day, time) {
+    const schedule = place.hours || {};
+    const t = toMinutes(time);
+    if ((schedule[day] || []).some(([o, c]) => o === '00:00' && c === '24:00')) return { state: 'open', text: 'Open 24h' };
+    const end = closeAfter(schedule, day, t);
+    if (end !== null) {
+      const left = end - t;
+      return left <= CLOSING_SOON_MIN ?
+        { state: 'closing', text: `Closes in ${left} min` } :
+        { state: 'open', text: `Open · until ${fmtClock(end)}` };
+    }
+    const next = (schedule[day] || []).map(([o]) => toMinutes(o)).filter((o) => o > t).sort((a, b) => a - b)[0];
+    return next === undefined ? { state: 'closed', text: 'Closed today' } : { state: 'later', text: `Opens ${fmtClock(next)}` };
+  }
+
+  const TRIP_DAYS = { '2026-11-20': 'fri', '2026-11-21': 'sat', '2026-11-22': 'sun', '2026-11-23': 'mon' };
+  const londonClock = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+  });
+
+  /* {day, time} in Europe/London if the date is within the trip, else null. */
+  function tripNow(date = new Date()) {
+    if (Number.isNaN(date.getTime())) return null;
+    const p = Object.fromEntries(londonClock.formatToParts(date).map(({ type, value }) => [type, value]));
+    const day = TRIP_DAYS[`${p.year}-${p.month}-${p.day}`];
+    return day ? { day, time: `${p.hour}:${p.minute}` } : null;
+  }
+
   function matchesQuery(place, query) {
     const q = String(query || '').trim().toLowerCase();
     if (!q) return true;
@@ -98,6 +146,16 @@
     return `${text} (~${Math.max(1, Math.round(m / WALK_M_PER_MIN))} min walk)`;
   }
 
+  const WALK_DETOUR = 1.3;
+  const WALK_KMH = 4.8;
+  const WALK_LONG_MIN = 40;
+  const walkMinutes = (km) => Math.round((km * WALK_DETOUR / WALK_KMH) * 60);
+
+  function formatWalk(km) {
+    const min = walkMinutes(km);
+    return min > WALK_LONG_MIN ? `${km.toFixed(1)} km` : `${Math.max(1, min)} min walk`;
+  }
+
   function hasMoved(prev, next, thresholdMetres) {
     if (!prev || !next) return prev !== next;
     return distanceKm(prev, next) * 1000 > thresholdMetres;
@@ -110,5 +168,5 @@
       .map((x) => x.p);
   }
 
-  return { DAYS, isOpenAt, filterPlaces, bookAhead, isCentral, matchesQuery, distanceKm, formatDistance, sortByDistance, hasMoved };
+  return { DAYS, isOpenAt, filterPlaces, bookAhead, isCentral, matchesQuery, distanceKm, formatDistance, sortByDistance, hasMoved, tripNow, openStatus, walkMinutes, formatWalk };
 });
