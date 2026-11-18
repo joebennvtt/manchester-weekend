@@ -13,7 +13,9 @@ const ENUMS = {
   price: ['free', '£', '££', '£££', '££££'],
   addedBy: ['user', 'claude'],
   confidence: ['high', 'medium', 'low'],
+  setting: ['indoor', 'outdoor', 'mixed'],
 };
+const SETTING_REQUIRED_TYPES = ['see', 'do', 'trip'];
 const FOOD_TYPES = ["Brunch","Bakery & sweets","Sandwiches","British & roasts","American","Italian & pizza","Mexican","Mediterranean & Middle Eastern","Indian & Pakistani","Chinese","Japanese","Korean","Thai & Vietnamese","Pan-Asian","Steak & grill","Seafood","Food halls & buffets"];
 const MEALS = ['breakfast', 'lunch', 'dinner', 'drinks'];
 const DAYS = ['fri', 'sat', 'sun', 'mon'];
@@ -58,6 +60,8 @@ function validatePlace(p, warnings) {
   optional('googleRating', typeof p.googleRating === 'number' && p.googleRating >= 1 && p.googleRating <= 5, 'must be number 1.0-5.0 or null');
   optional('googleReviews', Number.isInteger(p.googleReviews) && p.googleReviews >= 0, 'must be non-negative integer or null');
   optional('ratingSource', isHttps(p.ratingSource), 'must be https URL or null');
+  optional('setting', ENUMS.setting.includes(p.setting), `must be one of ${ENUMS.setting.join('|')}`);
+  if (SETTING_REQUIRED_TYPES.includes(p.type) && p.setting == null) errs.push(`setting: required for ${SETTING_REQUIRED_TYPES.join('|')} places`);
   if (typeof p.googleRating === 'number' && p.ratingSource == null) errs.push('ratingSource: required when googleRating is set');
   if ('hours' in p) checkSchedule(p.hours, 'hours', errs); else errs.push('missing key "hours"');
   if (!('kitchenHours' in p)) errs.push('missing key "kitchenHours"');

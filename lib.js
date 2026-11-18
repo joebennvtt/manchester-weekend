@@ -93,6 +93,10 @@
 
   const passesSet = (set, ok) => !set || set.size === 0 || ok;
 
+  // Food, drink and shops are indoors; sights, activities and trips say so in `setting`.
+  const INDOOR_TYPES = new Set(['cafe', 'restaurant', 'bar', 'pub', 'vintage', 'music']);
+  const isIndoor = (place) => (place.setting ? place.setting === 'indoor' : INDOOR_TYPES.has(place.type));
+
   function filterPlaces(places, state) {
     const s = state || {};
     return places.filter((p) => {
@@ -106,6 +110,7 @@
       if (s.openAt && !isOpenAt(p, s.openAt.day, s.openAt.time, { kitchen: !!s.openAt.kitchen })) return false;
       if (!matchesQuery(p, s.query)) return false;
       if (s.shortlistOnly && !(s.shortlist && s.shortlist.has(p.id))) return false;
+      if (s.indoorOnly && !isIndoor(p)) return false;
       return true;
     });
   }
@@ -156,9 +161,32 @@
     return min > WALK_LONG_MIN ? `${km.toFixed(1)} km` : `${Math.max(1, min)} min walk`;
   }
 
+  const DEFAULT_BASE = Object.freeze({ lat: 53.48085, lng: -2.23676, label: 'Piccadilly Gardens' });
+
+  /* Walking start: live location if known, else the saved base (else default). */
+  function startPoint(me, base) {
+    if (me) return { lat: me.lat, lng: me.lng, label: 'you', live: true };
+    const b = base && Number.isFinite(base.lat) && Number.isFinite(base.lng) ? base : DEFAULT_BASE;
+    return { lat: b.lat, lng: b.lng, label: b.label || DEFAULT_BASE.label, live: false };
+  }
+
   function hasMoved(prev, next, thresholdMetres) {
     if (!prev || !next) return prev !== next;
     return distanceKm(prev, next) * 1000 > thresholdMetres;
+  }
+
+  /* bounds: {south, west, north, east}. No bounds yet means everything counts as in view. */
+  function inBounds(place, bounds) {
+    if (!bounds) return true;
+    return place.lat >= bounds.south && place.lat <= bounds.north && place.lng >= bounds.west && place.lng <= bounds.east;
+  }
+
+  /* Split places into those inside the map view and those outside it, keeping order. */
+  function splitByView(places, bounds) {
+    return {
+      inView: places.filter((p) => inBounds(p, bounds)),
+      outside: places.filter((p) => !inBounds(p, bounds)),
+    };
   }
 
   function sortByDistance(places, from) {
@@ -168,5 +196,5 @@
       .map((x) => x.p);
   }
 
-  return { DAYS, isOpenAt, filterPlaces, bookAhead, isCentral, matchesQuery, distanceKm, formatDistance, sortByDistance, hasMoved, tripNow, openStatus, walkMinutes, formatWalk };
+  return { DAYS, isOpenAt, filterPlaces, bookAhead, isCentral, matchesQuery, distanceKm, formatDistance, sortByDistance, hasMoved, tripNow, openStatus, walkMinutes, formatWalk, DEFAULT_BASE, startPoint, inBounds, splitByView, isIndoor };
 });

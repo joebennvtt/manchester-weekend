@@ -2,7 +2,7 @@ import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 
-const { isOpenAt, filterPlaces, bookAhead, isCentral, distanceKm, formatDistance, sortByDistance, tripNow, openStatus, walkMinutes, formatWalk } = createRequire(import.meta.url)('../lib.js');
+const { isOpenAt, filterPlaces, bookAhead, isCentral, distanceKm, formatDistance, sortByDistance, tripNow, openStatus, walkMinutes, formatWalk, DEFAULT_BASE, startPoint, inBounds, splitByView, isIndoor } = createRequire(import.meta.url)('../lib.js');
 
 const closedWeek = { fri: [], sat: [], sun: [], mon: [] };
 const mk = (over = {}) => ({
@@ -327,5 +327,53 @@ describe('walkMinutes', () => {
     assert.equal(formatWalk(0.8), '13 min walk');
     assert.equal(formatWalk(0.001), '1 min walk');
     assert.equal(formatWalk(3.4), '3.4 km');
+  });
+
+  test('startPoint prefers live location, then base, then default', () => {
+    const me = { lat: 53.5, lng: -2.2 };
+    const base = { lat: 53.47, lng: -2.25, label: 'Home' };
+    assert.deepEqual(startPoint(me, base), { lat: 53.5, lng: -2.2, label: 'you', live: true });
+    assert.deepEqual(startPoint(null, base), { lat: 53.47, lng: -2.25, label: 'Home', live: false });
+    assert.equal(startPoint(null, null).label, 'Piccadilly Gardens');
+    assert.equal(startPoint(null, { lat: 'x' }).lat, DEFAULT_BASE.lat);
+  });
+});
+
+describe('map view', () => {
+  const view = { south: 53.47, west: -2.26, north: 53.49, east: -2.22 };
+  const centre = { id: 'c', lat: 53.48, lng: -2.24 };
+  const zoo = { id: 'z', lat: 53.2266, lng: -2.8838 };
+  const edge = { id: 'e', lat: 53.49, lng: -2.22 };
+
+  test('inBounds includes places inside and on the edge, excludes outside', () => {
+    assert.equal(inBounds(centre, view), true);
+    assert.equal(inBounds(edge, view), true);
+    assert.equal(inBounds(zoo, view), false);
+  });
+
+  test('inBounds treats missing bounds as everything in view', () => {
+    assert.equal(inBounds(zoo, null), true);
+  });
+
+  test('splitByView partitions places and keeps their order', () => {
+    const { inView, outside } = splitByView([zoo, edge, centre], view);
+    assert.deepEqual(inView.map((p) => p.id), ['e', 'c']);
+    assert.deepEqual(outside.map((p) => p.id), ['z']);
+  });
+});
+
+describe('indoors', () => {
+  test('isIndoor uses setting when present, else the type', () => {
+    assert.equal(isIndoor(mk({ type: 'see', setting: 'outdoor' })), false);
+    assert.equal(isIndoor(mk({ type: 'see', setting: 'mixed' })), false);
+    assert.equal(isIndoor(mk({ type: 'do', setting: 'indoor' })), true);
+    assert.equal(isIndoor(mk({ type: 'pub' })), true);
+    assert.equal(isIndoor(mk({ type: 'see' })), false);
+  });
+
+  test('filterPlaces with indoorOnly keeps only indoor places', () => {
+    const places = [mk({ id: 'a', type: 'pub' }), mk({ id: 'b', type: 'see', setting: 'outdoor' }), mk({ id: 'c', type: 'see', setting: 'indoor' })];
+    assert.deepEqual(filterPlaces(places, { indoorOnly: true }).map((p) => p.id), ['a', 'c']);
+    assert.equal(filterPlaces(places, { indoorOnly: false }).length, 3);
   });
 });

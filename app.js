@@ -1,7 +1,11 @@
 /* State, map and wiring. Uses window.PLACES, TripLib, TripRender, Leaflet. */
 (function () {
-  const { filterPlaces, bookAhead, isOpenAt, isCentral, distanceKm, sortByDistance, hasMoved, tripNow, openStatus, formatWalk } = window.TripLib;
-  const { TYPES, FOOD_TYPES, MEALS, BOOKINGS, esc, clockLabel, detailsHtml, cardHtml, previewHtml, bookItemHtml } = window.TripRender;
+  const { filterPlaces, bookAhead, isOpenAt, isCentral, distanceKm, sortByDistance, hasMoved, tripNow, openStatus, formatWalk, walkMinutes, startPoint, DEFAULT_BASE, splitByView } = window.TripLib;
+  const { TYPES, FOOD_TYPES, MEALS, BOOKINGS, DAY_LABELS, esc, clockLabel, detailsHtml, cardHtml, previewHtml, bookItemHtml } = window.TripRender;
+  const { normalisePlans, addStop, removeStop, moveStop, setStay, setStart, planTimeline, encodeShare, decodeShare, mergeShared, sharedCount } = window.TripPlan;
+  const { planHtml, homeHtml, homeShort, addToPlanHtml, shareBannerHtml } = window.TripRenderPlan;
+  const { homeOptions, nightOf } = window.TripHome;
+  const HOME = window.GETTING_HOME;
   const MOVE_THRESHOLD_M = 15;
   const PRICE_ORDER = ['free', '£', '££', '£££', '££££'];
   const AREA_TOP = 8;
@@ -29,24 +33,38 @@
   const PREVIEW_PAD_PX = 200;
   const DETAIL_ZOOM = 17;
   const STORE_KEY = 'manchester-trip-v1';
+  const LATE_FROM_MIN = 21 * 60;
+  const TOAST_MS = 6000;
+  const MAP_SAVE_PAD_KM = 1.5;
+  const SHARE_PREFIX = '#share=';
+  const knownIds = new Set(PLACES.map((p) => p.id));
 
   const loadStore = () => {
     try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch (e) { return {}; }
   };
   const saved = loadStore();
-  const emptyFilters = () => ({ types: new Set(), meals: new Set(), booking: new Set(), prices: new Set(), areas: new Set(), foodTypes: new Set(), minRating: null, query: '', openOn: false, hideClosed: false, shortlistOnly: false });
+  const validBase = (b) => Boolean(b) && Number.isFinite(b.lat) && Number.isFinite(b.lng) && typeof b.label === 'string' && b.label !== '';
+  const emptyFilters = () => ({ types: new Set(), meals: new Set(), booking: new Set(), prices: new Set(), areas: new Set(), foodTypes: new Set(), minRating: null, query: '', openOn: false, hideClosed: false, shortlistOnly: false, indoorOnly: false });
   const trip = tripNow();
   // During the trip, start on the real day/time with "Open now" on; otherwise the Sat 12:00 default.
   let state = {
     ...emptyFilters(), showAllAreas: false, showAllFood: false, day: trip ? trip.day : 'sat', time: trip ? trip.time : '12:00',
     openOn: Boolean(trip), hideClosed: Boolean(trip), live: Boolean(trip),
     shortlist: new Set(saved.shortlist || []), visited: new Set(saved.visited || []),
-    tab: 'explore', sheet: 'split', selected: null, active: null, preview: null, me: null, sortNearest: false,
+    base: validBase(saved.base) ? saved.base : DEFAULT_BASE,
+    plans: normalisePlans(saved.plans, knownIds), planDay: trip ? trip.day : 'sat', shared: null, net: null,
+    tab: 'explore', sheet: 'split', selected: null, active: null, preview: null, me: null, sortNearest: false, view: null,
   };
   function persist() {
-    try { localStorage.setItem(STORE_KEY, JSON.stringify({ shortlist: [...state.shortlist], visited: [...state.visited] })); } catch (e) { /* storage unavailable */ }
+    try { localStorage.setItem(STORE_KEY, JSON.stringify({ shortlist: [...state.shortlist], visited: [...state.visited], base: state.base, plans: state.plans })); } catch (e) { /* storage unavailable */ }
   }
-  function setState(patch) { state = { ...state, ...patch }; update(); }
+  // Any change other than moving the map: if nothing that matches is in view, bring the matches into view.
+  function setState(patch) {
+    state = { ...state, ...patch };
+    update();
+    const { inView, outside } = splitByView(visiblePlaces(), state.view);
+    if (inView.length === 0 && outside.length > 0) fit(outside);
+  }
   const toggled = (set, v) => { const n = new Set(set); if (n.has(v)) n.delete(v); else n.add(v); return n; };
 
   /* ---- map ---- */
@@ -78,18 +96,36 @@
     map.fitBounds(L.latLngBounds(places.map((p) => [p.lat, p.lng])), { padding: [30, 30], maxZoom: 16 });
   };
   const fitCentre = () => fit(PLACES.filter(isCentral));
+  const boundsOf = (b) => ({ south: b.getSouth(), west: b.getWest(), north: b.getNorth(), east: b.getEast() });
+  const sameView = (a, b) => Boolean(a) && Boolean(b) && ['south', 'west', 'north', 'east'].every((k) => a[k] === b[k]);
+  // The list shows what's in the map view. On phones, a collapsed map strip keeps the last real view.
+  map.on('moveend', () => {
+    if (drag || (phoneMq.matches && state.sheet === 'list')) return;
+    const view = boundsOf(map.getBounds());
+    if (sameView(view, state.view)) return;
+    state = { ...state, view };
+    update();
+  });
 
   /* ---- derived ---- */
   const openAtState = () => (state.openOn ? { day: state.day, time: state.time } : null);
   const visiblePlaces = () => {
     const filtered = filterPlaces(PLACES, { ...state, openAt: state.hideClosed ? openAtState() : null });
-    return state.me && state.sortNearest ? sortByDistance(filtered, state.me) : filtered;
+    return state.sortNearest ? sortByDistance(filtered, origin()) : filtered;
   };
-  const distanceText = (p) => (state.me ? formatWalk(distanceKm(state.me, p)) : null);
+  const origin = () => startPoint(state.me, state.base);
+  const distanceText = (p) => formatWalk(distanceKm(origin(), p));
   const statusOf = (p) => openStatus(p, state.day, state.time);
+  const walkToHub = (p) => walkMinutes(distanceKm(p, HOME.hub));
+  const homeFor = (p, day, readyMin) => homeOptions(HOME, day, readyMin, walkToHub(p));
+  // Late in the evening, cards say when to leave to get home.
+  const homeText = (p) => {
+    const night = nightOf(state.day, state.time);
+    return night.min >= LATE_FROM_MIN ? homeShort(homeFor(p, night.day, night.min)) : '';
+  };
   const filterCount = () => [
     state.types.size, state.foodTypes.size, state.meals.size, state.prices.size, state.areas.size, state.booking.size,
-    state.minRating !== null, state.openOn || state.hideClosed, state.shortlistOnly,
+    state.minRating !== null, state.openOn || state.hideClosed, state.shortlistOnly, state.indoorOnly,
   ].filter(Boolean).length;
   const sameSet = (set, values) => set.size === values.length && values.every((v) => set.has(v));
   const isClosedNow = (p) => state.openOn && !isOpenAt(p, state.day, state.time);
@@ -117,6 +153,7 @@
     $('area-chips').innerHTML = shownAreas.map((a) => chip(esc(a), state.areas.has(a), `data-area="${esc(a)}"`)).join('') +
       (collapsible ? chip(state.showAllAreas ? 'Fewer' : 'More…', state.showAllAreas, 'data-area-more="1"') : '');
     $('shortlist-only').setAttribute('aria-pressed', state.shortlistOnly);
+    $('indoor-only').setAttribute('aria-pressed', state.indoorOnly);
   }
   function renderToolbar(shown) {
     const n = filterCount();
@@ -126,20 +163,28 @@
     $('sheet-done').textContent = `Show ${shown.length} place${shown.length === 1 ? '' : 's'}`;
     document.querySelectorAll('[data-quick]').forEach((b) => {
       const k = b.dataset.quick;
-      const on = k === 'open' ? state.openOn && state.hideClosed : k === 'shortlist' ? state.shortlistOnly : sameSet(state.types, QUICK_TYPES[k]);
+      const on = k === 'open' ? state.openOn && state.hideClosed : k === 'shortlist' ? state.shortlistOnly :
+        k === 'indoors' ? state.indoorOnly : sameSet(state.types, QUICK_TYPES[k]);
       b.setAttribute('aria-pressed', on);
     });
   }
   function renderPreview(shown) {
     const p = state.preview && shown.find((x) => x.id === state.preview);
-    const html = p ? previewHtml(p, { status: statusOf(p), distance: distanceText(p) }) : '';
+    const html = p ? previewHtml(p, { status: statusOf(p), distance: distanceText(p), homeText: homeText(p) }) : '';
     $('preview').hidden = !p;
     if ($('preview').dataset.html !== html) { $('preview').innerHTML = html; $('preview').dataset.html = html; }
   }
+  function outsideHtml(n) {
+    if (n === 0) return '';
+    return `<button class="outside" data-fit-all="1">${n} more outside this map view · <span>Show all</span></button>`;
+  }
   function renderList(shown) {
-    $('count').textContent = `${shown.length} of ${PLACES.length} places`;
-    $('list').innerHTML = shown.length === 0 ? '<p class="empty">No places match these filters.</p>' :
-      shown.map((p) => cardHtml(p, { status: statusOf(p), distance: distanceText(p), dim: isClosedNow(p), starred: state.shortlist.has(p.id), visited: state.visited.has(p.id), active: state.active === p.id })).join('');
+    const { inView, outside } = splitByView(shown, state.view);
+    $('count').textContent = `${inView.length} place${inView.length === 1 ? '' : 's'} on the map`;
+    const empty = shown.length === 0 ? '<p class="empty">No places match these filters.</p>' :
+      inView.length === 0 ? '<p class="empty">Nothing that matches is in this part of the map.</p>' : '';
+    $('list').innerHTML = empty + inView.map((p) => cardHtml(p, { status: statusOf(p), distance: distanceText(p), homeText: homeText(p), dim: isClosedNow(p), starred: state.shortlist.has(p.id), visited: state.visited.has(p.id), active: state.active === p.id })).join('') +
+      outsideHtml(outside.length);
   }
   function renderMarkers(shown) {
     const shownIds = new Set(shown.map((p) => p.id));
@@ -155,11 +200,49 @@
     clusterLayer.addLayers(added.map((id) => markers.get(id)));
     added.forEach((id) => inCluster.add(id));
   }
+  function renderWalkFrom() {
+    const o = origin();
+    const isDefault = state.base.label === DEFAULT_BASE.label && state.base.lat === DEFAULT_BASE.lat && state.base.lng === DEFAULT_BASE.lng;
+    const action = o.live ? '' : isDefault ? ' · <button data-base-hint="1">change</button>' : ` · <button data-base-reset="1">reset to ${esc(DEFAULT_BASE.label)}</button>`;
+    $('walk-from').innerHTML = `Walking from ${o.live ? 'your location' : esc(o.label)}${action}`;
+  }
   function renderBook() {
     const items = bookAhead(PLACES);
     $('book-count').textContent = items.length;
     $('view-book').innerHTML = `<h2>Book before you go</h2><p class="small">Essential first, then recommended, then ticketed.</p>` +
       items.map(bookItemHtml).join('');
+  }
+  const dayTimeline = () => planTimeline(state.plans[state.planDay], state.planDay, HOME.hub, byId, window.TripLib);
+  function renderPlan() {
+    $('plan-count').textContent = Object.values(state.plans).reduce((n, d) => n + d.stops.length, 0) || '';
+    if (state.tab !== 'plan') return;
+    const day = state.planDay;
+    const timeline = dayTimeline();
+    const last = timeline.stops[timeline.stops.length - 1];
+    const homeBlock = last ? homeHtml(homeFor(last.place, day, timeline.end), HOME, walkToHub(last.place), `${DAY_LABELS[day]}, leaving ${last.place.name}`) : '';
+    const inPlan = new Set(state.plans[day].stops.map((s) => s.id));
+    const extras = [...state.shortlist].filter((id) => byId.has(id) && !inPlan.has(id)).map((id) => byId.get(id));
+    $('view-plan').innerHTML = planHtml({ day, plans: state.plans, timeline, homeBlock, extras, startLabel: HOME.hub.label });
+  }
+  let routeLayer = null;
+  function renderRoute() {
+    if (routeLayer) { map.removeLayer(routeLayer); routeLayer = null; }
+    if (state.tab !== 'plan') return;
+    const stops = dayTimeline().stops;
+    if (stops.length === 0) return;
+    const points = [HOME.hub, ...stops.map((s) => s.place)].map((p) => [p.lat, p.lng]);
+    const numbers = stops.map((s, i) => L.marker([s.place.lat, s.place.lng], { interactive: false, keyboard: false, zIndexOffset: 1500,
+      icon: L.divIcon({ className: '', iconSize: [22, 22], iconAnchor: [-6, 26], html: `<div class="route-num">${i + 1}</div>` }) }));
+    routeLayer = L.layerGroup([L.polyline(points, { className: 'route-line', interactive: false }), ...numbers]).addTo(map);
+  }
+  function renderShareBanner() {
+    $('share-banner').hidden = !state.shared;
+    if (state.shared) $('share-banner').innerHTML = shareBannerHtml(state.shared, sharedCount(state.shared));
+  }
+  function renderNet() {
+    const n = state.net;
+    $('net').hidden = !(n && n.offline);
+    $('net').textContent = 'Offline: showing saved places and the city-centre map. Map detail outside the centre may be missing.';
   }
   function renderDetails() {
     const p = state.selected && byId.get(state.selected);
@@ -167,11 +250,15 @@
     $('details').hidden = !showDetails;
     $('view-explore').hidden = showDetails || state.tab !== 'explore';
     $('view-book').hidden = showDetails || state.tab !== 'book';
+    $('view-plan').hidden = showDetails || state.tab !== 'plan';
     if (!p) return;
+    const night = nightOf(state.day, state.time);
+    const extraHtml = addToPlanHtml(p.id, state.plans) +
+      homeHtml(homeFor(p, night.day, night.min), HOME, walkToHub(p), `${DAY_LABELS[night.day]}, leaving ${state.time}`);
     $('details').innerHTML = detailsHtml(p, {
-      distance: distanceText(p), status: statusOf(p),
+      distance: distanceText(p), km: `${distanceKm(origin(), p).toFixed(1)} km`, from: origin().label === 'you' ? 'you' : origin().label, status: statusOf(p),
       day: state.openOn ? state.day : null, starred: state.shortlist.has(p.id), visited: state.visited.has(p.id),
-      openState: state.openOn ? isOpenAt(p, state.day, state.time) : null,
+      openState: state.openOn ? isOpenAt(p, state.day, state.time) : null, extraHtml,
     });
   }
   // Filter chips are re-rendered on every change; keep keyboard focus on the same chip inside the sheet.
@@ -189,14 +276,14 @@
   function update() {
     if (!drag) applySheet();
     const shown = visiblePlaces();
-    $('sort-wrap').hidden = !state.me;
     $('open-on').checked = state.openOn;
     $('sort-nearest').checked = state.sortNearest;
     $('hide-closed').checked = state.hideClosed;
     $('open-day').value = state.day;
     $('open-time').value = state.time;
     const focusKey = sheetFocusKey();
-    renderFilters(); renderToolbar(shown); renderList(shown); renderMarkers(shown); renderPreview(shown); renderDetails();
+    renderFilters(); renderToolbar(shown); renderWalkFrom(); renderList(shown); renderMarkers(shown); renderPreview(shown); renderDetails();
+    renderPlan(); renderRoute(); renderShareBanner(); renderNet();
     restoreSheetFocus(focusKey);
     document.querySelectorAll('.tab').forEach((t) => {
       const on = t.dataset.tab === state.tab;
@@ -210,9 +297,11 @@
   }
 
   let listScrollTop = 0;
+  let listMapView = null;
   function openDetails(id, fly = true) {
     const p = byId.get(id);
     if (!p) return;
+    if (!state.selected) listMapView = { center: map.getCenter(), zoom: map.getZoom() };
     if (fly) map.flyTo([p.lat, p.lng], Math.max(map.getZoom(), DETAIL_ZOOM), { duration: 0.6 });
     if (!state.selected) listScrollTop = $('panel').scrollTop;
     setState({ selected: id, active: id, preview: null, ...(state.sheet === 'map' && { sheet: 'split' }) });
@@ -290,6 +379,7 @@
   function quickPatch(key) {
     if (key === 'open') return { openOn: !(state.openOn && state.hideClosed), hideClosed: !(state.openOn && state.hideClosed) };
     if (key === 'shortlist') return { shortlistOnly: !state.shortlistOnly };
+    if (key === 'indoors') return { indoorOnly: !state.indoorOnly };
     return { types: sameSet(state.types, QUICK_TYPES[key]) ? new Set() : new Set(QUICK_TYPES[key]) };
   }
   function quickFilter(key) {
@@ -298,7 +388,7 @@
   }
   const toggleIn = (key, v) => setState({ [key]: toggled(state[key], v) });
   document.addEventListener('click', (e) => {
-    const t = e.target.closest('[data-type],[data-meal],[data-booking],[data-price],[data-rating],[data-area],[data-area-more],[data-food],[data-food-more],[data-star],[data-visit],[data-open],[data-quick],[data-preview-close],.card,#back');
+    const t = e.target.closest('[data-type],[data-meal],[data-booking],[data-price],[data-rating],[data-area],[data-area-more],[data-food],[data-food-more],[data-star],[data-visit],[data-open],[data-quick],[data-preview-close],[data-base-set],[data-base-reset],[data-base-hint],[data-fit-all],[data-plan-day],[data-move],[data-remove],[data-plan-add],[data-plan-toggle],[data-plan-map],[data-share],[data-share-accept],[data-share-dismiss],.card,#back');
     if (!t) return;
     const d = t.dataset;
     if (d.type) return toggleIn('types', d.type);
@@ -312,10 +402,27 @@
     if (d.areaMore) return setState({ showAllAreas: !state.showAllAreas });
     if (d.star) { e.stopPropagation(); const s = toggled(state.shortlist, d.star); state = { ...state, shortlist: s }; persist(); return update(); }
     if (d.visit) { const v = toggled(state.visited, d.visit); state = { ...state, visited: v }; persist(); return update(); }
+    if (d.baseSet) { const p = byId.get(d.baseSet); return p && (setState({ base: { lat: p.lat, lng: p.lng, label: p.name } }), persist(), toast(`Walk times now from ${p.name}`)); }
+    if (d.baseReset) { setState({ base: DEFAULT_BASE }); return persist(); }
+    if (d.baseHint) return toast('Open a place and tap "Walk times from here"');
     if (d.quick) return quickFilter(d.quick);
     if (d.previewClose) return setState({ preview: null, active: null });
     if (d.open) return openDetails(d.open);
-    if (t.id === 'back') { setState({ selected: null }); $('panel').scrollTop = listScrollTop; return; }
+    if (d.fitAll) return fit(visiblePlaces());
+    if (d.planDay) return setState({ planDay: d.planDay });
+    if (d.move) return setPlans(moveStop(state.plans, state.planDay, Number(d.move), Number(d.delta)));
+    if (d.remove) return setPlans(removeStop(state.plans, state.planDay, Number(d.remove)));
+    if (d.planAdd) return byId.has(d.planAdd) && setPlans(addStop(state.plans, state.planDay, byId.get(d.planAdd)));
+    if (d.planToggle) return togglePlanStop(d.planToggle, d.id);
+    if (d.planMap) return showDayOnMap();
+    if (d.share) return sharePlan();
+    if (d.shareAccept) return acceptShared();
+    if (d.shareDismiss) return setState({ shared: null });
+    if (t.id === 'back') {
+      if (listMapView) map.flyTo(listMapView.center, listMapView.zoom, { duration: 0.6 });
+      listMapView = null;
+      setState({ selected: null }); $('panel').scrollTop = listScrollTop; return;
+    }
     if (t.classList.contains('card')) return openDetails(d.id);
   });
   document.addEventListener('keydown', (e) => {
@@ -330,12 +437,60 @@
   $('open-time').addEventListener('change', (e) => e.target.value && setState({ time: e.target.value, openOn: true, hideClosed: true, live: false }));
   $('hide-closed').addEventListener('change', (e) => setState({ hideClosed: e.target.checked, openOn: e.target.checked || state.openOn }));
   $('shortlist-only').addEventListener('click', () => setState({ shortlistOnly: !state.shortlistOnly }));
+  $('indoor-only').addEventListener('click', () => setState({ indoorOnly: !state.indoorOnly }));
   $('day-trips').addEventListener('click', () => { closeSheet(); fit(PLACES); });
   $('clear').addEventListener('click', () => {
     $('q').value = '';
     setState({ ...emptyFilters(), selected: null, active: null, preview: null });
     fitCentre();
   });
+
+  /* ---- plan and share ---- */
+  function setPlans(plans) { setState({ plans }); persist(); }
+  function togglePlanStop(day, id) {
+    const p = byId.get(id);
+    if (!p) return;
+    const index = state.plans[day].stops.findIndex((s) => s.id === id);
+    setPlans(index >= 0 ? removeStop(state.plans, day, index) : addStop(state.plans, day, p));
+    if (index < 0) toast(`Added to ${DAY_LABELS[day]} plan`);
+  }
+  function showDayOnMap() {
+    const stops = dayTimeline().stops.map((s) => s.place);
+    if (stops.length === 0) return;
+    if (phoneMq.matches && state.sheet === 'list') setState({ sheet: 'split' });
+    fit([HOME.hub, ...stops]);
+  }
+  document.addEventListener('change', (e) => {
+    const t = e.target;
+    if (t.id === 'plan-start' && /^\d{2}:\d{2}$/.test(t.value)) setPlans(setStart(state.plans, state.planDay, t.value));
+    if (t.dataset && t.dataset.stay !== undefined) setPlans(setStay(state.plans, state.planDay, Number(t.dataset.stay), Number(t.value)));
+  });
+  const shareUrl = () => `${location.origin}${location.pathname}${SHARE_PREFIX}${encodeShare({ shortlist: [...state.shortlist], plans: state.plans })}`;
+  async function sharePlan() {
+    const url = shareUrl();
+    try {
+      if (navigator.share) await navigator.share({ title: 'Manchester Weekend plan', url });
+      else { await navigator.clipboard.writeText(url); toast('Link copied. Send it to whoever you\'re travelling with.'); }
+    } catch (e) {
+      if (e && e.name === 'AbortError') return;
+      console.warn('Share failed:', e);
+      window.prompt('Copy this link to share your plan:', url);
+    }
+  }
+  function readSharedFromHash() {
+    if (!location.hash.startsWith(SHARE_PREFIX)) return;
+    const shared = decodeShare(location.hash.slice(SHARE_PREFIX.length), knownIds);
+    history.replaceState(null, '', location.pathname + location.search);
+    if (shared) setState({ shared, selected: null });
+    else toast('That share link is broken or out of date.');
+  }
+  function acceptShared() {
+    const merged = mergeShared({ shortlist: [...state.shortlist], plans: state.plans }, state.shared);
+    setState({ shortlist: new Set(merged.shortlist), plans: merged.plans, shared: null, tab: 'plan' });
+    persist();
+    toast('Added to your shortlist and plan.');
+  }
+  window.addEventListener('hashchange', readSharedFromHash);
 
   /* ---- filters sheet (modal <dialog>: Esc, focus trap and focus return come from the platform) ---- */
   const sheet = $('sheet');
@@ -355,15 +510,20 @@
     if (e.key === 'Escape' && !sheet.open && state.preview) setState({ preview: null, active: null });
   });
 
-  const toast = (text) => { $('toast').textContent = text; $('toast').hidden = !text; };
+  let toastTimer = null;
+  const toast = (text) => {
+    $('toast').textContent = text; $('toast').hidden = !text;
+    clearTimeout(toastTimer);
+    if (text) toastTimer = setTimeout(() => { $('toast').hidden = true; }, TOAST_MS);
+  };
   window.TripLocate.create(map, (me) => {
     if (me && state.me) {
       if (!hasMoved(state.me, me, MOVE_THRESHOLD_M)) return;
       state = { ...state, me };
-      renderList(visiblePlaces()); renderDetails();
+      renderWalkFrom(); renderList(visiblePlaces()); renderPreview(visiblePlaces()); renderDetails();
       return;
     }
-    state = { ...state, me, sortNearest: Boolean(me) };
+    state = { ...state, me, sortNearest: me ? true : state.sortNearest };
     update();
   }, toast);
   $('sort-nearest').addEventListener('change', (e) => setState({ sortNearest: e.target.checked }));
@@ -376,4 +536,11 @@
   renderBook();
   update();
   fitCentre();
+  readSharedFromHash();
+  window.TripOffline.start(window.TripTiles.boundsAround(PLACES.filter(isCentral), MAP_SAVE_PAD_KM), (net) => {
+    const fresh = net.saved && net.fresh && !(state.net && state.net.saved);
+    state = { ...state, net };
+    renderNet();
+    if (fresh) toast('Saved for offline: all places and the city-centre map.');
+  });
 })();

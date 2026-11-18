@@ -53,7 +53,7 @@
     return `<p class="small">${esc(`★ ${place.googleRating.toFixed(1)} Google rating${reviews}`)}${src ? ` ${src}` : ''}</p>`;
   }
 
-  const directionsUrl = (place) => `https://www.google.com/maps/dir/?api=1&destination=${place.lat},${place.lng}`;
+  const directionsUrl = (place) => `https://www.google.com/maps/dir/?api=1&destination=${place.lat},${place.lng}&travelmode=walking`;
   const statusHtml = (status) => (status ? `<span class="status s-${esc(status.state)}">${esc(status.text)}</span>` : '');
   const clockLabel = (day, time) => `${DAY_LABELS[day]} Nov, ${time}`;
 
@@ -65,7 +65,7 @@
       <h2>${TYPES[place.type].icon} ${esc(place.name)}</h2>
       ${(place.foodTypes || []).length ? `<div class="meta small">${place.foodTypes.map(esc).join(' · ')}</div>` : ''}
       ${ctx.status ? `<div class="statusline">${statusHtml(ctx.status)}</div>` : ''}
-      ${ctx.distance ? `<div class="dist">📍 ${esc(ctx.distance)} from you</div>` : ''}
+      ${ctx.distance ? `<div class="dist">📍 ${esc(ctx.distance)}${ctx.km ? ' · ' + esc(ctx.km) : ''} from ${esc(ctx.from)}</div>` : ''}
       ${place.confidence === 'low' ? '<div class="warn">⚠ unverified, check before going</div>' : ''}
       <p>${esc(place.blurb)}</p>
       ${place.userNote ? `<p class="note">Your note: ${esc(place.userNote)}</p>` : ''}
@@ -77,10 +77,12 @@
       <h3>Hours</h3>${hoursTable(place, ctx.day)}
       ${place.hoursNote ? `<p class="small">${esc(place.hoursNote)}</p>` : ''}
       ${eventsHtml(place.events)}${travelHtml(place.travel)}
+      ${ctx.extraHtml || ''}
       <div class="links">${link(place.bookingUrl, 'Book')}${link(dir, 'Directions', place.bookingUrl ? 'btn secondary' : 'btn')}${link(place.website, 'Website', 'btn secondary')}${link(place.menuUrl, 'Menu', 'btn secondary')}</div>
       <p class="small">Sources: ${src || 'none'} · checked ${esc(place.checked)}</p>
       <button class="chip" data-star="${esc(place.id)}" aria-pressed="${ctx.starred}">★ Shortlist</button>
-      <button class="chip" data-visit="${esc(place.id)}" aria-pressed="${ctx.visited}">✓ Visited</button>`;
+      <button class="chip" data-visit="${esc(place.id)}" aria-pressed="${ctx.visited}">✓ Visited</button>
+      <button class="chip" data-base-set="${esc(place.id)}">📍 Walk times from here</button>`;
   }
 
   function cardHtml(place, ctx) {
@@ -88,7 +90,7 @@
     return `<article class="${cls}" data-id="${esc(place.id)}" tabindex="0" role="button">
       <div class="name">${TYPES[place.type].icon} ${esc(place.name)}</div>
       <div class="meta">${esc(TYPES[place.type].label)} · ${esc(place.neighbourhood)}${place.price ? ' · ' + esc(place.price) : ''}${typeof place.googleRating === 'number' ? ' · ★ ' + esc(place.googleRating.toFixed(1)) : ''}</div>
-      <div class="statusline">${statusHtml(ctx.status)}${ctx.distance ? ' · <span class="dist">' + esc(ctx.distance) + '</span>' : ''}</div>
+      <div class="statusline">${statusHtml(ctx.status)}${ctx.distance ? ' · <span class="dist">' + esc(ctx.distance) + '</span>' : ''}${ctx.homeText ? ' · <span class="home-text">' + esc(ctx.homeText) + '</span>' : ''}</div>
       <p class="blurb">${esc(place.blurb)}</p>
       <button class="star" data-star="${esc(place.id)}" aria-pressed="${ctx.starred}" aria-label="Shortlist ${esc(place.name)}">${ctx.starred ? '★' : '☆'}</button>
     </article>`;
@@ -99,7 +101,7 @@
     return `<button class="preview-close" data-preview-close="1" aria-label="Close preview">×</button>
       <div class="name">${TYPES[place.type].icon} ${esc(place.name)}</div>
       <div class="meta">${esc(TYPES[place.type].label)} · ${esc(place.neighbourhood)}${esc(rating)}</div>
-      <div class="statusline">${statusHtml(ctx.status)}${ctx.distance ? ' · <span class="dist">' + esc(ctx.distance) + '</span>' : ''}</div>
+      <div class="statusline">${statusHtml(ctx.status)}${ctx.distance ? ' · <span class="dist">' + esc(ctx.distance) + '</span>' : ''}${ctx.homeText ? ' · <span class="home-text">' + esc(ctx.homeText) + '</span>' : ''}</div>
       <div class="preview-actions"><button class="pbtn" data-open="${esc(place.id)}">Details</button>${link(directionsUrl(place), 'Directions', 'pbtn secondary')}</div>`;
   }
 

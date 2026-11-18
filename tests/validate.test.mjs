@@ -37,3 +37,12 @@ test('validates optional foodTypes', () => {
   assert.ok(run({ foodTypes: ['Martian'] }) > 0);
   assert.ok(run({ foodTypes: 'Korean' }) > 0);
 });
+test('validates optional setting on food, drink and shop places', () => {
+  assert.equal(run({ setting: 'indoor' }), 0);
+  assert.ok(run({ setting: 'inside' }) > 0);
+});
+test('requires setting on sights, activities and day trips', () => {
+  assert.ok(run({ type: 'see', setting: undefined }) > 0);
+  assert.equal(run({ type: 'see', setting: 'outdoor' }), 0);
+  assert.equal(run({ type: 'trip', setting: 'mixed' }), 0);
+});

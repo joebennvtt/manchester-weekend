@@ -7,4 +7,8 @@ Interactive map for a Manchester weekend away (Fri 20 – Mon 23 Nov 2026). It c
 - To run the tests: `node --test`
 - To view it locally: `python3 -m http.server` then open http://localhost:8000
 
+Works offline: `sw.js` saves the app, all places and the city-centre map on first visit (needs https or localhost, not file://).
+Late-night tram and bus times home are in `data/getting-home.js`, taken from TfGM's GTFS timetable feed (odata.tfgm.com) for 20-23 Nov 2026.
+The accommodation address is deliberately not in the repo (the site is public); only the nearest stops and walks are.
+
 Map: OpenFreeMap © OpenMapTiles, data © OpenStreetMap contributors (OSM raster fallback without WebGL).
