@@ -7,4 +7,4 @@ Interactive map for a Manchester weekend away (Fri 20 – Mon 23 Nov 2026). It c
 - To run the tests: `node --test`
 - To view it locally: `python3 -m http.server` then open http://localhost:8000
 
-Map data © OpenStreetMap contributors.
+Map: OpenFreeMap © OpenMapTiles, data © OpenStreetMap contributors (OSM raster fallback without WebGL).

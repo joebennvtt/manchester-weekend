@@ -32,9 +32,7 @@
 
   /* ---- map ---- */
   const map = L.map('map', { zoomControl: true });
-  // OSM standard tiles (no API key); dark mode darkens them via the .base-tiles CSS filter.
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, className: 'base-tiles',
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
+  window.TripBasemap.add(map);
   const markerLayer = L.layerGroup().addTo(map);
   const markers = new Map();
   const pinIcon = (p, dim, active) => L.divIcon({
